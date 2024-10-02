@@ -1,0 +1,2 @@
+git status
+a parancs kiírja a repon történt változásokat clone óta
