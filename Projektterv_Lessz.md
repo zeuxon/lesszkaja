@@ -37,30 +37,23 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
 ### 2.2. Funkcionális követelmények
 
- - `Felhasználók kezelése (admin, raktáros, sofőr) (CRUD)`
- - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel `
- - `Raktárak kezelése (CRUD)`
- - `Árukészletek kezelése (CRUD)`
- - `Járművek kezelése (CRUD)`
- - `Fuvarok/szállítmányok kezelése (CRUD)`
- - `Email-es kiértesítés új szállítmány esetén az adott raktárosnak és sofőrnek`
- - `Fuvar útvonalának megjelenítése térképen a kezdő és a végponttal együtt`
- - `Biztonsági mentés automatikus létrehozása`
+ - Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)
+ - Felhasználói munkamenet megvalósítása több jogosultsági szinttel 
+ - Éttermek kezelése (CRUD)
+ - Éttermek keresése és szűrése
+ - Ételek részletezése és személyreszabása
+ - Árukészletek kezelése (CRUD)
+ - Kosár kezelése (CRUD)
+ - Fizetés folyamat megvalósítása
 
-```
-Itt lehet pontosan felsorolni a rendszerrel szemben támasztott funkcionális igényeket, azaz amit a rendszernek tudnia kell. 
-Ezeket a feladatokat kell majd a csapattagok között szétosztani a 8-as fejezetben.
-
-A CRUD rövidítés a következőt jelenti: Create, Read, Update, Delete.
-Azaz a funkcióhoz tartozó adat létrehozása, olvasása, frissítése, törlése.
-```
 
 ### 2.3. Nem funkcionális követelmények
 
- - `A kliens oldal böngészőfüggetlen legyen`
- - `Reszponzív megjelenés`
- - `Az érzékeny adatokat biztonságosan tároljuk`
- - `A legfrissebb technológiákat használja a rendszer`
+ - A kliens oldal böngészőfüggetlen legyen
+ - Reszponzív megjelenés
+ - Intuitív design kialakítása
+ - Az érzékeny adatokat biztonságosan tároljuk
+ - A legfrissebb technológiákat használja a rendszer
 
 ```
 A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
@@ -122,10 +115,6 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 - Figma tervezői platform
 - MySQL adatbázis-kezelő
 - Git verziókövető rendszer
- 
-```
-Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
-```
 
 ### 5.2. Rizikómenedzsment
 
