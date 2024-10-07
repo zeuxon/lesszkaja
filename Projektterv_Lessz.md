@@ -116,13 +116,12 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
- - `Heroku platformszolgáltatás a webalkalmazás hosztolásához`
- - `Heroku által biztosított PostgreSQL adatbázisszerver`
- - `Spring Boot keretrendszer`
- - `Thymeleaf dinamikus tartalom megjelenítés a felhasználói felületen`
- - `Maven szoftverprojekt menedzselő szoftver`
- - `Eclipse IDE fejlesztőkörnyezet`
- - `Git verziókövető (GitLab)`
+- NodeJS backend technológia
+- Visual Studio Code fejlesztési környezet
+- Tailwind CSS keretrendszer
+- Figma tervezői platform
+- MySQL adatbázis-kezelő
+- Git verziókövető rendszer
  
 ```
 Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
