@@ -107,10 +107,12 @@ A projekt a következő emberekből áll:
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
- - `Munkaállomások: 3 db, Windows 10-es operációs rendszerrel`
- - `Dell Inspiron 5558 laptop (CPU: i5 5200U, RAM: 8 GB, GPU: Nvidia 920M)`
- - `Acer Aspire 573g laptop (CPU: i3 5005U, RAM: 4 GB, GPU: Nvidia 920M)`
- - `Asztali számítógép (CPU: i7 7700k, RAM: 16GB, GPU: Nvidia GTX1070)`
+- Munkaállomások: 6db Windows 10-es operációs rendszer
+- MacBook Pro laptop (CPU: Intel Core i5 1.4GHz, RAM: 8GB, GPU: Intel Iris Plus Graphics 645 1536 MB)
+- Asztali számítógép (CPU: AMD Ryzen 7 2700X, RAM: 32GB RAM, GPU: RTX 3070)
+- Asztali számítógép (CPU: Ryzen 5 5600, RAM: 32GB, GPU: Radeon RX 6650XT)
+- Dell laptop (CPU: AMD Ryzen 5 5600H with Radeon Graphics, RAM: 16GB)
+- Asztali számítógép (CPU: Intel Core i5-7200U 2.50GHz, RAM: 8GB, GPU: Intel HD Graphics 620)
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
