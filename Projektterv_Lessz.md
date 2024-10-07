@@ -51,14 +51,12 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
  - A kliens oldal böngészőfüggetlen legyen
  - Reszponzív megjelenés
- - Intuitív design kialakítása
+ - Intuitív design
  - Az érzékeny adatokat biztonságosan tároljuk
  - A legfrissebb technológiákat használja a rendszer
+ - Modern operációs rendszeren és böngészőkön való megfelelő működés
 
-```
-A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
-milyen megjelenéssel kell rendelkeznie. Ha lehetséges, akkor ezeket a feladatokat is ki kell osztani a csapattagok között.
-```
+
 
 ## 3. Költség- és erőforrás-szükségletek
 
@@ -73,28 +71,26 @@ a pontok száma = fejenként a projektre kapható maxpont * tagok száma.
 
 ## 4. Szervezeti felépítés és felelősségmegosztás
 
-A projekt megrendelője `Dr. Márkus András`. A `Szállítmányozás` projektet a projektcsapat fogja végrehajtani, amely `jelenleg három fejlesztőből áll. A csapatban található tapasztalt és pályakezdő webprogramozó is, A tapasztalt projekttagok több éve dolgoznak az iparban, számos sikeres projektten vannak túl.`
- - `Teszt Elek (3 év ipari tapasztalat a Számító Gép Kft.-nél)`
- - `Remek Elek (3 év egyetemi tapasztalat)`
- - `Lev Elek (<1 év tapasztalatő)`
-
-```
-Itt lehet részletezni pl. a tagok szakmai tapasztalatait, vagy akár a releváns gyakorlati helyeket, munkahelyeket megemlíteni.
-```
+A projekt megrendelője Pflanzer Tamás. A LesszKaja projektet a projektcsapat fogja végrehajtani, amely jelenleg hat fejlesztőből áll. A csapatban található tapasztalt, pályakezdő webprogramozó és önfejlesztő projektvezető is. A tapasztalt projekttagok több éve tanulnak az egyetemen, illetve több projekten vannak túl.
+ - Birkás Bertalan (1 év egyetemi tapasztalat, több fullstack projekt)
+ - Dudás Tímea (2 év egyetemi tapasztalat)
+ - Gál Gergő (2 év egyetemi tapasztalat)
+ - Giricz Vince (1 év egyetemi tapasztalat)
+ - Kelemen Bálint Péter (1 év egyetemi tapasztalat)
+ - Sánta Gábor (1 év egyetemi tapasztalat)
 
 ### 4.1 Projektcsapat
 
 A projekt a következő emberekből áll:
 
-| Név          | Pozíció          |   E-mail cím (stud-os)        |
-|--------------|------------------|-------------------------------|
-| `Teszt Elek` | Projektmenedzser | `h123456@stud.u-szeged.hu`    |
-| `Remek Elek` | Projekt tag      | `h654321@stud.u-szeged.hu`    |
-| `Lev Elek`   | Projekt tag      | `h000000@stud.u-szeged.hu`    |
-
-```
-Betölthető pozíciók: projektmenedzser, projekt tag.
-```
+| Név                  | Pozíció          |   E-mail cím (stud-os)      |
+|----------------------|------------------|-----------------------------|
+| Birkás Bertalan      | Projektmenedzser | h347842@stud-u.szeged.hu    |
+| Dudás Tímea          | Projekt tag      | h257330@stud.u-szeged.hu    |
+| Gál Gergő Károly     | Projekt tag      | h260678@stud.u-szeged.hu    |
+| Giricz Vince         | Projekt tag      | h356811@stud.u-szeged.hu    |
+| Kelemen Bálint Péter | Projekt tag      | h365052@stud-u.szeged.hu    |
+| Sánta Gábor          | Projekt tag      | h378228@stud-u.szeged.hu    |
 
 ## 5. A munka feltételei
 
@@ -117,10 +113,6 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 - Figma tervezői platform
 - MySQL adatbázis-kezelő
 - Git verziókövető rendszer
- 
-```
-Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
-```
 
 ### 5.2. Rizikómenedzsment
 
