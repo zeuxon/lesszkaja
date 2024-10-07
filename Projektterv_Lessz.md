@@ -51,14 +51,12 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
  - A kliens oldal böngészőfüggetlen legyen
  - Reszponzív megjelenés
- - Intuitív design kialakítása
+ - Intuitív design
  - Az érzékeny adatokat biztonságosan tároljuk
  - A legfrissebb technológiákat használja a rendszer
+ - Modern operációs rendszeren és böngészőkön való megfelelő működés
 
-```
-A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
-milyen megjelenéssel kell rendelkeznie. Ha lehetséges, akkor ezeket a feladatokat is ki kell osztani a csapattagok között.
-```
+
 
 ## 3. Költség- és erőforrás-szükségletek
 
