@@ -37,30 +37,23 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
 ### 2.2. Funkcionális követelmények
 
- - `Felhasználók kezelése (admin, raktáros, sofőr) (CRUD)`
- - `Felhasználói munkamenet megvalósítása több jogosultsági szinttel `
- - `Raktárak kezelése (CRUD)`
- - `Árukészletek kezelése (CRUD)`
- - `Járművek kezelése (CRUD)`
- - `Fuvarok/szállítmányok kezelése (CRUD)`
- - `Email-es kiértesítés új szállítmány esetén az adott raktárosnak és sofőrnek`
- - `Fuvar útvonalának megjelenítése térképen a kezdő és a végponttal együtt`
- - `Biztonsági mentés automatikus létrehozása`
+ - Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)
+ - Felhasználói munkamenet megvalósítása több jogosultsági szinttel 
+ - Éttermek kezelése (CRUD)
+ - Éttermek keresése és szűrése
+ - Ételek részletezése és személyreszabása
+ - Árukészletek kezelése (CRUD)
+ - Kosár kezelése (CRUD)
+ - Fizetés folyamat megvalósítása
 
-```
-Itt lehet pontosan felsorolni a rendszerrel szemben támasztott funkcionális igényeket, azaz amit a rendszernek tudnia kell. 
-Ezeket a feladatokat kell majd a csapattagok között szétosztani a 8-as fejezetben.
-
-A CRUD rövidítés a következőt jelenti: Create, Read, Update, Delete.
-Azaz a funkcióhoz tartozó adat létrehozása, olvasása, frissítése, törlése.
-```
 
 ### 2.3. Nem funkcionális követelmények
 
- - `A kliens oldal böngészőfüggetlen legyen`
- - `Reszponzív megjelenés`
- - `Az érzékeny adatokat biztonságosan tároljuk`
- - `A legfrissebb technológiákat használja a rendszer`
+ - A kliens oldal böngészőfüggetlen legyen
+ - Reszponzív megjelenés
+ - Intuitív design kialakítása
+ - Az érzékeny adatokat biztonságosan tároljuk
+ - A legfrissebb technológiákat használja a rendszer
 
 ```
 A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
@@ -129,17 +122,13 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 
 | Kockázat                                    | Leírás                                                                                                                                                                                     | Valószínűség | Hatás  |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|
-| `Betegség`                                  | `Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása`        | `nagy`       | `erős` |
-| `Kommunikációs fennakadás a csapattagokkal` | `A csapattagok között nem elégséges az információ áramlás, nem pontosan, esetleg késve vagy nem egyértelműen tájékoztatjuk egymást. Megoldás: még gyakoribb megbeszélések és ellenőrzések` | `kis`        | `erős` |
+| Technikai problémák                         | Az eszközök vagy szoftverek meghibásodhatnak (pl. laptopok, internetkapcsolat, programok összeomlása), ami leállíthatja a munkát.                                                          | közepes      | közepes|
+| Csapattagok közötti konfliktusok            | Különböző személyiségek vagy eltérő munkastílusok összeütközése belső feszültségeket okozhat.                                                                                              | kicsi        | közepes|
+| Előre nem látható egyetemi események        | Az egyetem vagy az oktatási környezetben történt váratlan változások (pl. rendezvények, építési munkálatok) megakadályozhatják a csoportot a projektmunka végrehajtásában.                 | közepes      | erős   |
+| Feladatok nem megfelelő priorizálása        | A csoporttagok nem megfelelően priorizálják a feladatokat, emiatt fontos részek elhanyagolódhatnak, míg kevésbé lényegesek előtérbe kerülhetnek.                                           | kicsi        | közepes|
+| Váratlan baleset                            | Egy csoporttag balesetet szenvedhet (pl. közlekedési baleset, sportbaleset), ami miatt rövid vagy hosszabb ideig nem tud részt venni a munkában.                                           | kicsi        | erős   |
+| Influenza vagy megfázás járvány             | Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása.         | közepes      | közepes|
 
-```
-A rizikótényezők bemutatása, amely hátráltathatja a projekt befejezését. 
-Minden rizikót érdemes megemlíteni, részletezve, hogy mit jelent, 
-milyen valószínűséggel következhet be (kis, közepes és nagy), 
-mekkora a várható hatása (gyenge, közepes és erős) 
-és hogy milyen tervvel készültök, amennyiben egy ilyen esemény bekövetkezik. 
-Pl.: betegség, szoftver-hardver probléma, tag kiesése, extrém ZH időszak, pandémia, stb. 
-```
 
 ## 6. Jelentések
 
