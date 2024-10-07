@@ -131,17 +131,13 @@ Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejleszt
 
 | Kockázat                                    | Leírás                                                                                                                                                                                     | Valószínűség | Hatás  |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|
-| `Betegség`                                  | `Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása`        | `nagy`       | `erős` |
-| `Kommunikációs fennakadás a csapattagokkal` | `A csapattagok között nem elégséges az információ áramlás, nem pontosan, esetleg késve vagy nem egyértelműen tájékoztatjuk egymást. Megoldás: még gyakoribb megbeszélések és ellenőrzések` | `kis`        | `erős` |
+| Technikai problémák                         | Az eszközök vagy szoftverek meghibásodhatnak (pl. laptopok, internetkapcsolat, programok összeomlása), ami leállíthatja a munkát.                                                          | közepes      | közepes|
+| Csapattagok közötti konfliktusok            | Különböző személyiségek vagy eltérő munkastílusok összeütközése belső feszültségeket okozhat.                                                                                              | kicsi        | közepes|
+| Előre nem látható egyetemi események        | Az egyetem vagy az oktatási környezetben történt váratlan változások (pl. rendezvények, építési munkálatok) megakadályozhatják a csoportot a projektmunka végrehajtásában.                 | közepes      | erős   |
+| Feladatok nem megfelelő priorizálása        | A csoporttagok nem megfelelően priorizálják a feladatokat, emiatt fontos részek elhanyagolódhatnak, míg kevésbé lényegesek előtérbe kerülhetnek.                                           | kicsi        | közepes|
+| Váratlan baleset                            | Egy csoporttag balesetet szenvedhet (pl. közlekedési baleset, sportbaleset), ami miatt rövid vagy hosszabb ideig nem tud részt venni a munkában.                                           | kicsi        | erős   |
+| Influenza vagy megfázás járvány             | Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása.         | közepes      | közepes|
 
-```
-A rizikótényezők bemutatása, amely hátráltathatja a projekt befejezését. 
-Minden rizikót érdemes megemlíteni, részletezve, hogy mit jelent, 
-milyen valószínűséggel következhet be (kis, közepes és nagy), 
-mekkora a várható hatása (gyenge, közepes és erős) 
-és hogy milyen tervvel készültök, amennyiben egy ilyen esemény bekövetkezik. 
-Pl.: betegség, szoftver-hardver probléma, tag kiesése, extrém ZH időszak, pandémia, stb. 
-```
 
 ## 6. Jelentések
 
