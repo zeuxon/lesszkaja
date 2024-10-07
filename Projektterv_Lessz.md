@@ -102,20 +102,21 @@ Betölthető pozíciók: projektmenedzser, projekt tag.
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
- - `Munkaállomások: 3 db, Windows 10-es operációs rendszerrel`
- - `Dell Inspiron 5558 laptop (CPU: i5 5200U, RAM: 8 GB, GPU: Nvidia 920M)`
- - `Acer Aspire 573g laptop (CPU: i3 5005U, RAM: 4 GB, GPU: Nvidia 920M)`
- - `Asztali számítógép (CPU: i7 7700k, RAM: 16GB, GPU: Nvidia GTX1070)`
+- Munkaállomások: 6db Windows 10-es operációs rendszer
+- MacBook Pro laptop (CPU: Intel Core i5 1.4GHz, RAM: 8GB, GPU: Intel Iris Plus Graphics 645 1536 MB)
+- Asztali számítógép (CPU: AMD Ryzen 7 2700X, RAM: 32GB RAM, GPU: RTX 3070)
+- Asztali számítógép (CPU: Ryzen 5 5600, RAM: 32GB, GPU: Radeon RX 6650XT)
+- Dell laptop (CPU: AMD Ryzen 5 5600H with Radeon Graphics, RAM: 16GB)
+- Asztali számítógép (CPU: Intel Core i5-7200U 2.50GHz, RAM: 8GB, GPU: Intel HD Graphics 620)
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
- - `Heroku platformszolgáltatás a webalkalmazás hosztolásához`
- - `Heroku által biztosított PostgreSQL adatbázisszerver`
- - `Spring Boot keretrendszer`
- - `Thymeleaf dinamikus tartalom megjelenítés a felhasználói felületen`
- - `Maven szoftverprojekt menedzselő szoftver`
- - `Eclipse IDE fejlesztőkörnyezet`
- - `Git verziókövető (GitLab)`
+- NodeJS backend technológia
+- Visual Studio Code fejlesztési környezet
+- Tailwind CSS keretrendszer
+- Figma tervezői platform
+- MySQL adatbázis-kezelő
+- Git verziókövető rendszer
  
 ```
 Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
@@ -125,17 +126,13 @@ Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejleszt
 
 | Kockázat                                    | Leírás                                                                                                                                                                                     | Valószínűség | Hatás  |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|
-| `Betegség`                                  | `Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása`        | `nagy`       | `erős` |
-| `Kommunikációs fennakadás a csapattagokkal` | `A csapattagok között nem elégséges az információ áramlás, nem pontosan, esetleg késve vagy nem egyértelműen tájékoztatjuk egymást. Megoldás: még gyakoribb megbeszélések és ellenőrzések` | `kis`        | `erős` |
+| Technikai problémák                         | Az eszközök vagy szoftverek meghibásodhatnak (pl. laptopok, internetkapcsolat, programok összeomlása), ami leállíthatja a munkát.                                                          | közepes      | közepes|
+| Csapattagok közötti konfliktusok            | Különböző személyiségek vagy eltérő munkastílusok összeütközése belső feszültségeket okozhat.                                                                                              | kicsi        | közepes|
+| Előre nem látható egyetemi események        | Az egyetem vagy az oktatási környezetben történt váratlan változások (pl. rendezvények, építési munkálatok) megakadályozhatják a csoportot a projektmunka végrehajtásában.                 | közepes      | erős   |
+| Feladatok nem megfelelő priorizálása        | A csoporttagok nem megfelelően priorizálják a feladatokat, emiatt fontos részek elhanyagolódhatnak, míg kevésbé lényegesek előtérbe kerülhetnek.                                           | kicsi        | közepes|
+| Váratlan baleset                            | Egy csoporttag balesetet szenvedhet (pl. közlekedési baleset, sportbaleset), ami miatt rövid vagy hosszabb ideig nem tud részt venni a munkában.                                           | kicsi        | erős   |
+| Influenza vagy megfázás járvány             | Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása.         | közepes      | közepes|
 
-```
-A rizikótényezők bemutatása, amely hátráltathatja a projekt befejezését. 
-Minden rizikót érdemes megemlíteni, részletezve, hogy mit jelent, 
-milyen valószínűséggel következhet be (kis, közepes és nagy), 
-mekkora a várható hatása (gyenge, közepes és erős) 
-és hogy milyen tervvel készültök, amennyiben egy ilyen esemény bekövetkezik. 
-Pl.: betegség, szoftver-hardver probléma, tag kiesése, extrém ZH időszak, pandémia, stb. 
-```
 
 ## 6. Jelentések
 
