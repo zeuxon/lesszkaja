@@ -124,10 +124,6 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 - Figma tervezői platform
 - MySQL adatbázis-kezelő
 - Git verziókövető rendszer
- 
-```
-Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejlesztenek, milyen szoftverkörnyezetben, stb.
-```
 
 ### 5.2. Rizikómenedzsment
 
