@@ -137,21 +137,17 @@ Milyen gépet használnak a projekttagok, milyen operációs rendszeren fejleszt
 ## 6. Jelentések
 
 ### 6.1. Munka menedzsment
-A munkát `Teszt Elek` koordinálja. `Fő feladata, hogy folyamatosan egyeztessen a csapattagokkal az előrehaladásról és a fellépő problémákról, esetlegesen a megoldásban is segítséget nyújhat a projekt csúszásának elkerülése végett. További feladata a heti szinten tartandó csoportgyűlések időpontjának és helyszínének leszervezése, erről email-ben tájékoztatja a projektcsapatot.`
-
-```
-Írd le, hogy ki menedzseli a munkát (tipikusan a projekt menedzser), mik a feladatai, és azokat hogyan hajtja végre.
-```
+A munkát Birkás Bertalan koordinálja. Fő feladatai közé tartozik a projekt ütemtervének elkészítése és követése, a csapattagok közötti koordináció, valamint a feladatok priorizálása. Továbbá biztosítja, hogy a projekt erőforrásai megfelelően legyenek kezelve, és minden mérföldkő időben teljesüljön.
 
 ### 6.2. Csoportgyűlések
 
-`A projekt hetente ülésezik, hogy megvitassák az azt megelőző hét problémáit, illetve hogy megbeszéljék a következő hét feladatait. A megbeszélésről minden esetben memó készül.`
+A csapat a megbeszélt időpontokban ülésezik, amelyen a felmerült problémákat megbeszéljük, továbbá döntünk a feladatok kiosztásáról. A megbeszélés minden esetben dokumentálva van.
 
-`1. megbeszélés:`
- - `Időpont: 2021.09.15.`
- - `Hely: SZTE Irinyi épület - Szeged, Tisza Lajos krt. 103`
- - `Résztvevők: Teszt Elek, Remek Elek, Lev Elek`
- - `Érintett témák: Ismerkedés, projekttéma kiválasztása`
+1. megbeszélés:
+ - Időpont: 2024.10.07.
+ - Mód: online
+ - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
+ - Érintett témák: Ismerkedés, projekttéma kiválasztása, feladatok kiosztása
 
 `2. megbeszélés:`
  - `Időpont: 2021.09.22.`
