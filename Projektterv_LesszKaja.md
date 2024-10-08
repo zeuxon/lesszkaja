@@ -200,14 +200,53 @@ Ennek a feladatnak az a célja, hogy megvalósításhoz szükséges lépéseket,
 
 Részfeladatai a következők:
 
-#### 8.1.1. Projektterv kitöltése
+#### 8.1.1_1 Szervezeti felépítés adatainak felvitele
 
-Felelős: Mindenki
+Felelős: Kelemen Bálint Péter
 
-Tartam:  2 nap
+Tartam:  1 nap
 
-Erőforrásigény:  6 személynap/fő
+Erőforrásigény:  1 személynap/fő
 
+#### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele
+
+Felelős: Sánta Gábor
+
+Tartma: 1 nap
+
+Erőforrásigény: 1 személynap/fő
+
+#### 8.1.1_3 Rizikómenedzsment felvitele
+
+Felelős: Gál Gergő Károly
+
+Tartma: 1 nap
+
+Erőforrásigény: 1 személynap/fő
+
+#### 8.1.1_4 Funkcionális és nem funkcionális követelmények felvitele
+
+Felelős: Dudás Tímea
+
+Tartma: 1 nap
+
+Erőforrásigény: 1 személynap/fő
+
+#### 8.1.1_5 Jelentések felvitele
+
+Felelős: Giricz Vince
+
+Tartma: 1 nap
+
+Erőforrásigény: 1 személynap/fő
+
+#### 8.1.1_6 Feladatlista felvitele
+
+Felelős: Birkás Bertalan
+
+Tartma: 1 nap
+
+Erőforrásigény: 1 személynap/fő
 
 #### 8.1.2. Bemutató elkészítése
 
