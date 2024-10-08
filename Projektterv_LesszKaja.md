@@ -19,12 +19,8 @@ Az eredetileg is feketével írt részek törlése tilos, azok közösek.
 
 ## 2. A projekt bemutatása
 
-`Ez a projektterv a Szallítmányozás projektet mutatja be, amely 2021-09-20-től 2021-11-27-ig tart, azaz összesen 68 napon keresztül fog futni. A projekten három fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.`
+Ez a projektterv a Szallítmányozás projektet mutatja be, amely 2024-10-05-től 2024-12-04-ig tart, azaz összesen 60 napon keresztül fog futni. A projekten hat fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.
 
-```
-A megvalósítás további általános leírása, pl. mennyi ideig tart a projekt, mennyi főből áll a csapat, 
-mennyi átadandó lesz a megrendelőnek átadva a félév során (szintén 2-3 mondattal leírva).
-```
 
 ### 2.1. Rendszerspecifikáció
 
@@ -58,14 +54,10 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
 ## 3. Költség- és erőforrás-szükségletek
 
-Az erőforrásigényünk összesen `57` személynap, átlagosan `19` személynap/fő.
+Az erőforrásigényünk összesen 66 személynap, átlagosan 11 személynap/fő.
 
-A rendelkezésünkre áll összesen `3 * 70 = 210` pont.
+A rendelkezésünkre áll összesen 6 * 70 = 210 pont.
 
-```
-Becsült sarokszámok, a rendelkezésre álló erőforrás fejenként általában 17-21 személynap, 
-a pontok száma = fejenként a projektre kapható maxpont * tagok száma.
-```
 
 ## 4. Szervezeti felépítés és felelősségmegosztás
 
@@ -150,7 +142,7 @@ Az alábbi lehetőségek vannak a szoftver megfelelő minőségének biztosítá
 
 ### 6.4. Átadás, eredmények elfogadása
 
-A projekt eredményeit a megrendelő, `Dr. Márkus András` fogja elfogadni. A projektterven változásokat csak a megrendelő írásos engedélyével lehet tenni. A projekt eredményesnek bizonyul, ha specifikáció helyes és határidőn belül készül el. Az esetleges késések pontlevonást eredményeznek. 
+A projekt eredményeit a megrendelő, Pflanzer Tamás fogja elfogadni. A projektterven változásokat csak a megrendelő írásos engedélyével lehet tenni. A projekt eredményesnek bizonyul, ha specifikáció helyes és határidőn belül készül el. Az esetleges késések pontlevonást eredményeznek. 
 Az elfogadás feltételeire és beadás formájára vonatkozó részletes leírás a következő honlapon olvasható: https://okt.inf.szte.hu/rf1/
 
 ### 6.5. Státuszjelentés
