@@ -193,7 +193,7 @@ Tartam:  1 nap
 
 Erőforrásigény:  1 személynap/fő
 
-#### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele
+#### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok felvitele
 
 Felelős: Sánta Gábor
 
@@ -225,7 +225,7 @@ Tartma: 1 nap
 
 Erőforrásigény: 1 személynap/fő
 
-#### 8.1.1_6 Feladatlista felvitele
+#### 8.1.1_6 Feladatlista felvitele és Gantt diagram kitöltése
 
 Felelős: Birkás Bertalan
 
@@ -339,7 +339,7 @@ Felelős: Sánta Gábor
 
 Tartam:  6 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.5. Éttermek kezelése (CRUD)
 
@@ -347,7 +347,7 @@ Felelős: Giricz Vince
 
 Tartam:  4 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.6. Éttermek kezeléséhez szükséges adatok létrehozása az adatbázisban
 
@@ -379,7 +379,7 @@ Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.10. Ételek részletezése és személyreszabása
 
@@ -411,7 +411,7 @@ Felelős: Gál Gergő Károly
 
 Tartam:  4 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.14. Fuvarok kezelése (UD)
 
@@ -419,7 +419,7 @@ Felelős: Dudás Tímea
 
 Tartam:  4 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.15. Fuvarok szükséges adatok létrehozása az adatbázisban
 
@@ -435,7 +435,7 @@ Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.17. Kosár kezelése (UD)
 
@@ -443,7 +443,7 @@ Felelős: Sánta Gábor
 
 Tartam:  4 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.3.18. Fizetés folyamat megvalósítása
 
@@ -529,7 +529,7 @@ Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  4 személynap
 
 #### 8.4.3. Javított minőségű prototípus a korábbi hiányzó funkciókkal
 
@@ -537,7 +537,7 @@ Felelős: Dudás Tímea
 
 Tartam:  5 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  3 személynap
 
 #### 8.4.4. "Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)" és "Felhasználói munkamenet megvalósítása több jogosultsági szinttel " tesztelése (TR)
 
@@ -545,7 +545,7 @@ Felelős: Sánta Gábor
 
 Tartam:  1 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.4.5. "Éttermek kezelése (CRUD)" tesztelése (TR)
 
@@ -561,7 +561,7 @@ Felelős: Gál Gergő Károly
 
 Tartam:  1 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.4.7. "Árukészletek kezelése (CRUD)" tesztelése (TR)
 
@@ -569,7 +569,7 @@ Felelős: Sánta Gábor
 
 Tartam:  1 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.4.8. "Kosár kezelése (CRUD)" tesztelése (TR)
 
@@ -577,7 +577,7 @@ Felelős: Giricz Vince
 
 Tartam:  1 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.4.9. "Fizetés folyamat megvalósítása" tesztelése (TR)
 
@@ -626,11 +626,11 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 | Név                  |   M1  |   M2  |   M3 |   M4  | Összesen |
 |----------------------|-------|-------|------|-------|----------|
 | Birkás Bertalan      |   1   |  1.5  |  5   |  3.5  |  11      |
-| Dudás Tímea          |   1   |   2   |  6   |   2   |  11      |
-| Gál Gergő Károly     |   1   |   2   |  6   |   2   |  11      |
-| Giricz Vince         |   1   |   2   |  6   |   2   |  11      |
-| Kelemen Bálint Péter |   1   |   1   |  7   |   2   |  11      |
-| Sánta Gábor          |   1   |   1   |  7   |   2   |  11      |
+| Dudás Tímea          |   1   |   2   |  5   |   3   |  11      |
+| Gál Gergő Károly     |   1   |   2   |  5   |   3   |  11      |
+| Giricz Vince         |   1   |   2   |  5   |   3   |  11      |
+| Kelemen Bálint Péter |   1   |   1   |  5   |   4   |  11      |
+| Sánta Gábor          |   1   |   1   |  5   |   4   |  11      |
 
 
 ### 10.2. Részletes feladatszámok
@@ -649,11 +649,11 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 | Név                                 | M1      | M2       | M3       | M4       | Összesen  |
 |-------------------------------------|---------|----------|----------|----------|-----------|
 | Maximálisan megszerezhető pontszám  |  (7)    | (20)     | (35)     |  (28)    | 100% (70) |
-| Birkás Bertalan                     | 6       | `10`     | `28`     |  `25`    | 70        |
-| Dudás Tímea                         | 6       | `15`     | `35`     |  `16`    | 70        |
-| Gál Gergő                           | 6       | `12`     | `30`     |  `24`    | 70        |
-| Giricz Vince                        | 6       | `12`     | `30`     |  `24`    | 70        |
-| Kelemen Bálint                      | 6       | `12`     | `30`     |  `24`    | 70        |
-| Sánta Gábor                         | 6       | `12`     | `30`     |  `24`    | 70        |
+| Birkás Bertalan                     | 6       |   10     |   32     |    22    | 70        |
+| Dudás Tímea                         | 6       |   13     |   32     |    19    | 70        |
+| Gál Gergő                           | 6       |   13     |   32     |    19    | 70        |
+| Giricz Vince                        | 6       |   13     |   32     |    19    | 70        |
+| Kelemen Bálint                      | 6       |    6     |   32     |    26    | 70        |
+| Sánta Gábor                         | 6       |    6     |   32     |    26    | 70        |
 
-Szeged, `2021-10-25`.
+Szeged, 2024-10-8.
