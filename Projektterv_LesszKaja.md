@@ -76,7 +76,7 @@ a pontok száma = fejenként a projektre kapható maxpont * tagok száma.
 A projekt megrendelője Pflanzer Tamás. A LesszKaja projektet a projektcsapat fogja végrehajtani, amely jelenleg hat fejlesztőből áll. A csapatban található tapasztalt, pályakezdő webprogramozó és önfejlesztő projektvezető is. A tapasztalt projekttagok több éve tanulnak az egyetemen, illetve több projekten vannak túl.
  - Birkás Bertalan (1 év egyetemi tapasztalat, több fullstack projekt)
  - Dudás Tímea (2 év egyetemi tapasztalat)
- - Gál Gergő (2 év egyetemi tapasztalat)
+ - Gál Gergő Károly (2 év egyetemi tapasztalat)
  - Giricz Vince (1 év egyetemi tapasztalat)
  - Kelemen Bálint Péter (1 év egyetemi tapasztalat)
  - Sánta Gábor (1 év egyetemi tapasztalat)
@@ -288,7 +288,7 @@ Erőforrásigény:  2 személynap
 
 #### 8.2.4. Egyed-kapcsolat diagram adatbázishoz
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  4 nap
 
@@ -296,7 +296,7 @@ Erőforrásigény:  2 személynap
 
 #### 8.2.5. Package diagram
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  3 nap
 
@@ -334,7 +334,7 @@ Erőforrásigény:  2 személynap
 
 #### 8.3.2. Felhasználók kezelése (admin, étterem, felhasználó) (UD)
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  4 nap
 
@@ -366,7 +366,7 @@ Erőforrásigény:  2 személynap
 
 #### 8.3.6. Éttermek kezeléséhez szükséges adatok létrehozása az adatbázisban
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  4 nap
 
@@ -390,7 +390,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.3.9. Árukészletek kezelése (UD)
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
@@ -398,7 +398,7 @@ Erőforrásigény:  2 személynap
 
 #### 8.3.10. Ételek részletezése és személyreszabása
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  4 nap
 
@@ -422,7 +422,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.3.13. Fuvarok kezelése (CR)
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  4 nap
 
@@ -446,7 +446,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.3.16. Kosár kezelése (CR)
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
@@ -478,7 +478,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.3.19.2. "Éttermek kezelése (CRUD)" tesztelése
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  2 nap
 
@@ -494,7 +494,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.3.19.4. "Árukészletek kezelése (CRUD)" tesztelése
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  2 nap
 
@@ -540,7 +540,7 @@ Erőforrásigény:  2.5 személynap
 
 #### 8.4.2. Javított minőségű prototípus javított funkciókkal
 
-Felelős: Kelemen Bálint
+Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
@@ -572,7 +572,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.4.6. "Éttermek keresése és szűrése" és "Ételek részletezése és személyreszabása" tesztelése (TR)
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  1 nap
 
@@ -596,7 +596,7 @@ Erőforrásigény:  1 személynap
 
 #### 8.4.9. "Fizetés folyamat megvalósítása" tesztelése (TR)
 
-Felelős: Gál Gergő
+Felelős: Gál Gergő Károly
 
 Tartam:  1 nap
 
@@ -638,23 +638,26 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 ### 10.1. Részletes erőforrásigény (személynap)
 
 
-| Név             |   M1  |   M2  |   M3 |   M4  | Összesen |
-|-----------------|-------|-------|------|-------|----------|
-| Birkás Bertalan |   2   |  1.5  |  4   |  3.5  |  11      |
-| Dudás Tímea     |   1   |   2   |  6   |   2   |  11      |
-| Gál Gergő       |   1   |   2   |  6   |   2   |  11      |
-| Giricz Vince    |   1   |   2   |  6   |   2   |  11      |
-| Kelemen Bálint  |   1   |   1   |  7   |   2   |  11      |
-| Sánta Gábor     |   1   |   1   |  7   |   2   |  11      |
+| Név                  |   M1  |   M2  |   M3 |   M4  | Összesen |
+|----------------------|-------|-------|------|-------|----------|
+| Birkás Bertalan      |   2   |  1.5  |  4   |  3.5  |  11      |
+| Dudás Tímea          |   1   |   2   |  6   |   2   |  11      |
+| Gál Gergő Károly     |   1   |   2   |  6   |   2   |  11      |
+| Giricz Vince         |   1   |   2   |  6   |   2   |  11      |
+| Kelemen Bálint Péter |   1   |   1   |  7   |   2   |  11      |
+| Sánta Gábor          |   1   |   1   |  7   |   2   |  11      |
 
 
 ### 10.2. Részletes feladatszámok
 
-| Név          |   M1  |   M2  |   M3 |   M4 | Összesen |
-|--------------|-------|-------|------|------|----------|
-| `Teszt Elek` | `2`   | `2`   | `7`  | `4`  | `15`     |
-| `Remek Elek` | `1`   | `2`   | `7`  | `4`  | `14`     |
-| `Lev Elek`   | `1`   | `2`   | `7`  | `4`  | `14`     |
+| Név                  |   M1  |   M2  |   M3 |   M4 | Összesen |
+|----------------------|-------|-------|------|------|----------|
+| Birkás Bertalan      |   2   |   2   |   3  |   3  | 10       |
+| Dudás Tímea          |   1   |   1   |   5  |   1  | 8        |
+| Gál Gergő Károly     |   1   |   1   |   4  |   2  | 8        |
+| Giricz Vince         |   1   |   1   |   4  |   2  | 8        |
+| Kelemen Bálint Péter | `1`   | `2`   | `7`  | `4`  | 7        |
+| Sánta Gábor          | `1`   | `2`   | `7`  | `4`  | 9        |
 
 ### 10.3. Részletes költségvetés
 
