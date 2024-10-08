@@ -16,7 +16,7 @@ Ez a projektterv a Lesszkaja projektet mutatja be, amely 2024-10-05-től 2024-12
 
 ### 2.1. Rendszerspecifikáció
 
-A rendszernek tudnia kell kezelnie a külöböző éttermeket, azok tulajdonosainak biztosítania kell egy felületet ahol módosítani tudják éttermük adatait, illetve az általuk forgalmazott ételeket, ezen felül nyomon követhetik és feltölhetik árukészletüket. A futároknak biztosítania kell, hogy a megrendeléseket meg tudják tekinteni és azokat el tudják fogadni. A különböző felhasználóknak biztosítani kell az éttemekre való szűrést, a rendelések felvételét, bizonyos szinten az éttermek által beállított opciókkal ezen rendelések tételeinek személyreszabását, saját kosaruk kezelését, azok kifizetését, illetve rendeléseik állapotának megtekintését.
+A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosainak biztosítania kell egy felületet ahol módosítani tudják éttermük adatait, illetve az általuk forgalmazott ételeket, ezen felül nyomon követhetik és feltölhetik árukészletüket. A futároknak biztosítania kell, hogy a megrendeléseket meg tudják tekinteni és azokat el tudják fogadni. A különböző felhasználóknak biztosítani kell az éttemekre való szűrést, a rendelések felvételét, bizonyos szinten az éttermek által beállított opciókkal ezen rendelések tételeinek személyreszabását, saját kosaruk kezelését, azok kifizetését, illetve rendeléseik állapotának megtekintését. Emellett a vendég felhasználók kosarát is tudnia kell kezelni. Az admin felhasználóknak egy olyan felületet kell biztosítani, ahol a megvalósított elemeket módosíthatják.
 
 ### 2.2. Funkcionális követelmények
 
