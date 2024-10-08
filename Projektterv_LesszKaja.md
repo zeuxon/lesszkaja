@@ -381,6 +381,18 @@ Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
 
+ - >#### 8.3.2.1 Felhasználók módosítása funkció
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.3.2.2 Felhasználók törlése funkció
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  1 személynap
+
 ___
 
 
@@ -403,6 +415,18 @@ Tartam:  6 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.4.1 Felhasználói adatok betöltése funkció megvalósítása
+   >
+   > Tartam:  3 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.3.4.2 Felhasználói információk tárolása funkciók
+   >
+   > Tartam:  3 nap
+   >
+   > Erőforrásigény:  1 személynap
+
 ___
 
 
@@ -413,6 +437,30 @@ Felelős: Giricz Vince
 Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
+
+ - >#### 8.3.5.1 Éttermek létrehozása funkció
+   >
+   > Tartam:  1 nap
+   >
+   > Erőforrásigény:  0.25 személynap
+
+ - >#### 8.3.5.2 Éttermek lekérdezése funkció
+   >
+   > Tartam:  1 nap
+   >
+   > Erőforrásigény:  0.25 személynap
+
+ - >#### 8.3.5.3 Éttermek módosítása funkció
+   >
+   > Tartam:  1 nap
+   >
+   > Erőforrásigény:  0.25 személynap
+
+  - >#### 8.3.5.4 Éttermek törlése funkció
+   >
+   > Tartam:  1 nap
+   >
+   > Erőforrásigény:  0.25 személynap
 
 ___
 
@@ -458,6 +506,18 @@ Tartam:  5 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.9.1 Árukészletek módosítása
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.9.2 Árukészletek törlése
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
 ___
 
 
@@ -468,6 +528,18 @@ Felelős: Gál Gergő Károly
 Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
+
+ - >#### 8.3.10.1 Ételek leírásának elkészítése
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.3.10.2 Ételek személyreszabása funkció
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  1 személynap
 
 ___
 
@@ -491,6 +563,19 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.12.1 Ételek keresése funkció
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.12.2 Ételek szűrése funkció
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+
 ___
 
 
@@ -502,6 +587,18 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.13.1 Fuvarok létrehozása
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.13.2 Fuvarok lekérdezése
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
 ___
 
 
@@ -512,6 +609,19 @@ Felelős: Dudás Tímea
 Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
+
+ - >#### 8.3.14.1 Fuvarok módosítása
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.14.2 Fuvarok törlése
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
 
 ___
 
@@ -535,6 +645,18 @@ Tartam:  5 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.16.1 Kosár létrehozása
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.16.2 Kosár lekérdezése
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
 ___
 
 
@@ -546,6 +668,18 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+ - >#### 8.3.17.1 Kosár módosítása
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
+ - >#### 8.3.17.2 Kosár törlése
+   >
+   > Tartam:  2 nap
+   >
+   > Erőforrásigény:  0.5 személynap
+
 ___
 
 
@@ -556,6 +690,17 @@ Felelős: Giricz Vince
 Tartam:  5 nap
 
 Erőforrásigény:  2 személynap
+
+ - >#### 8.3.16.1 Fizetési mód kiválaszása funkció
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.3.16.2 Fizetés funkció
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
 
 ___
 
