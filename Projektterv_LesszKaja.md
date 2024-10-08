@@ -513,7 +513,7 @@ Felelős: Dudás Tímea
 
 Tartam:  5 nap
 
-Erőforrásigény:  1.5 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.4.4. "Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)" és "Felhasználói munkamenet megvalósítása több jogosultsági szinttel " tesztelése (TR)
 
@@ -601,12 +601,12 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 
 | Név             |   M1  |   M2  |   M3 |   M4  | Összesen |
 |-----------------|-------|-------|------|-------|----------|
-| Birkás Bertalan |   2   |  1.5  |  7   |  3.5  |  11      |
-| Dudás Tímea     |   1   |   2   |  4   |   2   |  11      |
+| Birkás Bertalan |   2   |  1.5  |  4   |  3.5  |  11      |
+| Dudás Tímea     |   1   |   2   |  6   |   2   |  11      |
 | Gál Gergő       |   1   |   2   |  6   |   2   |  11      |
 | Giricz Vince    |   1   |   2   |  6   |   2   |  11      |
 | Kelemen Bálint  |   1   |   1   |  7   |   2   |  11      |
-| Sánta Gábor     |   1   |   1   |  6   |   2   |  11      |
+| Sánta Gábor     |   1   |   1   |  7   |   2   |  11      |
 
 
 ### 10.2. Részletes feladatszámok
