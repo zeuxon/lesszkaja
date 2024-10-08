@@ -2,20 +2,12 @@
 
 ## 1. Összefoglaló 
 
-`A hatékony szállítmányozás lényege, hogy a küldemény a lehető legkisebb költséggel, legbiztonságosabban, és legoptimálisabb időben jusson el a rendeltetési helyére. Ez tipikusan megkövetel egy online is elérhető nyilvántartást, ahol rugalmasan és egyszerűen lehet kezelni a kapcsolódó feladatokat. Éppen ezért ennek a projektnek a célja, hogy a szállítmányozással foglalkozó cégek számára egy webalkalmazást fejlesszünk, amely képes leváltani a hagyományos, papír alapú nyilvántartásokat. Legyen szó árukészletről, sofőrökről vagy útvonalakról, a cél, hogy a kapcsolódó funkciókat egy letisztult felületen keresztül tudja elérni a szállítmányozással foglalkozó cég adminisztrátorai.`
+A sikeres ételkiszállítás csakis arról szól, hogy lesz étel a leggyorsabb, legmegbízhatóbb módon. 
+Ahhoz hogy az emberek minél könnyebben elérjék az oldalt, illetve minél többen tudjanak csúcsidőben rendelni egy robosztus skálázható oldalra van szükség, mely ki tudja szolgálni a megrendelőket, illetve a futárokat.
+Az átláthatóság érdekében megfelelő felülettel kell rendelkezni, mind a felhasználók, adminok, illetve futárok számára szükséges oldalakon, a munkafolyamatokat, illetve megrendelések folyamatát könnyítve.
+Projektünk célja az eddig felvázolt optimális ételkiszállító webalkalmazás megalkotása az ebéd/ételszállító cégeknek, mely megvalósítja ezeket, illetve a bonyolult régimódi munkaelosztásokat és rendeléseket leváltja.
 
-```
-Ide írj egy tömör és általános leírást (4-6 mondatban), hogy miről szól a projekt és miért van a weboldalra szükség. 
-Itt konkrét funkciót még nem kell megemlíteni.
 
-A dokumentumban a szürke háttérrel rendelkező szövegnek illetve a blokkokkal (keretben) kiemelt szövegeknek két jelentése van: 
-(a) minta/sablon szöveg, amit le kell cserélni (pl. gyakorlatvezető neve).
-(b) segítő/magyarázó szöveg. 
-
-Az átadott (beadott) dokumentumban már nem szerepelhetnek se szürke hátterű, se blokkban szereplő részek!
-Azaz a dokumentum kitöltése közben ezeket formázás nélküli szövegre kell cserélni.
-Az eredetileg is feketével írt részek törlése tilos, azok közösek.
-```
 
 ## 2. A projekt bemutatása
 
