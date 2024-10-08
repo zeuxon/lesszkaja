@@ -140,14 +140,7 @@ Minden mérföldkő leadásnál a projekten dolgozók jelentést tesznek a mérf
 
 ### 7.1. Tervezett szoftverfolyamat modell és architektúra
 
-`A szoftver fejlesztése során az agilis fejlesztési modellt alkalmazzuk, mivel a fejlesztés során nagy hangsúlyt fektetünk a folyamatos kommunikcióra. A fejlesztés során a szoftver specifikációi rugalmasan vátozhatnak, és ezzel a módszertannal tudunk a leggyorsabban alkalmazkodni az új elvárásokhoz.`
-
-`A webalkalmazás az MVC (modell-view-controller) felépítést követi, a szerver és a kliens függetlenek, csupán API végpontok segítségével kommunikálnak.`
-
-```
-Milyen szoftverfolyamat modellt követve állítja elő a csapat a specifikációnak megfelelő prototípusokat? Miért ezt választja? 
-A csapat milyen architektúrát választ a projekt megvalósításához? Milyen rétegek (logikai, adat, GUI) lesznek?`
-```
+A csapat az agilis fejlesztési modellt választja, hogy rugalmasan alkalmazkodhasson a felhasználói visszajelzésekhez és a változó igényekhez. A projekt háromrétegű architektúrát alkalmaz, amely elkülöníti a felhasználói interfészt, az üzleti logikát és az adatkezelést, így biztosítva a rendszer skálázhatóságát és könnyebb karbantartását.
 
 ### 7.2. Átadandók és határidők
 
