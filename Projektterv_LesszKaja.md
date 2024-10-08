@@ -691,13 +691,13 @@ Tartam:  5 nap
 
 Erőforrásigény:  2 személynap
 
- - >#### 8.3.16.1 Fizetési mód kiválaszása funkció
+ - >#### 8.3.18.1 Fizetési mód kiválaszása funkció
    >
    > Tartam:  2.5 nap
    >
    > Erőforrásigény:  1 személynap
 
- - >#### 8.3.16.2 Fizetés funkció
+ - >#### 8.3.18.2 Fizetés funkció
    > Tartam:  2.5 nap
    >
    > Erőforrásigény:  1 személynap
