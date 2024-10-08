@@ -55,10 +55,6 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
  - Az érzékeny adatokat biztonságosan tároljuk
  - A legfrissebb technológiákat használja a rendszer
 
-```
-A rendszer nem funkcionális követelményei, pl.: milyen környezetben fusson, milyen teljesítményt kell produkálnia, 
-milyen megjelenéssel kell rendelkeznie. Ha lehetséges, akkor ezeket a feladatokat is ki kell osztani a csapattagok között.
-```
 
 ## 3. Költség- és erőforrás-szükségletek
 
@@ -186,9 +182,6 @@ A főbb átadandók és határidők a projekt időtartama alatt a következők:
 |    P1+D3    |      Prototípus I. és tesztelési dokumentáció, egyéni jelentés              |  2024-11-13   |
 |    P2+D4    |      Prototípus II. és frissített tesztelési dokumentáció, egyéni jelentés  |  2024-12-04   |
 
-```
-D - dokumentáció, P - prototípus
-```
 
 ## 8. Feladatlista
 
