@@ -11,7 +11,7 @@ Projektünk célja az eddig felvázolt optimális ételkiszállító webalkalmaz
 
 ## 2. A projekt bemutatása
 
-Ez a projektterv a Szallítmányozás projektet mutatja be, amely 2024-10-05-től 2024-12-04-ig tart, azaz összesen 60 napon keresztül fog futni. A projekten hat fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.
+Ez a projektterv a Lesszkaja projektet mutatja be, amely 2024-10-05-től 2024-12-04-ig tart, azaz összesen 60 napon keresztül fog futni. A projekten hat fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.
 
 
 ### 2.1. Rendszerspecifikáció
@@ -654,6 +654,18 @@ Tartam:  5 nap
 
 Erőforrásigény:  2.5 személynap
 
+- >#### 8.4.1.1 Prototípus funkciók áttekintése
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.4.1.2 Új funkciók hozzáadása
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1.5 személynap
+
 ___
 
 
@@ -665,6 +677,18 @@ Tartam:  5 nap
 
 Erőforrásigény:  4 személynap
 
+- >#### 8.4.2.1 Prototípus funkciók áttekintése
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.4.2.2 Szükséges változtatások a funkciókban
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  3 személynap
+
 ___
 
 
@@ -675,6 +699,18 @@ Felelős: Dudás Tímea
 Tartam:  5 nap
 
 Erőforrásigény:  3 személynap
+
+- >#### 8.4.3.1 Prototípus funkciók áttekintése
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.4.3.2 Szükséges hiányzó funkciók hozzáadása
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  2 személynap
 
 ___
 
