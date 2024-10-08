@@ -239,7 +239,7 @@ Felelős: Birkás Bertalan
 
 Tartma: 1 nap
 
-Erőforrásigény: 1 személynap/fő
+Erőforrásigény: 0.5 személynap/fő
 
 #### 8.1.2. Bemutató elkészítése
 
@@ -247,7 +247,7 @@ Felelős: Birkás Bertalan
 
 Tartam:  1 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  0.5 személynap
 
 ### 8.2. UML és adatbázis- és képernyőtervek (2. mérföldkő)
 
@@ -467,7 +467,7 @@ Felelős: Birkás Bertalan
 
 Tartam:  2 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 #### 8.3.19.2. "Éttermek kezelése (CRUD)" tesztelése
 
@@ -633,7 +633,7 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 
 | Név             |   M1  |   M2  |   M3 |   M4  | Összesen |
 |-----------------|-------|-------|------|-------|----------|
-| Birkás Bertalan |   2   |  1.5  |  4   |  3.5  |  11      |
+| Birkás Bertalan |   1   |  1.5  |  5   |  3.5  |  11      |
 | Dudás Tímea     |   1   |   2   |  6   |   2   |  11      |
 | Gál Gergő       |   1   |   2   |  6   |   2   |  11      |
 | Giricz Vince    |   1   |   2   |  6   |   2   |  11      |
@@ -643,19 +643,25 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 
 ### 10.2. Részletes feladatszámok
 
-| Név          |   M1  |   M2  |   M3 |   M4 | Összesen |
-|--------------|-------|-------|------|------|----------|
-| `Teszt Elek` | `2`   | `2`   | `7`  | `4`  | `15`     |
-| `Remek Elek` | `1`   | `2`   | `7`  | `4`  | `14`     |
-| `Lev Elek`   | `1`   | `2`   | `7`  | `4`  | `14`     |
+| Név             |   M1  |   M2  |   M3 |   M4 | Összesen |
+|-----------------|-------|-------|------|------|----------|
+| Birkás Bertalan |   2   |   2   |  3   |  3   |   10     |
+| Dudás Tímea     |   1   |   1   |  5   |  1   |   8      |
+| Gál Gergő       |   1   |   1   |  4   |  2   |   8      |
+| Giricz Vince    |   1   |   1   |  4   |  2   |   8      |
+| Kelemen Bálint  |   1   |   1   |  4   |  1   |   7      |
+| Sánta Gábor     |   1   |   1   |  5   |  2   |   9      |
 
 ### 10.3. Részletes költségvetés
 
 | Név                                 | M1      | M2       | M3       | M4       | Összesen  |
 |-------------------------------------|---------|----------|----------|----------|-----------|
 | Maximálisan megszerezhető pontszám  |  (7)    | (20)     | (35)     |  (28)    | 100% (70) |
-| `Teszt Elek`                        | `7`     | `10`     | `28`     |  `25`    | 70        |
-| `Remek Elek`                        | `4`     | `15`     | `35`     |  `16`    | 70        |
-| `Lev Elek`                          | `4`     | `12`     | `30`     |  `24`    | 70        |
+| Birkás Bertalan                     | 6       | `10`     | `28`     |  `25`    | 70        |
+| Dudás Tímea                         | 6       | `15`     | `35`     |  `16`    | 70        |
+| Gál Gergő                           | 6       | `12`     | `30`     |  `24`    | 70        |
+| Giricz Vince                        | 6       | `12`     | `30`     |  `24`    | 70        |
+| Kelemen Bálint                      | 6       | `12`     | `30`     |  `24`    | 70        |
+| Sánta Gábor                         | 6       | `12`     | `30`     |  `24`    | 70        |
 
 Szeged, `2021-10-25`.
