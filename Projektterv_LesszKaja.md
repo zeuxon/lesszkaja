@@ -181,10 +181,10 @@ A főbb átadandók és határidők a projekt időtartama alatt a következők:
 
 | Szállítandó |                 Neve                                                        |   Határideje  |
 |:-----------:|:---------------------------------------------------------------------------:|:-------------:|
-|      D1     |      Projektterv és Gantt chart, prezentáció, egyéni jelentés               | `2021-10-04`  |
-|    P1+D2    |      UML, adatbázis- és képernyőtervek, prezentáció, egyéni jelentés        | `2021-10-18`  |
-|    P1+D3    |      Prototípus I. és tesztelési dokumentáció, egyéni jelentés              | `2021-11-08`  |
-|    P2+D4    |      Prototípus II. és frissített tesztelési dokumentáció, egyéni jelentés  | `2021-11-27`  |
+|      D1     |      Projektterv és Gantt chart, prezentáció, egyéni jelentés               |  2024-10-09   |
+|    P1+D2    |      UML, adatbázis- és képernyőtervek, prezentáció, egyéni jelentés        |  2024-10-23   |
+|    P1+D3    |      Prototípus I. és tesztelési dokumentáció, egyéni jelentés              |  2024-11-13   |
+|    P2+D4    |      Prototípus II. és frissített tesztelési dokumentáció, egyéni jelentés  |  2024-12-04   |
 
 ```
 D - dokumentáció, P - prototípus
@@ -261,11 +261,11 @@ Felelős: Kelemen Bálint
 
 Tartam:  3 nap
 
-Erőforrásigény:  0.5 személynap
+Erőforrásigény:  1 személynap
 
 #### 8.2.6. Képernyőtervek
 
-Felelős: Teszt Elek
+Felelős: Birkás Bertalan
 
 Tartam:  3 nap
 
@@ -321,7 +321,7 @@ Erőforrásigény:  2 személynap
 
 Felelős: Giricz Vince
 
-Tartam:  3 nap
+Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
 
@@ -391,9 +391,9 @@ Erőforrásigény:  2 személynap
 
 #### 8.3.14. Fuvarok kezelése (UD)
 
-Felelős: Birkás Bertalan
+Felelős: Dudás Tímea
 
-Tartam:  5 nap
+Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
 
@@ -477,19 +477,13 @@ Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
 
-#### 8.3.20. A prototípus kitelepítése éles környezetbe 
+#### 8.3.20. A prototípus kitelepítése éles környezetbe és bemutató elkészítése
 
-Felelős: Birkás Bertalan
+Felelős: Sánta Gábor
 
 Tartam:  1 nap
 
 Erőforrásigény:  1 személynap
-
-```
-A feladatokat a 2.2-es és a 2.3-as pont alapján kell meghatározni és lehető legrészletesebben definiálni.
-Lehetőség szerint az összetett feladatokat bontsuk fel részfeladatokra. 
-A bemutató során a prototípus aktuális állását kell prezentálni.
-```
 
 ### 8.4. Prototípus II. (4. mérföldkő)
 
@@ -577,6 +571,14 @@ Tartam:  1 nap
 
 Erőforrásigény:  0.5 személynap
 
+#### 8.4.11. Bemutató elkészítése
+
+Felelős: Birkás Bertalan
+
+Tartam:  1 nap
+
+Erőforrásigény:  0.5 személynap
+
 ## 9. Részletes időbeosztás
 
 ![image](./MINTA-gantt-diagram.png)
@@ -597,11 +599,14 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 ### 10.1. Részletes erőforrásigény (személynap)
 
 
-| Név          |   M1  |   M2  |   M3 |   M4  | Összesen |
-|--------------|-------|-------|------|-------|----------|
-| `Teszt Elek` | `1.5` | `1.5` | `11` | `5`   | `19`     |
-| `Remek Elek` | `1`   | `4`   | `13` | `3`   | `21`     |
-| `Lev Elek`   | `1`   | `2.5` | `10` | `3.5` | `17`     |
+| Név             |   M1  |   M2  |   M3 |   M4  | Összesen |
+|-----------------|-------|-------|------|-------|----------|
+| Birkás Bertalan |   2   |  1.5  |  7   |  3.5  |  11      |
+| Dudás Tímea     |   1   |   2   |  4   |   2   |  11      |
+| Gál Gergő       |   1   |   2   |  6   |   2   |  11      |
+| Giricz Vince    |   1   |   2   |  6   |   2   |  11      |
+| Kelemen Bálint  |   1   |   1   |  7   |   2   |  11      |
+| Sánta Gábor     |   1   |   1   |  6   |   2   |  11      |
 
 
 ### 10.2. Részletes feladatszámok
