@@ -6,7 +6,7 @@ ___
 
 #### Vállalásaim a mérföldkőben: 
 
- - 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok felvitele
+ - 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok és részfeladatok felvitele
 
     ##### A feladathoz tartozó issue(k):
 
@@ -17,7 +17,8 @@ ___
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/4f7ca0c657ceccc7c9a817bf0e3b447817713229
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/99d8d6828907e69fbbac1ae1348a7b53af6d93d6
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/37f79c862550c166087a8761b8fd1073e035d682
-
+     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/6d6a28f9150dab2b249f304d5f3018f52991055f
+     
 ___
 
 #### Megjegyzések
