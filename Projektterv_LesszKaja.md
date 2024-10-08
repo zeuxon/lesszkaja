@@ -191,7 +191,7 @@ Erőforrásigény:  1 személynap/fő
 ___
 
 
-#### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok felvitele
+#### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok és részfeladatok felvitele
 
 Felelős: Sánta Gábor
 
