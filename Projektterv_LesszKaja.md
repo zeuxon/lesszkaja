@@ -177,6 +177,9 @@ Ennek a feladatnak az a célja, hogy megvalósításhoz szükséges lépéseket,
 
 Részfeladatai a következők:
 
+___
+
+
 #### 8.1.1_1 Szervezeti felépítés adatainak felvitele
 
 Felelős: Kelemen Bálint Péter
@@ -184,6 +187,9 @@ Felelős: Kelemen Bálint Péter
 Tartam:  1 nap
 
 Erőforrásigény:  1 személynap/fő
+
+___
+
 
 #### 8.1.1_2 Munkaállomások és projekthez használt technológiák felvitele, pontok felvitele
 
@@ -193,6 +199,9 @@ Tartma: 1 nap
 
 Erőforrásigény: 1 személynap/fő
 
+___
+
+
 #### 8.1.1_3 Rizikómenedzsment felvitele
 
 Felelős: Gál Gergő Károly
@@ -200,6 +209,9 @@ Felelős: Gál Gergő Károly
 Tartma: 1 nap
 
 Erőforrásigény: 1 személynap/fő
+
+___
+
 
 #### 8.1.1_4 Funkcionális és nem funkcionális követelmények felvitele
 
@@ -209,6 +221,9 @@ Tartma: 1 nap
 
 Erőforrásigény: 1 személynap/fő
 
+___
+
+
 #### 8.1.1_5 Jelentések felvitele
 
 Felelős: Giricz Vince
@@ -217,6 +232,9 @@ Tartma: 1 nap
 
 Erőforrásigény: 1 személynap/fő
 
+___
+
+
 #### 8.1.1_6 Feladatlista felvitele és Gantt diagram kitöltése
 
 Felelős: Birkás Bertalan
@@ -224,6 +242,9 @@ Felelős: Birkás Bertalan
 Tartma: 1 nap
 
 Erőforrásigény: 0.5 személynap/fő
+
+___
+
 
 #### 8.1.2. Bemutató elkészítése
 
@@ -235,9 +256,15 @@ Erőforrásigény:  0.5 személynap
 
 ### 8.2. UML és adatbázis- és képernyőtervek (2. mérföldkő)
 
+___
+
+
 Ennek a feladatnak az a célja, hogy a rendszerarchitektúrát, az adatbázist és webalkalmazás kinézetét megtervezzük.
 
 Részfeladatai a következők:
+
+___
+
 
 #### 8.2.1. Use Case diagram
 
@@ -247,6 +274,9 @@ Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.2.2. Class diagram
 
 Felelős: Giricz Vince
@@ -254,6 +284,9 @@ Felelős: Giricz Vince
 Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.2.3. Sequence diagram
 
@@ -263,6 +296,9 @@ Tartam:  3 nap
 
 Erőforrásigény:  2 személynap
 
+___
+
+
 #### 8.2.4. Egyed-kapcsolat diagram adatbázishoz
 
 Felelős: Gál Gergő Károly
@@ -270,6 +306,9 @@ Felelős: Gál Gergő Károly
 Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.2.5. Package diagram
 
@@ -279,6 +318,9 @@ Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.2.6. Képernyőtervek
 
 Felelős: Birkás Bertalan
@@ -286,6 +328,9 @@ Felelős: Birkás Bertalan
 Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.2.7. Bemutató elkészítése
 
@@ -295,11 +340,16 @@ Tartam:  1 nap
 
 Erőforrásigény:  0.5 személynap
 
+___
+
+
 ### 8.3. Prototípus I. (3. mérföldkő)
 
 Ennek a feladatnak az a célja, hogy egy működő prototípust hozzunk létre, ahol a vállalt funkcionális követelmények nagy része már prezentálható állapotban van. 
 
 Részfeladatai a következők:
+
+___
 
 #### 8.3.1. Felhasználók kezelése (admin, étterem, felhasználó)  (CR)
 
@@ -309,6 +359,20 @@ Tartam:  5 nap
 
 Erőforrásigény:  2 személynap
 
+ - >#### 8.3.1.1 Felhasználók létrehozása funkció
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+ - >#### 8.3.1.2 Felhasználók lekérdezése funkció
+   >
+   > Tartam:  2.5 nap
+   >
+   > Erőforrásigény:  1 személynap
+
+___
+
 #### 8.3.2. Felhasználók kezelése (admin, étterem, felhasználó) (UD)
 
 Felelős: Kelemen Bálint Péter
@@ -316,6 +380,9 @@ Felelős: Kelemen Bálint Péter
 Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.3.3. Felhasználók kezeléséhez szükséges adatok létrehozása az adatbázisban
 
@@ -325,6 +392,9 @@ Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.4. Felhasználói munkamenet megvalósítása több jogosultsági szinttel
 
 Felelős: Sánta Gábor
@@ -332,6 +402,9 @@ Felelős: Sánta Gábor
 Tartam:  6 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.5. Éttermek kezelése (CRUD)
 
@@ -341,6 +414,9 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.6. Éttermek kezeléséhez szükséges adatok létrehozása az adatbázisban
 
 Felelős: Gál Gergő Károly
@@ -348,6 +424,9 @@ Felelős: Gál Gergő Károly
 Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.7. Árukészletek kezelése (C)
 
@@ -357,6 +436,9 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.8. Árukészletek kezelése (R)
 
 Felelős: Dudás Tímea
@@ -364,6 +446,9 @@ Felelős: Dudás Tímea
 Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.9. Árukészletek kezelése (UD)
 
@@ -373,6 +458,9 @@ Tartam:  5 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.10. Ételek részletezése és személyreszabása
 
 Felelős: Gál Gergő Károly
@@ -380,6 +468,9 @@ Felelős: Gál Gergő Károly
 Tartam:  4 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.3.11. Árukészletek kezeléséhez szükséges adatok létrehozása az adatbázisban
 
@@ -389,6 +480,9 @@ Tartam:  5 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.12. Éttermek keresése és szűrése
 
 Felelős: Giricz Vince
@@ -396,6 +490,9 @@ Felelős: Giricz Vince
 Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.13. Fuvarok kezelése (CR)
 
@@ -405,6 +502,9 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.14. Fuvarok kezelése (UD)
 
 Felelős: Dudás Tímea
@@ -412,6 +512,9 @@ Felelős: Dudás Tímea
 Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.15. Fuvarok szükséges adatok létrehozása az adatbázisban
 
@@ -421,6 +524,9 @@ Tartam:  3 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.16. Kosár kezelése (CR)
 
 Felelős: Kelemen Bálint Péter
@@ -428,6 +534,9 @@ Felelős: Kelemen Bálint Péter
 Tartam:  5 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.17. Kosár kezelése (UD)
 
@@ -437,6 +546,9 @@ Tartam:  4 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.18. Fizetés folyamat megvalósítása
 
 Felelős: Giricz Vince
@@ -444,6 +556,9 @@ Felelős: Giricz Vince
 Tartam:  5 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.3.19.1. "Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)" és "Felhasználói munkamenet megvalósítása több jogosultsági szinttel" tesztelése
 
@@ -453,6 +568,9 @@ Tartam:  2 nap
 
 Erőforrásigény:  2 személynap
 
+___
+
+
 #### 8.3.19.2. "Éttermek kezelése (CRUD)" tesztelése
 
 Felelős: Kelemen Bálint Péter
@@ -460,6 +578,9 @@ Felelős: Kelemen Bálint Péter
 Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.19.3. "Éttermek keresése és szűrése" és "Ételek részletezése és személyreszabása" tesztelése
 
@@ -469,6 +590,9 @@ Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.19.4. "Árukészletek kezelése (CRUD)" tesztelése
 
 Felelős: Gál Gergő Károly
@@ -476,6 +600,9 @@ Felelős: Gál Gergő Károly
 Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.19.5. "Kosár kezelése (CRUD)" tesztelése
 
@@ -485,6 +612,9 @@ Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.3.19.6. "Fizetés folyamat megvalósítása" tesztelése
 
 Felelős: Sánta Gábor
@@ -492,6 +622,9 @@ Felelős: Sánta Gábor
 Tartam:  2 nap
 
 Erőforrásigény:  1 személynap
+
+___
+
 
 #### 8.3.20. A prototípus kitelepítése éles környezetbe és bemutató elkészítése
 
@@ -501,11 +634,17 @@ Tartam:  1 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 ### 8.4. Prototípus II. (4. mérföldkő)
 
 Ennek a feladatnak az a célja, hogy az előző mérföldkő hiányzó funkcióit pótoljuk, illetve a hibásan működő funkciókat és az esetlegesen felmerülő új funkciókat megvalósítsuk. Továbbá az alkalmazás alapos tesztelése is a mérföldkőben történik az előző mérföldkőben összeállított tesztesetek alapján.
 
 Részfeladatai a következők:
+
+___
+
 
 #### 8.4.1. Javított minőségű prototípus új funkciókkal
 
@@ -515,6 +654,9 @@ Tartam:  5 nap
 
 Erőforrásigény:  2.5 személynap
 
+___
+
+
 #### 8.4.2. Javított minőségű prototípus javított funkciókkal
 
 Felelős: Kelemen Bálint Péter
@@ -522,6 +664,9 @@ Felelős: Kelemen Bálint Péter
 Tartam:  5 nap
 
 Erőforrásigény:  4 személynap
+
+___
+
 
 #### 8.4.3. Javított minőségű prototípus a korábbi hiányzó funkciókkal
 
@@ -531,6 +676,9 @@ Tartam:  5 nap
 
 Erőforrásigény:  3 személynap
 
+___
+
+
 #### 8.4.4. "Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)" és "Felhasználói munkamenet megvalósítása több jogosultsági szinttel " tesztelése (TR)
 
 Felelős: Sánta Gábor
@@ -538,6 +686,9 @@ Felelős: Sánta Gábor
 Tartam:  1 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.4.5. "Éttermek kezelése (CRUD)" tesztelése (TR)
 
@@ -547,6 +698,9 @@ Tartam:  1 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.4.6. "Éttermek keresése és szűrése" és "Ételek részletezése és személyreszabása" tesztelése (TR)
 
 Felelős: Gál Gergő Károly
@@ -554,6 +708,9 @@ Felelős: Gál Gergő Károly
 Tartam:  1 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.4.7. "Árukészletek kezelése (CRUD)" tesztelése (TR)
 
@@ -563,6 +720,9 @@ Tartam:  1 nap
 
 Erőforrásigény:  2 személynap
 
+___
+
+
 #### 8.4.8. "Kosár kezelése (CRUD)" tesztelése (TR)
 
 Felelős: Giricz Vince
@@ -570,6 +730,9 @@ Felelős: Giricz Vince
 Tartam:  1 nap
 
 Erőforrásigény:  2 személynap
+
+___
+
 
 #### 8.4.9. "Fizetés folyamat megvalósítása" tesztelése (TR)
 
@@ -579,6 +742,9 @@ Tartam:  1 nap
 
 Erőforrásigény:  1 személynap
 
+___
+
+
 #### 8.4.10. A prototípus kitelepítésének frissítése
 
 Felelős: Birkás Bertalan
@@ -586,6 +752,9 @@ Felelős: Birkás Bertalan
 Tartam:  1 nap
 
 Erőforrásigény:  0.5 személynap
+
+___
+
 
 #### 8.4.11. Bemutató elkészítése
 
