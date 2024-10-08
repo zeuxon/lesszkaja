@@ -267,7 +267,7 @@ Felelős: Sánta Gábor
 
 Tartam:  3 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 ___
 
@@ -311,7 +311,7 @@ Felelős: Kelemen Bálint Péter
 
 Tartam:  3 nap
 
-Erőforrásigény:  1 személynap
+Erőforrásigény:  2 személynap
 
 ___
 
@@ -815,7 +815,7 @@ Felelős: Kelemen Bálint Péter
 
 Tartam:  5 nap
 
-Erőforrásigény:  4 személynap
+Erőforrásigény:  3 személynap
 
 - >#### 8.4.2.1 Prototípus funkciók áttekintése
    >
@@ -894,7 +894,7 @@ Felelős: Sánta Gábor
 
 Tartam:  1 nap
 
-Erőforrásigény:  2 személynap
+Erőforrásigény:  1 személynap
 
 ___
 
@@ -963,8 +963,8 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 | Dudás Tímea          |   1   |   2   |  5   |   3   |  11      |
 | Gál Gergő Károly     |   1   |   2   |  5   |   3   |  11      |
 | Giricz Vince         |   1   |   2   |  5   |   3   |  11      |
-| Kelemen Bálint Péter |   1   |   1   |  5   |   4   |  11      |
-| Sánta Gábor          |   1   |   1   |  5   |   4   |  11      |
+| Kelemen Bálint Péter |   1   |   2   |  5   |   3   |  11      |
+| Sánta Gábor          |   1   |   2   |  5   |   3   |  11      |
 
 
 ### 10.2. Részletes feladatszámok
@@ -987,7 +987,7 @@ minden módosítható oszlopában legalább 1 pontnak szerepelni kell.
 | Dudás Tímea                         | 6       |   13     |   32     |    19    | 70        |
 | Gál Gergő                           | 6       |   13     |   32     |    19    | 70        |
 | Giricz Vince                        | 6       |   13     |   32     |    19    | 70        |
-| Kelemen Bálint                      | 6       |    6     |   32     |    26    | 70        |
-| Sánta Gábor                         | 6       |    6     |   32     |    26    | 70        |
+| Kelemen Bálint                      | 6       |   13     |   32     |    19    | 70        |
+| Sánta Gábor                         | 6       |   13     |   32     |    19    | 70        |
 
 Szeged, 2024-10-8.
