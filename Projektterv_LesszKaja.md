@@ -456,7 +456,7 @@ Erőforrásigény:  1 személynap
    >
    > Erőforrásigény:  0.25 személynap
 
-  - >#### 8.3.5.4 Éttermek törlése funkció
+ - >#### 8.3.5.4 Éttermek törlése funkció
    >
    > Tartam:  1 nap
    >
