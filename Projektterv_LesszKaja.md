@@ -31,6 +31,7 @@ A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosa
     - Admin: Teljes hozzáférés az összes funkcióhoz és adatbázishoz.
     - Éttermi felhasználók: Korlátozott hozzáférés csak a saját éttermükhöz és menüjükhöz, valamint rendeléskezeléshez.
     - Vendégek: Csak saját profiljuk, rendeléseik és kosaruk elérésére jogosultak.
+    - Futárok: Megtekinthetik az elérhető rendeléseket és felvehetik, majd teljesíthetik azokat, illetve a vendég felhasználók jogosultságaival is rendelkeznek.
  
  - Éttermek kezelése (CRUD):
     - Az adminok és éttermi felhasználók létrehozhatnak, megtekinthetnek, módosíthatnak és törölhetnek éttermi adatokat.
