@@ -8,7 +8,6 @@ Az átláthatóság érdekében megfelelő felülettel kell rendelkezni, mind a 
 Projektünk célja az eddig felvázolt optimális ételkiszállító webalkalmazás megalkotása az ebéd/ételszállító cégeknek, mely megvalósítja ezeket, illetve a bonyolult régimódi munkaelosztásokat és rendeléseket leváltja.
 
 
-
 ## 2. A projekt bemutatása
 
 Ez a projektterv a Lesszkaja projektet mutatja be, amely 2024-10-05-től 2024-12-04-ig tart, azaz összesen 60 napon keresztül fog futni. A projekten hat fejlesztő fog dolgozni, az elvégzett feladatokat pedig négy alkalommal fogjuk prezentálni a megrendelőnek, annak érdekében, hogy biztosítsuk a projekt folyamatos előrehaladását.
@@ -16,7 +15,8 @@ Ez a projektterv a Lesszkaja projektet mutatja be, amely 2024-10-05-től 2024-12
 
 ### 2.1. Rendszerspecifikáció
 
-A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosainak biztosítania kell egy felületet ahol módosítani tudják éttermük adatait, illetve az általuk forgalmazott ételeket, ezen felül nyomon követhetik és feltölhetik árukészletüket. A futároknak biztosítania kell, hogy a megrendeléseket meg tudják tekinteni és azokat el tudják fogadni. A különböző felhasználóknak biztosítani kell az éttemekre való szűrést, a rendelések felvételét, bizonyos szinten az éttermek által beállított opciókkal ezen rendelések tételeinek személyreszabását, saját kosaruk kezelését, azok kifizetését, illetve rendeléseik állapotának megtekintését. Emellett a vendég felhasználók kosarát is tudnia kell kezelni. Az admin felhasználóknak egy olyan felületet kell biztosítani, ahol a megvalósított elemeket módosíthatják.
+A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosainak biztosítania kell egy felületet ahol módosítani tudják éttermük adatait, illetve az általuk forgalmazott ételeket, ezen felül nyomon követhetik és feltölhetik árukészletüket. A futároknak biztosítania kell, hogy a megrendeléseket meg tudják tekinteni és azokat el tudják fogadni. A különböző felhasználóknak biztosítani kell az éttermekre való szűrést, a rendelések felvételét, bizonyos szinten az éttermek által beállított opciókkal ezen rendelések tételeinek személyreszabását, saját kosaruk kezelését, azok kifizetését, illetve rendeléseik állapotának megtekintését. Emellett a vendég felhasználók kosarát is tudnia kell kezelni. Az admin felhasználóknak egy olyan felületet kell biztosítani, ahol a megvalósított elemeket módosíthatják.
+
 
 ### 2.2. Funkcionális követelmények
 
@@ -69,6 +69,7 @@ A projekt a következő emberekből áll:
 | Kelemen Bálint Péter | Projekt tag      | h365052@stud-u.szeged.hu    |
 | Sánta Gábor          | Projekt tag      | h378228@stud-u.szeged.hu    |
 
+
 ## 5. A munka feltételei
 
 ### 5.1. Munkakörnyezet
@@ -81,11 +82,12 @@ A projekt a következő munkaállomásokat fogja használni a munka során:
 - Asztali számítógép (CPU: Ryzen 5 5600, RAM: 32GB, GPU: Radeon RX 6650XT)
 - Dell laptop (CPU: AMD Ryzen 5 5600H with Radeon Graphics, RAM: 16GB)
 - Asztali számítógép (CPU: Intel Core i5-7200U 2.50GHz, RAM: 8GB, GPU: Intel HD Graphics 620)
+- Dell laptop (CPU: 11th Gen Intel Core i7-11800H 2.3GHz, Ram: 16Gb, GPU: NVIDIA GeForce RTX 3050)
 
 A projekt a következő technológiákat/szoftvereket fogja használni a munka során: 
 
 - NodeJS backend technológia
-- Visual Studio Code fejlesztési környezet
+- Visual Studio Code, Jetbrains IDE fejlesztési környezetek
 - Tailwind CSS keretrendszer
 - Figma tervezői platform
 - MySQL adatbázis-kezelő
