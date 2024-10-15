@@ -24,6 +24,7 @@ A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosa
     - Admin felhasználó: Az admin jogosult új felhasználók (pl. éttermek, vendégek) létrehozására, meglévő felhasználók adatainak módosítására, inaktiválására vagy törlésére.
     - Éttermek: Az éttermek kezelhetik saját profiljukat, menüjüket.
     - Felhasználók: A vendégek regisztrálhatnak, bejelentkezhetnek, és szerkeszthetik saját profiljukat (személyes adatok, szállítási címek).
+    - Futár: A futárok felvehetnek rendeléseket, megtekinthetik a rendeléseik címét, összegét, és megerősíthetik azok átvételét.
  
  - Felhasználói munkamenet megvalósítása több jogosultsági szinttel:
     - A különböző típusú felhasználók (adminok, éttermek, vendégek) különböző hozzáférési szintekkel rendelkeznek, és a rendszer figyeli, hogy melyik felhasználó milyen szerepkörben van bejelentkezve.
