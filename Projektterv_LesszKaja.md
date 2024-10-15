@@ -37,14 +37,46 @@ ami a projekt keretében kerül megvalósításra. Mik a megrendelő és a felha
 
 ### 2.2. Funkcionális követelmények
 
- - Felhasználók kezelése (admin, étterem, felhasználó) (CRUD)
- - Felhasználói munkamenet megvalósítása több jogosultsági szinttel 
- - Éttermek kezelése (CRUD)
- - Éttermek keresése és szűrése
- - Ételek részletezése és személyreszabása
- - Árukészletek kezelése (CRUD)
+ - Felhasználók kezelése (admin, étterem, felhasználó) (CRUD):
+    - CRUD (Create, Read, Update, Delete) funkciókat jelent, amelyekkel a felhasználók adatainak kezelése történik.
+    - Admin felhasználó: Az admin jogosult új felhasználók (pl. éttermek, vendégek) létrehozására, meglévő felhasználók adatainak módosítására, inaktiválására vagy törlésére.
+    - Éttermek: Az éttermek kezelhetik saját profiljukat, menüjüket.
+    - Felhasználók: A vendégek regisztrálhatnak, bejelentkezhetnek, és szerkeszthetik saját profiljukat (személyes adatok, szállítási címek).
+ 
+ - Felhasználói munkamenet megvalósítása több jogosultsági szinttel:
+    - A különböző típusú felhasználók (adminok, éttermek, vendégek) különböző hozzáférési szintekkel rendelkeznek, és a rendszer figyeli, hogy melyik felhasználó milyen szerepkörben van bejelentkezve.
+    - Admin: Teljes hozzáférés az összes funkcióhoz és adatbázishoz.
+    - Éttermi felhasználók: Korlátozott hozzáférés csak a saját éttermükhöz és menüjükhöz, valamint rendeléskezeléshez.
+    - Vendégek: Csak saját profiljuk, rendeléseik és kosaruk elérésére jogosultak.
+ 
+ - Éttermek kezelése (CRUD):
+    - Az adminok és éttermi felhasználók létrehozhatnak, megtekinthetnek, módosíthatnak és törölhetnek éttermi adatokat.
+    - Létrehozás: Új éttermek felvétele a rendszerbe.
+    - Lekérdezés: Éttermek adatainak megtekintése (pl. neve, címe, nyitvatartási idő, menüje).
+    - Frissítés: Éttermek adatainak módosítása (pl. menü változtatása, árak frissítése).
+    - Törlés: Nem aktív vagy bezárt éttermek eltávolítása a rendszerből.
+ 
+ - Ételek részletezése és személyreszabása:
+    - A felhasználók megtekinthetik az egyes ételek részletes adatait (pl. hozzávalók, tápanyagértékek, allergének).
+    - Személyre szabás: A vendégek módosíthatják a rendeléseiket (pl. extra feltétek hozzáadása, összetevők eltávolítása).
+
+ - Árukészletek kezelése (CRUD): Az éttermek követhetik és frissíthetik az árukészletüket.
+    - Létrehozás: Új termékek hozzáadása az árukészlethez.
+    - Lekérdezés: A jelenleg elérhető árukészlet lekérdezés.
+    - Frissítés: Az árukészlet frissítése, ha új termékek érkeznek vagy bizonyos áruk kifogynak.
+    - Törlés: Termékek eltávolítása a listából.
+
  - Kosár kezelése (CRUD)
- - Fizetés folyamat megvalósítása
+    - Termékek hozzáadása a kosárhoz
+    - Kosárban lévő termék módosítása (pl. pizza feltétek megváltoztatása, mennyiség módosítása)
+    - Kosárban lévő termékek megtekintése
+    - Termékek törlése a kosárból
+
+ - Fizetési folyamat megvalósítása:
+    - Kizárólag szimuláció!
+    - Fizetési módok kiválasztása (pl. bankkártya, PayPal).
+    - Tranzakció feldolgozása: Az árak összesítése.
+    - Visszaigazolás: A sikeres fizetés után a felhasználó kap egy visszaigazolást a rendelésről és fizetésről.
 
 
 ### 2.3. Nem funkcionális követelmények
