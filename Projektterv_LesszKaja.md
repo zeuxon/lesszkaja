@@ -21,7 +21,6 @@ A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosa
 ### 2.2. Funkcionális követelmények
 
  - Felhasználók kezelése (admin, étterem, felhasználó) (CRUD):
-    - CRUD (Create, Read, Update, Delete) funkciókat jelent, amelyekkel a felhasználók adatainak kezelése történik.
     - Admin felhasználó: Az admin jogosult új felhasználók (pl. éttermek, vendégek) létrehozására, meglévő felhasználók adatainak módosítására, inaktiválására vagy törlésére.
     - Éttermek: Az éttermek kezelhetik saját profiljukat, menüjüket.
     - Felhasználók: A vendégek regisztrálhatnak, bejelentkezhetnek, és szerkeszthetik saját profiljukat (személyes adatok, szállítási címek).
