@@ -153,12 +153,6 @@ A csapat a megbeszélt időpontokban ülésezik, amelyen a felmerült problémá
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
  - Érintett témák: Ismerkedés, projekttéma kiválasztása, feladatok kiosztása
 
-1. megbeszélés:
- - Időpont: 2024.10.07.
- - Mód: online
- - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
- - Érintett témák: Ismerkedés, projekttéma kiválasztása, feladatok kiosztása
-
 2. megbeszélés:
  - Időpont: 2024.10.15.
  - Mód: online - Discord
