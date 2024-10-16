@@ -109,7 +109,7 @@ A projekt a következő emberekből áll:
 
 A projekt a következő munkaállomásokat fogja használni a munka során:
 
-- Munkaállomások: 6db Windows 10-es operációs rendszer
+- Munkaállomások: 5db Windows 10-es és 1db macOs operációs rendszer
 - MacBook Pro laptop (CPU: Intel Core i5 1.4GHz, RAM: 8GB, GPU: Intel Iris Plus Graphics 645 1536 MB)
 - Asztali számítógép (CPU: AMD Ryzen 7 2700X, RAM: 32GB RAM, GPU: RTX 3070)
 - Asztali számítógép (CPU: Ryzen 5 5600, RAM: 32GB, GPU: Radeon RX 6650XT)
@@ -132,10 +132,10 @@ A projekt a következő technológiákat/szoftvereket fogja használni a munka s
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|
 | Technikai problémák                         | Az eszközök vagy szoftverek meghibásodhatnak (pl. laptopok, internetkapcsolat, programok összeomlása), ami leállíthatja a munkát.                                                          | közepes      | közepes|
 | Csapattagok közötti konfliktusok            | Különböző személyiségek vagy eltérő munkastílusok összeütközése belső feszültségeket okozhat.                                                                                              | kicsi        | közepes|
-| Előre nem látható egyetemi események        | Az egyetem vagy az oktatási környezetben történt váratlan változások (pl. rendezvények, építési munkálatok) megakadályozhatják a csoportot a projektmunka végrehajtásában.                 | közepes      | erős   |
+| Több projekt és ZH egyidejű kezelése        | A csoporttagok egyszerre több egyetemi projektet és ZH-t kezelnek, ami csökkentheti a projektben nyújtott teljesítményüket.                                                                | közepes      | erős   |
 | Feladatok nem megfelelő priorizálása        | A csoporttagok nem megfelelően priorizálják a feladatokat, emiatt fontos részek elhanyagolódhatnak, míg kevésbé lényegesek előtérbe kerülhetnek.                                           | kicsi        | közepes|
 | Váratlan baleset                            | Egy csoporttag balesetet szenvedhet (pl. közlekedési baleset, sportbaleset), ami miatt rövid vagy hosszabb ideig nem tud részt venni a munkában.                                           | kicsi        | erős   |
-| Influenza vagy megfázás járvány             | Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van. Megoldás: a feladatok átcsoportosítása.         | közepes      | közepes|
+| Influenza vagy megfázás                     | Súlyosságtól függően hátráltatja vagy bizonyos esetekben teljes mértékben korlátozza a munkavégzőt, így az egész projektre kihatással van.                                                 | közepes      | közepes|
 
 
 ## 6. Jelentések
