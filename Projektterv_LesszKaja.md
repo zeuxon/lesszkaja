@@ -153,6 +153,18 @@ A csapat a megbeszélt időpontokban ülésezik, amelyen a felmerült problémá
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
  - Érintett témák: Ismerkedés, projekttéma kiválasztása, feladatok kiosztása
 
+1. megbeszélés:
+ - Időpont: 2024.10.07.
+ - Mód: online
+ - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
+ - Érintett témák: Ismerkedés, projekttéma kiválasztása, feladatok kiosztása
+
+2. megbeszélés:
+ - Időpont: 2024.10.15.
+ - Mód: online - Discord
+ - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
+ - Érintett témák: feladatok kiosztása és a továbbhaladásukkal kapcsolatos megbeszélés
+
 ### 6.3. Minőségbiztosítás
 
 Az elkészült terveket a terveken nem dolgozó csapattársak közül átnézik, hogy megfelel-e a specifikációnak és az egyes diagramtípusok összhangban vannak-e egymással. A meglévő rendszerünk helyes működését a prototípusok bemutatása előtt a tesztelési dokumentumban leírtak végrehajtása alapján ellenőrizzük és összevetjük a specifikációval, hogy az elvárt eredményt kapjuk-e. További tesztelési lehetőségek: unit tesztek írása az egyes modulokhoz vagy a kód közös átnézése (code review) egy, a vizsgált modul programozásában nem résztvevő csapattaggal. Szoftverünk minőségét a végső leadás előtt javítani kell a rendszerünkre lefuttatott kódelemzés során kapott metrikaértékek és szabálysértések figyelembevételével.
