@@ -76,7 +76,7 @@ A rendszernek tudnia kell kezelnie a különböző éttermeket, azok tulajdonosa
 
 Az erőforrásigényünk összesen 66 személynap, átlagosan 11 személynap/fő.
 
-A rendelkezésünkre áll összesen 6 * 70 = 210 pont.
+A rendelkezésünkre áll összesen 6 * 70 = 420 pont.
 
 
 ## 4. Szervezeti felépítés és felelősségmegosztás
