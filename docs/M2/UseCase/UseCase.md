@@ -24,3 +24,4 @@ Látogató (nem bejelentkezett)
 - Bejelentkezés
 
 ## Diagram
+![alt text](usecase.drawio.png)
