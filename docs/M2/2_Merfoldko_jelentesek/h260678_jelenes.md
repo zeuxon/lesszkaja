@@ -1,6 +1,6 @@
 ### Összefoglaló az 2. mérföldkőben végzett munkáról
 
-### Projekt tag: Kelemen Bálint Péter
+### Projekt tag: Gál Gergő Károly h260678
 
 ___
 
