@@ -21,3 +21,5 @@ ___
 ___
 
 #### Megjegyzések
+
+- nem volt semmi elakadás a mérföldkő teljesítésénél
