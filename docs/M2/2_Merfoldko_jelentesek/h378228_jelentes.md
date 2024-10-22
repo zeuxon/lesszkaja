@@ -1,4 +1,4 @@
-### Összefoglaló az 1. mérföldkőben végzett munkáról
+### Összefoglaló az 2. mérföldkőben végzett munkáról
 
 ### Projekt tag: Sánta Gábor
 
