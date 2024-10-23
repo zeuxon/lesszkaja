@@ -1,0 +1,302 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0" modified="2024-10-23T11:32:02.009Z" version="24.2.1" etag="OXx8EBF2PDSzk-uATG1m" type="device">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="1255" dy="912" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u_cEk-GZpv3y1ext58gh-7" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" parent="1" vertex="1">
+          <mxGeometry x="150" y="100" width="20" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-8" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="u_cEk-GZpv3y1ext58gh-7" vertex="1">
+          <mxGeometry x="5" y="70" width="10" height="750" as="geometry" />
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-9" value="Admin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="130" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;exitX=1;exitY=0;exitDx=0;exitDy=5;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" parent="1" source="u_cEk-GZpv3y1ext58gh-8" target="yNyi7lkTtMu4-UbpW5rM-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-15" value="Új felhasználó hozzáadása" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="u_cEk-GZpv3y1ext58gh-13" vertex="1" connectable="0">
+          <mxGeometry x="-0.2988" y="-2" relative="1" as="geometry">
+            <mxPoint x="21" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;" parent="1" source="yNyi7lkTtMu4-UbpW5rM-1" target="u_cEk-GZpv3y1ext58gh-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="260" />
+              <mxPoint x="170" y="260" />
+            </Array>
+            <mxPoint x="240" y="235" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-59" value="Sikeres hozzáadás" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="u_cEk-GZpv3y1ext58gh-27" vertex="1" connectable="0">
+          <mxGeometry x="0.1304" y="1" relative="1" as="geometry">
+            <mxPoint x="14" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" parent="1" source="u_cEk-GZpv3y1ext58gh-8" target="u_cEk-GZpv3y1ext58gh-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="289.49" as="sourcePoint" />
+            <mxPoint x="540" y="284.49" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="295" />
+              <mxPoint x="190" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-33" value="Felhasználó inaktiválása" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="u_cEk-GZpv3y1ext58gh-32" vertex="1" connectable="0">
+          <mxGeometry x="-0.2988" y="-2" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;" parent="1" source="yNyi7lkTtMu4-UbpW5rM-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="165.5" y="400" as="targetPoint" />
+            <mxPoint x="580.0000000000001" y="400" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="323" y="400" />
+              <mxPoint x="323" y="401" />
+              <mxPoint x="166" y="401" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-61" value="Sikeres felfüggesztés" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="u_cEk-GZpv3y1ext58gh-38" vertex="1" connectable="0">
+          <mxGeometry x="0.27" y="3" relative="1" as="geometry">
+            <mxPoint x="-30" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-39" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="710" y="100" width="130" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-26" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry x="60" y="440" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-28" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=5;exitPerimeter=0;" edge="1" parent="u_cEk-GZpv3y1ext58gh-39" source="yNyi7lkTtMu4-UbpW5rM-26" target="yNyi7lkTtMu4-UbpW5rM-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-180" y="500" as="sourcePoint" />
+            <mxPoint x="-130" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-41" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry x="60" y="580" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-49" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry x="60" y="730" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-1" value="System" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="480" y="100" width="130" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-2" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry x="60" y="330" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-5" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry x="60" y="70" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="u_cEk-GZpv3y1ext58gh-29" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="yNyi7lkTtMu4-UbpW5rM-1" vertex="1">
+          <mxGeometry x="60" y="190" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-36" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry x="60" y="550" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-43" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry x="60" y="700" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-5" target="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="350" as="sourcePoint" />
+            <mxPoint x="570" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-8" value="Tárolja az új felhasználót" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="170" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;entryX=1;entryY=1;entryDx=0;entryDy=-5;entryPerimeter=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-39" target="yNyi7lkTtMu4-UbpW5rM-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="235" as="targetPoint" />
+            <mxPoint x="760.97" y="235.24" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="760" y="235" />
+              <mxPoint x="760" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-11" value="Visszaigazolás" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-10">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="85" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-29" target="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="320" as="sourcePoint" />
+            <mxPoint x="749.5000000000001" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="710" y="335" />
+              <mxPoint x="710" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-13" value="Felhasználó státuszának frissítése" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-12">
+          <mxGeometry x="-0.2988" y="-2" relative="1" as="geometry">
+            <mxPoint x="31" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;" edge="1" parent="1" target="u_cEk-GZpv3y1ext58gh-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="552.5" y="364.55" as="targetPoint" />
+            <mxPoint x="777.5" y="364.55" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="778" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-16" value="Visszaigazolás" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-15">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="85" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-17" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-8" target="yNyi7lkTtMu4-UbpW5rM-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="380" as="sourcePoint" />
+            <mxPoint x="430" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-18" value="Étterem hozzáadása" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="410" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.571;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-2" target="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="380" as="sourcePoint" />
+            <mxPoint x="430" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-20" value="Új étterem adatainak mentése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="440" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;entryX=1;entryY=1;entryDx=0;entryDy=-5;entryPerimeter=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-39" target="yNyi7lkTtMu4-UbpW5rM-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="490" as="targetPoint" />
+            <mxPoint x="787.5" y="499.55" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="730" y="495" />
+              <mxPoint x="730" y="495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-22" value="Visszaigazolás" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-21">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="85" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="510" as="targetPoint" />
+            <mxPoint x="550" y="500" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="323" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-24" value="Sikeres hozzáadás" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-23">
+          <mxGeometry x="0.27" y="3" relative="1" as="geometry">
+            <mxPoint x="70" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-25" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-8" target="yNyi7lkTtMu4-UbpW5rM-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="600" as="sourcePoint" />
+            <mxPoint x="410" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-27" value="Étterem adatainak lekérése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="520" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-29" value="Adat lekérés" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="560" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=-5;exitPerimeter=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-26" target="u_cEk-GZpv3y1ext58gh-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="605" as="targetPoint" />
+            <mxPoint x="765" y="600" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="250" y="605" />
+              <mxPoint x="250" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-32" value="&lt;div&gt;Adatok megjelenítése&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-31">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="46" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-33" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="650" as="sourcePoint" />
+            <mxPoint x="545" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-35" value="Étterem törlése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="620" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-37" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-36" target="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="690" as="sourcePoint" />
+            <mxPoint x="480" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-38" value="Étterem adatainak törlése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="660" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=-5;exitPerimeter=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-41" target="u_cEk-GZpv3y1ext58gh-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="78" y="740" as="targetPoint" />
+            <mxPoint x="773" y="740" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="770" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-40" value="Visszajelzés a törlésről" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-39">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="128" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-42" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.65;exitY=0.779;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="u_cEk-GZpv3y1ext58gh-7" target="yNyi7lkTtMu4-UbpW5rM-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="680" as="sourcePoint" />
+            <mxPoint x="450" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-44" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="yNyi7lkTtMu4-UbpW5rM-43" target="u_cEk-GZpv3y1ext58gh-39">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="680" as="sourcePoint" />
+            <mxPoint x="580" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=0;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=-5;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="895" as="targetPoint" />
+            <mxPoint x="775" y="890" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="775" y="895" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-46" value="Visszajelzés a törlésről" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="yNyi7lkTtMu4-UbpW5rM-45">
+          <mxGeometry x="0.7317" y="-1" relative="1" as="geometry">
+            <mxPoint x="128" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-47" value="Rendelés törlése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="800" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yNyi7lkTtMu4-UbpW5rM-50" value="Rendelés törlése" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="770" width="130" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
