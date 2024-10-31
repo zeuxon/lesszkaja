@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
+
+  public openRegister(): void {
+    console.log("asd");
+    this.router.navigateByUrl("register");
+  }
 
 }
