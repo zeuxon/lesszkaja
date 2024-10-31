@@ -1,3 +1,10 @@
+nav {
+    background: var(--red);
+    display: flex;
+}
+
 h1 {
-    color: yellow;
+    color: var(--light);
+    font-family: 'Gluten', sans-serif;
+    
 }
