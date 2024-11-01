@@ -7,7 +7,7 @@ function createRouter(db) {
   router.post('/felhasznalo', (req, res, next) => {
     db.query(
       'INSERT INTO felhasznalo (felhasznalonev, emailcim, jelszo, telefonszam, lakcim, admine) VALUES (?,?,?,?,?,?)',
-      [req.body.username, req.body.email, req.body.psw, new Date(req.body.date)],
+      [req.body.username, req.body.email, req.body.psw, req.body.tel, req.body.address, req.body.admin],
       (error) => {
         if (error) {
           console.error(error);
