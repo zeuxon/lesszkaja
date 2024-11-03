@@ -67,13 +67,12 @@ app.post('/registerrestaurant', (req, res) => {
   });
 });
 
-
 //login user
 app.post('/login', (req, res) => {
-  const {felhasznalonev, password} = req.body;
+  const {emailcim, jelszo} = req.body;
 
   const query = 'SELECT id, felhasznalonev, emailcim, jelszo, telefonszam, lakcim, admine FROM felhasznalo WHERE emailcim=?';
-  const values = [felhasznalonev, password];
+  const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
     if (error) {
@@ -85,10 +84,10 @@ app.post('/login', (req, res) => {
 });
 //login courier
 app.post('/logincourier', (req, res) => {
-  const {felhasznalonev, password} = req.body;
+  const {emailcim, jelszo} = req.body;
 
   const query = 'SELECT id, nev, emailcim, jelszo, telefonszam FROM futar WHERE emailcim=?';
-  const values = [felhasznalonev, password];
+  const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
     if (error) {
@@ -100,10 +99,10 @@ app.post('/logincourier', (req, res) => {
 });
 //login restaurant
 app.post('/loginrestaurant', (req, res) => {
-  const {felhasznalonev, password} = req.body;
+  const {emailcim, jelszo} = req.body;
 
   const query = 'SELECT id, nev, emailcim, jelszo, telefonszam, cim FROM etterem WHERE emailcim=?';
-  const values = [felhasznalonev, password];
+  const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
     if (error) {
