@@ -35,7 +35,22 @@ app.post('/register', (req, res) => {
     res.status(201).json({ message: 'User registered successfully'});
   });
 });
+/*
+app.get('/login', (req, res) => {
+  const { telefonszam, emailcim, felhasznalonev, jelszo, lakcim, admine } = req.body;
 
+  const query = 'SELECT jelszo, emailcim, telefonszam, lakcim, admine, felhasznalonev FROM felhasznalo WHERE felhasznalonev=?';
+  const values = [telefonszam, emailcim, felhasznalonev, jelszo, lakcim, admine];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+*/
 const port = process.env.PORT || 3000; // Change to 3000
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule} from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { hashSync } from "bcrypt-ts";
 
 @Component({
   selector: 'app-register',
@@ -11,6 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
+
 export class RegisterComponent {
 
     constructor(private http: HttpClient) {}
@@ -19,13 +20,12 @@ export class RegisterComponent {
       const userData = {
         felhasznalonev: form.value.username,
         emailcim: form.value.email,
-        jelszo: form.value.password,
+        jelszo: hashSync(form.value.password), //Jelszo hashelese
         telefonszam: form.value.tel,
         lakcim: form.value.address,
         admine: false
       };
 
-    
     this.http.post('http://localhost:3000/register', userData)
     .subscribe(response => {
       console.log(response);
