@@ -21,6 +21,7 @@ const app = express()
   .use(bodyParser.json());
 
 // Registration endpoint
+//register user or admin
 app.post('/register', (req, res) => {
   const { telefonszam, emailcim, felhasznalonev, jelszo, lakcim, admine } = req.body;
 
@@ -35,12 +36,44 @@ app.post('/register', (req, res) => {
     res.status(201).json({ message: 'User registered successfully'});
   });
 });
-/*
-app.get('/login', (req, res) => {
-  const { telefonszam, emailcim, felhasznalonev, jelszo, lakcim, admine } = req.body;
+//register courier
+app.post('/registercourier', (req, res) => {
+  const { nev, emailcim, jelszo, telefonszam } = req.body;
 
-  const query = 'SELECT jelszo, emailcim, telefonszam, lakcim, admine, felhasznalonev FROM felhasznalo WHERE felhasznalonev=?';
-  const values = [telefonszam, emailcim, felhasznalonev, jelszo, lakcim, admine];
+  const query = 'INSERT INTO futar (nev, emailcim, jelszo, telefonszam) VALUES (?, ?, ?, ?)';
+  const values = [nev, emailcim, jelszo, telefonszam];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(201).json({ message: 'Courier registered successfully'});
+  });
+});
+//register restaurant
+app.post('/registerrestaurant', (req, res) => {
+  const { nev, emailcim, jelszo, telefonszam, cim } = req.body;
+
+  const query = 'INSERT INTO etterem (nev, emailcim, jelszo, telefonszam, cim) VALUES (?, ?, ?, ?, ?)';
+  const values = [nev, emailcim, jelszo, telefonszam, cim];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(201).json({ message: 'User registered successfully'});
+  });
+});
+
+
+//login user
+app.post('/login', (req, res) => {
+  const {felhasznalonev, password} = req.body;
+
+  const query = 'SELECT id, felhasznalonev, emailcim, jelszo, telefonszam, lakcim, admine FROM felhasznalo WHERE emailcim=?';
+  const values = [felhasznalonev, password];
 
   connection.query(query, values, (error, results) => {
     if (error) {
@@ -50,7 +83,38 @@ app.get('/login', (req, res) => {
     res.status(200).json({results});
   });
 });
-*/
+//login courier
+app.post('/logincourier', (req, res) => {
+  const {felhasznalonev, password} = req.body;
+
+  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam FROM futar WHERE emailcim=?';
+  const values = [felhasznalonev, password];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+//login restaurant
+app.post('/loginrestaurant', (req, res) => {
+  const {felhasznalonev, password} = req.body;
+
+  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam, cim FROM etterem WHERE emailcim=?';
+  const values = [felhasznalonev, password];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+
+
 const port = process.env.PORT || 3000; // Change to 3000
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);

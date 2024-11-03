@@ -9,10 +9,10 @@ export const routes: Routes = [
         path: "register",
         loadComponent: () => import("./users/visitor/register/register.component").then(c => c.RegisterComponent)
       },
-      /*{
+      {
         path: "login",
         loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
-      },*/
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];
