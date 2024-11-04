@@ -5,6 +5,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { compareSync } from "bcrypt-ts";
 import { NavbarComponent } from '../../../navbar/navbar.component';
+import { NavbarService } from '../../../services/navbar.service';
 
 
 @Component({
@@ -15,8 +16,9 @@ import { NavbarComponent } from '../../../navbar/navbar.component';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  constructor(private http: HttpClient, private router: Router) {}
-  navbar = new NavbarComponent(this.router);
+  constructor(private http: HttpClient, private router: Router, private navbarService: NavbarService) {}
+  
+  // navbar = new NavbarComponent(this.router);
 
   public userData: any;
   public userLoginData = {
@@ -50,7 +52,8 @@ export class LoginComponent {
     } else {
       localStorage.setItem("tipus", "user")
     }
-    this.navbar.updateNavbar();
+    // this.navbar.updateNavbar();
+    this.navbarService.triggerRefresh();
     this.router.navigateByUrl("home");
     }
   }, error => {

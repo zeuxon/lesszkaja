@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import {Router, RouterLink, RouterOutlet } from '@angular/router';
 import {UsermanagerService} from "../services/usermanager.service";
 import { CommonModule } from '@angular/common';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,19 +14,27 @@ import { CommonModule } from '@angular/common';
 
 export class NavbarComponent implements OnInit {
   navbarItems: Array<{ label: string; route: string }> = [];
+  private navbarService: NavbarService;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private injector: Injector) {
+    this.navbarService = this.injector.get(NavbarService);
+  }
 
   usermanager = new UsermanagerService();
 
   ngOnInit(): void {
+    this.navbarService.refreshNavbar$.subscribe(() => {
+      this.updateNavbar();
+    });
     this.loadNavbarItems();
     console.log(this.usermanager.isLoggedIn());
     console.log(localStorage);
+    this.updateNavbar();
   }
 
 
   updateNavbar() {
+    
     this.loadNavbarItems();
   }
 

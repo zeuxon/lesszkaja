@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { LogoutComponent } from './logout/logout.component';
 
 export const routes: Routes = [
     {
@@ -15,7 +16,7 @@ export const routes: Routes = [
       },
       {
         path:"logout",
-        loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
+        component: LogoutComponent
       },
       {
         path:"admin",
