@@ -15,6 +15,14 @@ export const routes: Routes = [
         loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
       },
       {
+        path: "loginrestaurant",
+        loadComponent: () => import("./users/visitor/loginrestaurant/loginrestaurant.component").then(c => c.LoginrestaurantComponent)
+      },
+      {
+        path: "logincourier",
+        loadComponent: () => import("./users/visitor/logincourier/logincourier.component").then(c => c.LogincourierComponent)
+      },
+      {
         path:"logout",
         component: LogoutComponent
       },

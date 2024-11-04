@@ -7,18 +7,15 @@ import { compareSync } from "bcrypt-ts";
 import { NavbarComponent } from '../../../navbar/navbar.component';
 import { NavbarService } from '../../../services/navbar.service';
 
-
 @Component({
-  selector: 'app-login',
+  selector: 'app-loginrestaurant',
   standalone: true,
   imports: [FormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterLink,NavbarComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './loginrestaurant.component.html',
+  styleUrl: './loginrestaurant.component.scss'
 })
-export class LoginComponent {
+export class LoginrestaurantComponent {
   constructor(private http: HttpClient, private router: Router, private navbarService: NavbarService) {}
-
-  // navbar = new NavbarComponent(this.router);
 
   public userData: any;
   public userLoginData = {
@@ -36,7 +33,7 @@ export class LoginComponent {
       jelszo: form.value.password,
     };
 
-  this.http.post('http://localhost:3000/login',this.userLoginData)
+  this.http.post('http://localhost:3000/loginrestaurant',this.userLoginData)
   .subscribe(response=> {
     this.userData=response;
     this.userData=this.userData.results[0];
@@ -47,11 +44,7 @@ export class LoginComponent {
     if (this.logInSuccess()) {
       localStorage.setItem("jelszo", this.userData.jelszo);
     localStorage.setItem("emailcim", this.userData.emailcim);
-    if (this.userData.admine) {
-      localStorage.setItem("tipus", "admin")
-    } else {
-      localStorage.setItem("tipus", "user")
-    }
+    localStorage.setItem("tipus", "restaurantmanager");
     // this.navbar.updateNavbar();
     this.navbarService.triggerRefresh();
     this.router.navigateByUrl("home");
@@ -60,6 +53,4 @@ export class LoginComponent {
     console.log(error);
   });
   }
-
-
 }
