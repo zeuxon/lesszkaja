@@ -4,17 +4,19 @@ import { CommonModule} from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { compareSync } from "bcrypt-ts";
+import { NavbarComponent } from '../../../navbar/navbar.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterLink],
+  imports: [FormsModule,CommonModule,HttpClientModule,RouterOutlet,RouterLink,NavbarComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
+  navbar = new NavbarComponent(this.router);
 
   public userData: any;
   public userLoginData = {
@@ -39,12 +41,18 @@ export class LoginComponent {
 
     //Menetkövetés
     //Ki kell törölni kijelentkezéskor
-    localStorage.setItem("jelszo", this.userData.jelszo);
-    localStorage.setItem("emailcim", this.userData.felhasznalonev);
 
+    if (this.logInSuccess()) {
+      localStorage.setItem("jelszo", this.userData.jelszo);
+    localStorage.setItem("emailcim", this.userData.emailcim);
+    if (this.userData.admine) {
+      localStorage.setItem("tipus", "admin")
+    } else {
+      localStorage.setItem("tipus", "user")
+    }
+    this.navbar.updateNavbar();
     this.router.navigateByUrl("home");
-
-    console.log(this.logInSuccess());
+    }
   }, error => {
     console.log(error);
   });

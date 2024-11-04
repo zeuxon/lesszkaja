@@ -1,19 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router, RouterLink, RouterOutlet } from '@angular/router';
-
+import {UsermanagerService} from "../services/usermanager.service";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+
+export class NavbarComponent implements OnInit {
+  navbarItems: Array<{ label: string; route: string }> = [];
+
   constructor(private router: Router) {}
 
+  usermanager = new UsermanagerService();
+
+  ngOnInit(): void {
+    this.loadNavbarItems();
+    console.log(this.usermanager.isLoggedIn());
+    console.log(localStorage);
+  }
+
+
+  updateNavbar() {
+    this.loadNavbarItems();
+  }
+
+  loadNavbarItems() {
+    if (!this.usermanager.isLoggedIn()) {
+      this.navbarItems=[
+        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Bejelentkezés', route: '/login' },
+        { label: 'Regisztráció', route: '/register' }
+      ]
+    } else if (this.usermanager.getUserType() == "user") {
+      console.log("LEFUT");
+      this.navbarItems=[
+        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Kijelentkezés', route: '/logout' }
+      ]
+    } else if (this.usermanager.getUserType() == "admin") {
+      this.navbarItems=[
+        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Admin Panel', route: '/admin' },
+        { label: 'Kijelentkezés', route: '/logout' }
+      ]
+    } else if (this.usermanager.getUserType() == "courier") {
+      this.navbarItems=[
+        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Kijelentkezés', route: '/logout' }
+      ]
+    } else if (this.usermanager.getUserType() == "restaurantmanager") {
+      this.navbarItems=[
+        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Kijelentkezés', route: '/logout' }
+      ]
+    }
+  }
+
+
+
   public openRegister(): void {
-    console.log("asd");
     this.router.navigateByUrl("register");
   }
 

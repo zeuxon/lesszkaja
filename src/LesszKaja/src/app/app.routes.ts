@@ -13,6 +13,14 @@ export const routes: Routes = [
         path: "login",
         loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
       },
+      {
+        path:"logout",
+        loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
+      },
+      {
+        path:"admin",
+        loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];
