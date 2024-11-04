@@ -41,7 +41,7 @@ export class LoginComponent {
     //Ki kell törölni kijelentkezéskor
     localStorage.setItem("jelszo", this.userData.jelszo);
     localStorage.setItem("emailcim", this.userData.felhasznalonev);
-    
+
     this.router.navigateByUrl("home");
 
     console.log(this.logInSuccess());
