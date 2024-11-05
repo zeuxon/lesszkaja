@@ -30,6 +30,10 @@ export const routes: Routes = [
         path:"admin",
         loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
       },
+      {
+        path: "restaurantslist",
+        loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent)
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];

@@ -27,14 +27,12 @@ export class NavbarComponent implements OnInit {
       this.updateNavbar();
     });
     this.loadNavbarItems();
-    console.log(this.usermanager.isLoggedIn());
-    console.log(localStorage);
+    //console.log(this.usermanager.isLoggedIn());
+    //console.log(localStorage);
     this.updateNavbar();
   }
 
-
   updateNavbar() {
-
     this.loadNavbarItems();
   }
 
@@ -42,6 +40,7 @@ export class NavbarComponent implements OnInit {
     if (!this.usermanager.isLoggedIn()) {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
+        { label: 'Éttermek', route: '/restaurantslist' },
         { label: 'Bejelentkezés', route: '/login' },
         { label: 'Regisztráció', route: '/register' }
       ]
@@ -49,23 +48,27 @@ export class NavbarComponent implements OnInit {
       console.log("LEFUT");
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
+        { label: 'Éttermek', route: '/restaurantslist' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "admin") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
+        { label: 'Éttermek', route: '/restaurantslist' },
         { label: 'Admin Panel', route: '/admin' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "courier") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
+        { label: 'Éttermek', route: '/restaurantslist' },
         { label: 'Rendelések', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "restaurantmanager") {
       this.navbarItems=[
-        { label: 'Kezdőlap', route: '/home' },
+        { label: 'Kezdőlap', route: '/home'},
+        { label: 'Éttermek', route: '/restaurantslist' },
         { label: 'Raktár', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]

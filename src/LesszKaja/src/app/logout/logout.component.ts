@@ -16,7 +16,8 @@ export class LogoutComponent {
   logout() {
     console.log("LOGOUT");
     localStorage.clear();
-    localStorage.removeItem('authToken');
+    //Ez nem tudom minek volt itt
+    //localStorage.removeItem('authToken');
     this.router.navigate(['/home']);
     this.navbarService.triggerRefresh();
   }
