@@ -126,6 +126,24 @@ app.get('/restaurants', (req, res) => {
   } );
 });
 
+app.get('/restaurant/*/*', (body, res) => {
+  const adatok = {
+    cim: body.params[0],
+    nev: body.params[1],
+  }
+
+  const values = [adatok.cim, adatok.nev]
+
+  const query = 'SELECT * FROM termek WHERE etterem_cim=?';
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      return res.status(200).json(results);
+    }
+  } );
+});
+
 
 
 
