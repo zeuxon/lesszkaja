@@ -55,11 +55,9 @@
         </div>
       </div>
       <button type="submit" [disabled]="userForm.invalid">Regisztráció</button>
-      <div>
-      <div *ngIf="isFormSubmitted" class="alert alert-danger">
-          <span *ngIf="!SuccessfulRegistration">A felhasználó már létezik!</span>
-          <span *ngIf="SuccessfulRegistration">Sikeres regisztráció!</span>
-        </div>
+      <div *ngIf="isFormSubmitted" class="submit-alert">
+          <span *ngIf="!SuccessfulRegistration" class="submit-alert-error">A felhasználó már létezik!</span>
+          <span *ngIf="SuccessfulRegistration" class="submit-alert-success">Sikeres regisztráció!</span>
       </div>
     </form>
 

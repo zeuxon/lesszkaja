@@ -1,8 +1,11 @@
 <nav>
+  <div class="nav-content">
     <h1>LesszKaja</h1>
     <ul>
-    <li *ngFor="let item of navbarItems">
-      <a [routerLink]="item.route">{{ item.label }}</a>
-    </li>
-  </ul>
+      <li *ngFor="let item of navbarItems">
+        <a [routerLink]="item.route">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+
 </nav>

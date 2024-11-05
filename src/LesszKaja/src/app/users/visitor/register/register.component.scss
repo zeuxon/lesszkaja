@@ -129,6 +129,23 @@
             
         }
 
+        .submit-alert {
+          
+            .submit-alert-error {
+              color: var(--Red);
+              font-size: 18px;
+              font-weight: 700;
+              font-family: 'Maven Pro';
+            }
+          
+            .submit-alert-success {
+              color: #176f2c;
+              font-size: 18px;
+              font-weight: 700;
+              font-family: 'Maven Pro';
+            }
+          }
+
     }
 
     .register-img {
