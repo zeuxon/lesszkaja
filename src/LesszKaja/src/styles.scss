@@ -4,7 +4,13 @@
     --dark: #313638;
     --light: #FAF9F5;
     --accent: #EEB310;
-    --light_accent: #FFB563;
+    --light-accent: #FFB563;
+
+    --Red: #C11A29;
+    --Dark: #313638;
+    --Light: #FAF9F5;
+    --Accent: #EEB310;
+    --Light-accent: #FFB563;
 
 }
 
@@ -20,4 +26,8 @@
         font-weight: 400;
         line-height: 120%;
     }
+}
+
+body {
+    background: var(--Light, #FAF9F5);
 }
