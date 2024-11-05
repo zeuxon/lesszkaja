@@ -113,9 +113,10 @@ app.post('/loginrestaurant', (req, res) => {
   });
 });
 
+
 //Étterem függvények
-app.get('/restaurantslist', (req, res) => {
-  const query = 'SELECT nev, cim FROM etterem';
+app.get('/restaurants', (req, res) => {
+  const query = 'SELECT id, nev, cim FROM etterem';
   connection.query(query, null, (error, results) => {
     if (error) {
       console.error('Database error:', error);
@@ -124,6 +125,8 @@ app.get('/restaurantslist', (req, res) => {
     }
   } );
 });
+
+
 
 
 

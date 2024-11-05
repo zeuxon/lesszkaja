@@ -1,4 +1,4 @@
 <p>restaurantslist works!</p>
 <div *ngFor="let item of ettermekArray">
-    <div>{{ item.nev }}</div>
+    <div [routerLink]="item.route">{{ item.nev }}</div>
 </div>

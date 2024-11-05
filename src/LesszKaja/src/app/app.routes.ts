@@ -31,8 +31,12 @@ export const routes: Routes = [
         loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent)
       },
       {
-        path: "restaurantslist",
+        path: "restaurants",
         loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent)
+      },
+      {
+        path: "restaurant/:nev/:cim",
+        loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent)
       },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }

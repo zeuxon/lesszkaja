@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant',
@@ -8,5 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './restaurant.component.scss'
 })
 export class RestaurantComponent {
+  restaurantData = {
+    name: "",
+    cim: "",
+  }
 
+  constructor(){
+
+  }
+
+  @Input()
+  set nev(restaurantName: string) {
+    this.restaurantData.name = restaurantName;
+  }
+  
+  @Input()
+  set cim(restaurantAddress: string) {
+    this.restaurantData.cim = restaurantAddress;
+  }
 }
