@@ -46,8 +46,23 @@ export class RegisterComponent {
     this.http.post('http://localhost:3000/register', userData)
     .subscribe(response => {
       this.SuccessfulRegistration=true;
-      this.userForm.controls['felhasznalonev'].value
       console.log(response);
+
+      this.userForm.reset({
+        felhasznalonev: '',
+        email: '',
+        tel: '',
+        lakcim: '',
+        jelszo: ''
+      });
+
+      Object.keys(this.userForm.controls).forEach(field => {
+        const control = this.userForm.get(field);
+        control?.setErrors(null); // Clear all errors
+      });
+
+      this.userForm.markAsPristine();
+      this.userForm.markAsUntouched();
     }, error => {
       console.log(error);
       this.SuccessfulRegistration=false;
