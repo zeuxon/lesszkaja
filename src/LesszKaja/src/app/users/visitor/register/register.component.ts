@@ -17,7 +17,7 @@ export class RegisterComponent {
 
   userForm : FormGroup;
   isFormSubmitted: boolean = false;
-
+  SuccessfulRegistration: boolean = true;
     constructor(private http: HttpClient) {
         this.userForm = new FormGroup({
           felhasznalonev: new FormControl("",[Validators.required,validator.nameValidator()]),
@@ -33,19 +33,24 @@ export class RegisterComponent {
       this.isFormSubmitted=true;
 
       const userData = {
-        felhasznalonev: form.value.username,
-        emailcim: form.value.email,
-        jelszo: hashSync(form.value.password), //Jelszo hashelese
-        telefonszam: form.value.tel,
-        lakcim: form.value.address,
+        felhasznalonev: this.userForm.controls['felhasznalonev'].value,
+        emailcim: this.userForm.controls['email'].value,
+        jelszo: hashSync(this.userForm.controls['jelszo'].value), //Jelszo hashelese
+        telefonszam: this.userForm.controls['tel'].value,
+        lakcim: this.userForm.controls['lakcim'].value,
         admine: false
       };
 
+      //console.log(userData);
+
     this.http.post('http://localhost:3000/register', userData)
     .subscribe(response => {
+      this.SuccessfulRegistration=true;
+      this.userForm.controls['felhasznalonev'].value
       console.log(response);
     }, error => {
       console.log(error);
+      this.SuccessfulRegistration=false;
     });
 
 

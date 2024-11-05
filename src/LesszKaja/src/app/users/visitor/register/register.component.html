@@ -55,7 +55,14 @@
         </div>
       </div>
       <button type="submit" [disabled]="userForm.invalid">Regisztráció</button>
+      <div>
+      <div *ngIf="isFormSubmitted" class="alert alert-danger">
+          <span *ngIf="!SuccessfulRegistration">A felhasználó már létezik!</span>
+          <span *ngIf="SuccessfulRegistration">Sikeres regisztráció!</span>
+        </div>
+      </div>
     </form>
+
   </div>
   <img class="register-img" src="../../../../assets/images/register-img.png" alt="">
 </div>
