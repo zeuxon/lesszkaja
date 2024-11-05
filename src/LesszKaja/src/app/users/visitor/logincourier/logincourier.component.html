@@ -1,13 +1,26 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" ngModel required>
-  </div>
-  <div>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" name="password" ngModel required>
-  </div>
+<div class="login-container">
+  <div class="login-content">
+    <div class="login-container-text">
+      <h1>Bejelentkezés <span>futárként</span></h1>
+      <p>Még a Holdra is szállítunk</p>
+    </div>
 
-  <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
-</form>
-<p>logincourier works!</p>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="login-input-container">
+        <img src="../../../../assets/images/email-icon.svg" alt="Email ikon">
+        <input type="email" id="email" name="email" placeholder="Email" ngModel required>
+      </div>
+      <div class="login-input-container">
+        <img src="../../../../assets/images/password-icon.svg" alt="Jelszó ikon">
+        <input type="password" id="password" name="password" placeholder="Jelszó" ngModel required>
+      </div>
+      <button type="submit" [disabled]="!loginForm.form.valid">Bejelentkezés</button>
+    </form>
+    <div class="login-container-text-2">
+      <p><span>Jelentkezz</span> be máshogy</p>
+      <a routerLink="/login">Bejelentkezés <span>felhasználóként</span></a>
+      <a routerLink="/loginrestaurant">Bejelentkezés <span>étteremként</span></a>
+    </div>
+  </div>
+  <img class="login-img" src="../../../../assets/images/login-img.png" alt="">
+</div>

@@ -158,9 +158,14 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
+    z-index: 1;
+    background: #FFFFFF;
 
     .bg-img {
         position: absolute;
+        z-index: -999;
+        left: 5vw;
+        transform: translateY(200px);
     }
 
     .mi-lesszkaja-content {
@@ -201,6 +206,92 @@
             width: 60%;
         }
 
+    }
+
+}
+
+.gondoltad-volna {
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-image: url('../../assets/images/gondoltad-img.svg');
+    display: flex;
+    justify-content: center;
+    padding-bottom: 64px;
+    align-items: flex-end;
+
+    .gondoltad-volna-text {
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            background: #FFFFFF;
+            width: fit-content;
+            height: fit-content;
+            width: 40%;
+            padding: 32px;
+            box-shadow: 0px 2px 22px -3px rgba(0, 0, 0, 0.25);
+
+
+            h2 {
+                color: var(--Dark, #313638);
+                text-align: center;
+                
+                /* H2 */
+                font-family: Gluten;
+                font-size: 49px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 120%; /* 58.8px */
+            }
+    
+            p {
+                color: var(--Dark, #313638);
+                text-align: center;
+                
+                /* Large normal */
+                font-family: "Maven Pro";
+                font-size: 31px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%; /* 37.2px */
+                opacity: 0.7;
+
+                span {
+                    opacity: 1;
+                    color: var(--Red, #C11A29);
+
+                    /* Large normal */
+                    font-family: "Maven Pro";
+                    font-size: 31px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120%;
+                }
+
+            }
+    }
+
+}
+
+footer {
+    background: var(--Red);
+    padding-block: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--Light, #FAF9F5);
+    font-family: "Maven Pro";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 15.6px */
+
+    .social-icons {
+        display: flex;
+        gap: 16px;
     }
 
 }

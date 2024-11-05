@@ -161,12 +161,14 @@
 
 
     
-            button {
+            a {
                 width: 80%;
                 padding: 16px;
                 border-radius: 13px;
                 border: 1px solid var(--Dark, #313638);
                 background: var(--Light, #FAF9F5);
+                text-align: center;
+                text-decoration: none;
 
                 color: var(--Dark, #313638);
                 font-family: "Maven Pro";
