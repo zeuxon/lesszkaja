@@ -59,6 +59,11 @@
                 width: 80%;
                 padding-inline: 16px;
                 border-radius: 13px;
+
+                img {
+                    aspect-ratio: 1;
+                    width: 24px;
+                }
                 
 
                 input {
