@@ -1,1 +1,26 @@
 <p>storage works!</p>
+
+<div class="storage-list">
+    <h2>Az étteremhez tartozó Árukészlet </h2>
+    
+    <table *ngIf="storages.length > 0">
+      <thead>
+        <tr>
+          <th>Összetevő</th>
+          <th>Mennyiség</th>
+          <th>Alapösszetevő</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let storage of storages">
+          <td>{{ storage.osszetevok_nev }}</td>
+          <td>{{ storage.mennyiseg }}</td>
+          <td>{{ storage.alaposszetevok_nev }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p *ngIf="storages.length === 0">Nem található étteremhez tartozó raktár.</p>
+  </div>
+  
+  

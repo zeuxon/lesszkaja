@@ -38,6 +38,10 @@ export const routes: Routes = [
         path: "restaurant/:nev/:cim",
         loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent)
       },
+      {
+        path: "storage",
+        loadComponent: () => import("./restaurant/storage/storage.component").then(c => c.StorageComponent)
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];

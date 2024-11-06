@@ -144,7 +144,27 @@ app.get('/restaurant/*/*', (body, res) => {
   } );
 });
 
+//Raktárak listázása
+app.get('/storage/:address', (req, res) => {
+  const address = req.query.address; // Retrieve address from query parameter
 
+  if (!address) {
+    return res.status(400).json({ message: "Address is required" });
+  }
+
+  const query = `
+    SELECT r.osszetevok_nev, r.mennyiseg, r.raktarid, r.etterem_cim, r.alaposszetevok_nev
+    FROM raktar r
+    WHERE r.etterem_cim = ?`;
+
+  connection.query(query, [address], (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      return res.status(500).send('Error fetching data');
+    }
+    res.json(results);
+  });
+});
 
 
 
