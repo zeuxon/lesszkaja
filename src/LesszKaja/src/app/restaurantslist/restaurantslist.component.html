@@ -1,10 +1,24 @@
-<div class="restaurant-listing-cover">
+<div class="restaurantlist-cover">
     <div class="cover">
         <h1>Éttermek keresése</h1>
     </div>
 
 </div>
+<div class="restaurantlist-before-container">
+    <h3>Népszerű éttermek</h3>
+    <div class="search-bar">
+        <form action="">
+            <input type="text">
+            <button>
+                <img src="../../assets/images/Search.svg" alt="">
+            </button>
+        </form>
+    </div>
+
+</div>
+
 <div class="restaurantlist-container">
+
 
     <div *ngFor="let item of ettermekArray"  [routerLink]="item.route">
         <img src="../../assets/images/mcdonalds.png" alt="">
