@@ -1,4 +1,4 @@
-.restaurant-listing-cover {
+.restaurantlist-cover {
     background-image: url('../../assets/images/restaurant-listing.png');
     height: 300px;
     background-position: center;
@@ -29,9 +29,64 @@
 
 }
 
+.restaurantlist-before-container {
+    display: flex;
+    width: 70%;
+    margin: 24px auto 0 auto;
+    justify-content: space-between;
+    h3 {
+        color: #000;
+
+        /* Big normal */
+        font-family: "Maven Pro";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; /* 30px */
+    }
+
+    .search-bar {
+        background: #FFFFFF;
+        box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        min-width: 30%;
+        transition: .3s;
+        
+        &>form {
+            display: flex;
+            
+            input {
+                width: 100%;
+                border: none;
+                padding-block: 12px;
+                margin-left: 8px;
+
+                &:focus {
+                    outline: none;
+                }
+
+            }
+
+            button {
+                background: none;
+                border: none;
+                margin-right: 8px;
+                cursor: pointer;
+            }
+        
+        }
+
+        &:focus-within {
+            box-shadow: 0px 4px 16px -3px rgba(0, 0, 0, 0.3);
+            transition: .3;
+        }
+    }
+
+}
+
 .restaurantlist-container {
     width: 80%;
-    margin: 64px auto 0 auto;
+    margin: 48px auto 0 auto;
 
     display: flex;
     flex-wrap: wrap;
