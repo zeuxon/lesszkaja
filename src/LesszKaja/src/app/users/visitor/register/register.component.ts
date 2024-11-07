@@ -45,9 +45,6 @@ export class RegisterComponent {
 
     this.http.post('http://localhost:3000/register', userData)
     .subscribe(response => {
-      this.SuccessfulRegistration=true;
-      console.log(response);
-
       this.userForm.reset({
         felhasznalonev: '',
         email: '',
@@ -63,6 +60,9 @@ export class RegisterComponent {
 
       this.userForm.markAsPristine();
       this.userForm.markAsUntouched();
+
+      console.log(response);
+      this.SuccessfulRegistration=true;
     }, error => {
       console.log(error);
       this.SuccessfulRegistration=false;

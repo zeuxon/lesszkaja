@@ -82,6 +82,7 @@ app.post('/login', (req, res) => {
     res.status(200).json({results});
   });
 });
+
 //login courier
 app.post('/logincourier', (req, res) => {
   const {emailcim, jelszo} = req.body;
@@ -97,6 +98,7 @@ app.post('/logincourier', (req, res) => {
     res.status(200).json({results});
   });
 });
+
 //login restaurant
 app.post('/loginrestaurant', (req, res) => {
   const {emailcim, jelszo} = req.body;
