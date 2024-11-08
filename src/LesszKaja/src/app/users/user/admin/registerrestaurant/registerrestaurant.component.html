@@ -1,0 +1,42 @@
+<form [formGroup]="registerRestaurant" (ngSubmit)="onSubmit(registerRestaurant)">
+  <div>
+    <label for="username">Étterem neve:</label>
+    <input type="text" id="username" formControlName="nev">
+    <div *ngIf="registerRestaurant.controls['nev'].invalid && (registerRestaurant.controls['nev'].touched || registerRestaurant.controls['nev'].dirty || isFormSubmitted)" class="alert alert-danger">
+      <span *ngIf="registerRestaurant.controls['nev'].errors?.['required'] || registerRestaurant.controls['nev'].errors?.['name']">Ez a mező kötelező!</span>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="registerRestaurant.controls['email'].invalid && (registerRestaurant.controls['email'].touched || registerRestaurant.controls['email'].dirty || isFormSubmitted)" class="alert alert-danger">
+      <span *ngIf="registerRestaurant.controls['email'].errors?.['required']">Ez a mező kötelező!</span>
+      <span *ngIf="!registerRestaurant.controls['email'].errors?.['required'] && registerRestaurant.controls['email'].errors?.['strictEmail']">Helytelen email!</span>
+    </div>
+  </div>
+  <div>
+    <label for="tel">Tel:</label>
+    <input type="tel" id="tel" formControlName="tel">
+    <div *ngIf="registerRestaurant.controls['tel'].invalid && (registerRestaurant.controls['tel'].touched || registerRestaurant.controls['tel'].dirty || isFormSubmitted)" class="alert alert-danger">
+      <span *ngIf="registerRestaurant.controls['tel'].errors?.['required']">Ez a mező kötelező!</span>
+      <span *ngIf="!registerRestaurant.controls['tel'].errors?.['required']&&registerRestaurant.controls['tel'].errors?.['phone']">Helytelen telefonszám!</span>
+    </div>
+  </div>
+  <div>
+    <label for="address">Cím:</label>
+    <input type="text" id="address" formControlName="cim">
+    <div *ngIf="registerRestaurant.controls['cim'].invalid && (registerRestaurant.controls['cim'].touched || registerRestaurant.controls['cim'].dirty || isFormSubmitted)" class="alert alert-danger">
+      <span *ngIf="registerRestaurant.controls['cim'].errors?.['required'] || registerRestaurant.controls['cim'].errors?.['text']">Ez a mező kötelező!</span>
+    </div>
+  </div>
+  <div>
+    <label for="password">Jelszó:</label>
+    <input type="password" id="password" formControlName="jelszo">
+    <div *ngIf="registerRestaurant.controls['jelszo'].invalid && (registerRestaurant.controls['jelszo'].touched || registerRestaurant.controls['jelszo'].dirty || isFormSubmitted)" class="alert alert-danger">
+      <span *ngIf="registerRestaurant.controls['jelszo'].errors?.['required']">Ez a mező kötelező!</span>
+      <span *ngIf="!registerRestaurant.controls['jelszo'].errors?.['required']&&registerRestaurant.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="registerRestaurant.invalid">Register</button>
+</form>

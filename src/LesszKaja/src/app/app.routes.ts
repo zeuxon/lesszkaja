@@ -43,8 +43,12 @@ export const routes: Routes = [
             loadComponent: () => import("./users/user/admin/admin.component").then(c => c.AdminComponent),
           },
           {
-            path:"registerothers",
-            loadComponent: () => import("./users/user/admin/registerothers/registerothers.component").then(c => c.RegisterothersComponent),
+            path:"registercouriers",
+            loadComponent: () => import("./users/user/admin/registercourier/registercourier.component").then(c => c.RegistercourierComponent),
+          },
+          {
+            path:"registerrestaurants",
+            loadComponent: () => import("./users/user/admin/registerrestaurant/registerrestaurant.component").then(c => c.RegisterrestaurantComponent),
           },
         ]
       },
