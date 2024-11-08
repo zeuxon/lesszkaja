@@ -19,6 +19,14 @@ export class UsermanagerService {
     return "guest";
   }
 
+  getUserEmail() {
+    return localStorage["emailcim"];
+  }
+
+  getUserPassword() {
+    return localStorage["jelszo"];
+  }
+
   logOut() {
     localStorage.clear();
   }

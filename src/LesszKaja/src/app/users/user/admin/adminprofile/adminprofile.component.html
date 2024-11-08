@@ -1,0 +1,41 @@
+<form [formGroup]="modifyUser" (ngSubmit)="onSubmit(modifyUser)">
+  <div>
+    <label for="username">Felhasználónév:</label>
+    <input type="text" id="username" formControlName="felhasznalonev">
+    <div *ngIf="modifyUser.controls['felhasznalonev'].invalid" class="alert alert-danger">
+      <span *ngIf="modifyUser.controls['felhasznalonev'].errors?.['name']">Helytelen felhasználónév!</span>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="emailcim">
+    <div *ngIf="modifyUser.controls['emailcim'].invalid" class="alert alert-danger">
+      <span *ngIf="modifyUser.controls['emailcim'].errors?.['strictEmail']">Helytelen email!</span>
+    </div>
+  </div>
+  <div>
+    <label for="tel">Tel:</label>
+    <input type="tel" id="tel" formControlName="telefonszam">
+    <div *ngIf="modifyUser.controls['telefonszam'].invalid" class="alert alert-danger">
+      <span *ngIf="modifyUser.controls['telefonszam'].errors?.['phone']">Helytelen telefonszám!</span>
+    </div>
+  </div>
+  <div>
+    <label for="address">Lakcím:</label>
+    <input type="text" id="address" formControlName="lakcim">
+    <div *ngIf="modifyUser.controls['lakcim'].invalid" class="alert alert-danger">
+      <span *ngIf="modifyUser.controls['lakcim'].errors?.['text']">Helytelen lakcím!</span>
+    </div>
+  </div>
+  <div>
+    <label for="password">Jelszó:</label>
+    <input type="password" id="password" formControlName="jelszo">
+    <div *ngIf="modifyUser.controls['jelszo'].invalid" class="alert alert-danger">
+      <span *ngIf="modifyUser.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!anyFieldHasValue() || modifyUser.invalid">Módosít</button>
+  <span *ngIf="!OneFieldValid">Nincs adat!</span>
+  <span *ngIf="SuccessfulModify && isFormSubmitted">Sikeres módosítás!</span>
+  <span *ngIf="!SuccessfulModify && isFormSubmitted">Sikertelen módosítás!</span>
+</form>

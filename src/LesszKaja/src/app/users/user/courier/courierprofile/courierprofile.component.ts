@@ -1,0 +1,114 @@
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { hashSync } from "bcrypt-ts";
+import * as validator from "../../../../services/validators";
+import { UsermanagerService } from '../../../../services/usermanager.service';
+
+
+interface UserData {
+  nev: string;
+  emailcim: string;
+  jelszo: string;
+  telefonszam: string;
+  id: number | string;
+}
+
+@Component({
+  selector: 'app-courierprofile',
+  standalone: true,
+  imports: [FormsModule, CommonModule, HttpClientModule, ReactiveFormsModule],
+  templateUrl: './courierprofile.component.html',
+  styleUrl: './courierprofile.component.scss'
+})
+
+
+export class CourierprofileComponent {
+  userFields: Array<keyof UserData> = ['nev', 'emailcim', 'jelszo', 'telefonszam'];
+
+  anyFieldHasValue(): boolean {
+    return this.userFields.some(field => !!this.modifyUser.get(field)?.value);
+  }
+  userTempModifyData: UserData = {
+    nev: "",
+    emailcim: "",
+    jelszo: "",
+    telefonszam: "",
+    id: 0,
+  };
+
+  responseData!: UserData;
+  responseDataConverter: any;
+  userManager = inject(UsermanagerService)
+  modifyUser: FormGroup;
+  isFormSubmitted: boolean = false;
+  SuccessfulModify: boolean = false;
+  OneFieldValid: boolean = true;
+
+  constructor(private http: HttpClient) {
+    this.modifyUser = new FormGroup({
+      nev: new FormControl("", [validator.modifyNameValidator()]),
+      emailcim: new FormControl("", [validator.modifyStrictEmailValidator()]),
+      telefonszam: new FormControl("", [validator.modifyPhoneValidator()]),
+      jelszo: new FormControl("", [validator.modifyPasswordValidator()])
+    });
+  }
+
+
+  onSubmit(form: any) {
+    const isFormValid = this.modifyUser.valid;
+    this.isFormSubmitted = false;
+
+    this.OneFieldValid = this.userFields.some(field => !!this.modifyUser.get(field)?.value);
+
+    if (this.OneFieldValid) {
+      this.isFormSubmitted = true;
+      this.http.post('http://localhost:3000/logincourier', {
+        emailcim: this.userManager.getUserEmail(),
+        jelszo: this.userManager.getUserPassword()
+      }).subscribe(response => {
+        console.log(response)
+        this.responseDataConverter = response;
+
+        this.responseData = this.responseDataConverter.results[0] as UserData;
+        this.userTempModifyData['id'] = this.responseData['id'];
+
+        this.userFields.forEach(field => {
+          const control = this.modifyUser.get(field);
+          if (control && !control.value) {
+            this.userTempModifyData[field] = String(this.responseData[field]);
+          } else {
+            this.userTempModifyData[field] = this.modifyUser.controls[field].value
+            if (field == "jelszo") {
+              localStorage["jelszo"]=this.userTempModifyData[field];
+              this.userTempModifyData[field] = hashSync(this.userTempModifyData[field])
+            }
+          }
+        });
+
+        localStorage["emailcim"]=this.userTempModifyData["emailcim"];
+
+        this.http.post('http://localhost:3000/modifycourier', this.userTempModifyData).subscribe(response => {
+          console.log(response)
+          this.modifyUser.reset({
+            nev: '',
+            email: '',
+            telefonszam: '',
+            jelszo: ''
+          });
+          this.modifyUser.markAsPristine();
+          this.modifyUser.markAsUntouched();
+          this.SuccessfulModify = true;
+        }, error => {
+          console.log(error);
+        });
+
+      }, error => {
+        console.log(error);
+        this.SuccessfulModify = false;
+      });
+    }
+    }
+
+}

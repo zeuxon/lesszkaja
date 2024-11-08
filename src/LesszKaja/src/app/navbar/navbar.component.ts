@@ -49,24 +49,28 @@ export class NavbarComponent implements OnInit {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
+        { label: 'Profil', route: '/userprofile' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "admin") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
+        { label: 'Profil', route: '/adminprofile' },
         { label: 'Admin Panel', route: '/admin' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "courier") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
+        { label: 'Profil', route: '/courierprofile' },
         { label: 'Rendelések', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "restaurantmanager") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home'},
+        { label: 'Profil', route: '/restaurantprofile' },
         { label: 'Raktár', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]

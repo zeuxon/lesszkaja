@@ -50,6 +50,22 @@ export const routes: Routes = [
             path:"registerrestaurants",
             loadComponent: () => import("./users/user/admin/registerrestaurant/registerrestaurant.component").then(c => c.RegisterrestaurantComponent),
           },
+          {
+            path:"registerusers",
+            loadComponent: () => import("./users/user/admin/registeruser/registeruser.component").then(c => c.RegisteruserComponent),
+          },
+          {
+            path:"modifyusers",
+            loadComponent: () => import("./users/user/admin/modifyuser/modifyuser.component").then(c => c.ModifyuserComponent),
+          },
+          {
+            path:"modifyrestaurants",
+            loadComponent: () => import("./users/user/admin/modifyrestaurant/modifyrestaurant.component").then(c => c.ModifyrestaurantComponent),
+          },
+          {
+            path:"modifycouriers",
+            loadComponent: () => import("./users/user/admin/modifycourier/modifycourier.component").then(c => c.ModifycourierComponent),
+          }
         ]
       },
       {
@@ -69,6 +85,26 @@ export const routes: Routes = [
       {
         path: "storage",
         loadComponent: () => import("./restaurant/storage/storage.component").then(c => c.StorageComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: "userprofile",
+        loadComponent: () => import("./users/user/client/userprofile/userprofile.component").then(c => c.UserprofileComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: "adminprofile",
+        loadComponent: () => import("./users/user/admin/adminprofile/adminprofile.component").then(c => c.AdminprofileComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: "courierprofile",
+        loadComponent: () => import("./users/user/courier/courierprofile/courierprofile.component").then(c => c.CourierprofileComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: "restaurantprofile",
+        loadComponent: () => import("./users/user/restaurant-manager/restaurantprofile/restaurantprofile.component").then(c => c.RestaurantprofileComponent),
         canActivate:[userAuthGuard]
       },
       { path: '', redirectTo: 'home', pathMatch: 'full' },

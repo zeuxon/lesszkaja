@@ -115,6 +115,89 @@ app.post('/loginrestaurant', (req, res) => {
   });
 });
 
+//admin felhasználók lekéréséhez kellő függvények
+
+app.post('/getuseremails', (req, res) => {
+  const query = 'SELECT emailcim FROM felhasznalo WHERE admine = 0';
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+
+app.post('/getcourieremails', (req, res) => {
+  const query = 'SELECT emailcim FROM futar';
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+
+app.post('/getrestaurantemails', (req, res) => {
+  const query = 'SELECT emailcim FROM etterem';
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});
+
+//profilok módosításához kellő függvények
+
+app.post('/modifyuser', (req, res) => {
+  const { felhasznalonev, emailcim, telefonszam, lakcim, jelszo, id} = req.body;
+
+  const query = 'UPDATE felhasznalo SET felhasznalonev=?, emailcim=?, telefonszam=?, lakcim=?, jelszo=? WHERE id=?';
+  const values = [felhasznalonev, emailcim, telefonszam, lakcim, jelszo, id];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(201).json({ message: 'User modified successfully'});
+  });
+});
+
+app.post('/modifycourier', (req, res) => {
+  const { nev, emailcim, telefonszam, jelszo, id} = req.body;
+
+  const query = 'UPDATE futar SET nev=?, emailcim=?, telefonszam=?, jelszo=? WHERE id=?';
+  const values = [nev, emailcim, telefonszam, jelszo, id];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(201).json({ message: 'Courier modified successfully'});
+  });
+});
+
+app.post('/modifyrestaurant', (req, res) => {
+  const { nev, emailcim, telefonszam, cim, jelszo, id} = req.body;
+
+  const query = 'UPDATE etterem SET nev=?, emailcim=?, telefonszam=?, cim=?, jelszo=? WHERE id=?';
+  const values = [nev, emailcim, telefonszam, cim, jelszo, id];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(201).json({ message: 'Restaurant modified successfully'});
+  });
+});
 
 //Étterem függvények
 app.get('/restaurants', (req, res) => {
