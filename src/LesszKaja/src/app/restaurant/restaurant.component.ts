@@ -25,7 +25,7 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:3000/restaurant/" + this.restaurantData.cim + "/" + this.restaurantData.name).subscribe(response => {
+    this.http.get("http://localhost:3000/restaurants/" + this.restaurantData.name + "/" + this.restaurantData.cim).subscribe(response => {
       this.loadTermekek(response);
     });
   }
@@ -42,7 +42,7 @@ export class RestaurantComponent implements OnInit {
   set nev(restaurantName: string) {
     this.restaurantData.name = restaurantName;
   }
-  
+
   @Input()
   set cim(restaurantAddress: string) {
     this.restaurantData.cim = restaurantAddress;

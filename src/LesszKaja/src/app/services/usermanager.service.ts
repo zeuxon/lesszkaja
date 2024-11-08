@@ -6,16 +6,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class UsermanagerService {
 
-  constructor() {
-
-  }
+  constructor() {}
 
   isLoggedIn() {
     return typeof localStorage !== 'undefined' && localStorage !== null && localStorage.length!=0;
   }
 
   getUserType() {
-    return localStorage["tipus"];
+    if (this.isLoggedIn()) {
+      return localStorage["tipus"];
+    }
+    return "guest";
   }
 
   logOut() {

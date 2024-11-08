@@ -1,53 +1,91 @@
 import { CanActivateChildFn, CanActivateFn,Router } from '@angular/router';
 import { inject} from '@angular/core'
 import { UsermanagerService } from "../services/usermanager.service"
-import { stat } from 'fs';
 
 
 export const userAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const allowedRoutesForVisitor = ['/home', '/register', '/restaurants', '/logincourier', '/loginrestaurant', '/login'];
-  const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/restaurant/:nev/:cim'];
-  const allowedRoutesForCourier = ['/logout', '/home', '/restaurants', '/restaurant/:nev/:cim'];
-  const allowedRoutesForRestaurantManager = ['/logout', '/home', '/restaurants', '/storage', '/restaurant/:nev/:cim'];
-  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants', '/restaurant/:nev/:cim', '/admin'];
-  const userManagerService = new UsermanagerService;
+  const usermanagerService = inject(UsermanagerService);
+  const allowedRoutesForGuest = ['/home', '/register', '/logincourier', '/loginrestaurant', '/login', '/restaurants'];
+  const allowedRoutesForUser = ['/logout', '/home', '/restaurants'];
+  const allowedRoutesForCourier = ['/logout', '/home'];
+  const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage'];
+  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin'];
 
-  const isUserLoggedIn = userManagerService.isLoggedIn();
-  const userRole = userManagerService.getUserType();
+  const userRole : string = usermanagerService.getUserType();
 
-  if (!isUserLoggedIn && !allowedRoutesForVisitor.includes(state.url)) {
-    // Redirect to login if user is not logged in
-    router.navigate(['/login']);
-    console.log("Jelentkezz be peasant")
-    return false;
-  } else if (!isUserLoggedIn && allowedRoutesForVisitor.includes(state.url)) {
+  const allowedRoutes: Record<string, string[]> = {
+    guest: allowedRoutesForGuest,
+    user: allowedRoutesForUser,
+    courier: allowedRoutesForCourier,
+    restaurantmanager: allowedRoutesForRestaurantManager,
+    admin: allowedRoutesForAdmin,
+  };
+
+  const userAllowedRoutes = allowedRoutes[userRole] || [];
+
+  if (userAllowedRoutes.some((path) => state.url.startsWith(path))) {
     return true;
   }
 
-  // Check if user role is 'default' and if the route is allowed
-  if (userRole === 'user' && allowedRoutesForUser.includes(state.url)) {
-    console.log("Ügyi vagy! <3 UWU")
-    return true;
-  } else if (userRole === 'courier' && allowedRoutesForCourier.includes(state.url)) {
-    console.log("Ügyi vagy! <3 UWU")
-    return true;
-  } else if (userRole === 'restaurantmanager' && allowedRoutesForRestaurantManager.includes(state.url)) {
-    console.log("Ügyi vagy! <3 UWU")
-    return true;
-  } else if (userRole === 'admin' && allowedRoutesForAdmin.includes(state.url)) {
-    console.log("Ügyi vagy! <3 UWU")
-    return true;
-  } else if (userRole === 'courier') {
+  if (userRole === 'courier') {
     router.navigate(['/home']);
     return false;
   } else if (userRole === 'restaurantmanager') {
     router.navigate(['/home']);
     return false;
+  } else if (userRole === 'guest') {
+    router.navigate(['/login']);
+    return false;
+  } else {
+    router.navigate(['/home']);
+    console.log("Rossz dologban sántikálsz")
+    return false;
   }
 
-  // If not allowed, redirect to home or another route
-  router.navigate(['/home']);
-  console.log("Rossz dologban sántikálsz")
-  return true;
+
+};
+
+export const userChildAuthGuard: CanActivateChildFn = (route, state) => { //Work in progress
+  const router = inject(Router);
+  const usermanagerService = inject(UsermanagerService);
+  const allowedRoutesForGuest = ['/restaurants'];
+  const allowedRoutesForUser = ['/restaurants'];
+  const allowedRoutesForCourier = ['/home'];
+  const allowedRoutesForRestaurantManager = ['/home'];
+  const allowedRoutesForAdmin = ['/restaurants','/admin'];
+
+  const userRole : string = usermanagerService.getUserType();
+
+  const allowedRoutes: Record<string, string[]> = {
+    guest: allowedRoutesForGuest,
+    user: allowedRoutesForUser,
+    courier: allowedRoutesForCourier,
+    restaurantmanager: allowedRoutesForRestaurantManager,
+    admin: allowedRoutesForAdmin,
+  };
+
+  const userAllowedRoutes = allowedRoutes[userRole] || [];
+
+
+  if (userAllowedRoutes.includes(state.url)) {
+    return true;
+  }
+
+
+
+  if (userRole === 'courier') {
+    router.navigate(['/home']);
+    return false;
+  } else if (userRole === 'restaurantmanager') {
+    router.navigate(['/home']);
+    return false;
+  } else if (userRole === 'guest') {
+    router.navigate(['/login']);
+    return false;
+  } else {
+    router.navigate(['/home']);
+    console.log("Rossz dologban sántikálsz")
+    return false;
+  }
 };

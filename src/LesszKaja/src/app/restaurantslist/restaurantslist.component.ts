@@ -27,7 +27,7 @@ export class RestaurantslistComponent implements OnInit {
       this.ettermekArray[index] = {nev: "", cim: "", route: ""};
       this.ettermekArray[index].nev = ettermek[index].nev;
       this.ettermekArray[index].cim = ettermek[index].cim;
-      this.ettermekArray[index].route = "/restaurant/" + ettermek[index].nev + "/" + ettermek[index].cim;
+      this.ettermekArray[index].route = "/restaurants/" + ettermek[index].nev + "/" + ettermek[index].cim;
     }
   }
 

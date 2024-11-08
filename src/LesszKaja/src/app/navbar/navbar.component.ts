@@ -61,14 +61,12 @@ export class NavbarComponent implements OnInit {
     } else if (this.usermanager.getUserType() == "courier") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
-        { label: 'Éttermek', route: '/restaurants' },
         { label: 'Rendelések', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "restaurantmanager") {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home'},
-        { label: 'Éttermek', route: '/restaurants' },
         { label: 'Raktár', route: '/home' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]

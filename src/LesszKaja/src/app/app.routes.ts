@@ -21,12 +21,12 @@ export const routes: Routes = [
       {
         path: "loginrestaurant",
         loadComponent: () => import("./users/visitor/loginrestaurant/loginrestaurant.component").then(c => c.LoginrestaurantComponent),
-        canActivate:[userAuthGuard]
+        //canActivate:[userAuthGuard]
       },
       {
         path: "logincourier",
         loadComponent: () => import("./users/visitor/logincourier/logincourier.component").then(c => c.LogincourierComponent),
-        canActivate:[userAuthGuard]
+        //canActivate:[userAuthGuard]
       },
       {
         path:"logout",
@@ -35,20 +35,30 @@ export const routes: Routes = [
       },
       {
         path:"admin",
-        loadComponent: () => import("./users/visitor/login/login.component").then(c => c.LoginComponent),
-        canActivate:[userAuthGuard]
+
+        canActivate:[userAuthGuard],
+        children:[
+          {
+            path:'',
+            loadComponent: () => import("./users/user/admin/admin.component").then(c => c.AdminComponent),
+          },
+          {
+            path:"registerothers",
+            loadComponent: () => import("./users/user/admin/registerothers/registerothers.component").then(c => c.RegisterothersComponent),
+          },
+        ]
       },
       {
         path: "restaurants",
-        loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent),
-        canActivate:[userAuthGuard]
-      },
-      {
-        path: 'restaurant',
+        canActivate:[userAuthGuard],
         children:[
           {
             path:":nev/:cim",
             loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent)
+          },
+          {
+            path:"",
+            loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent)
           }
         ]
       },

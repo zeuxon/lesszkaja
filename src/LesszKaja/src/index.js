@@ -128,10 +128,10 @@ app.get('/restaurants', (req, res) => {
   } );
 });
 
-app.get('/restaurant/*/*', (body, res) => {
+app.get('/restaurants/*/*', (body, res) => {
   const adatok = {
-    cim: body.params[0],
-    nev: body.params[1],
+    cim: body.params[1],
+    nev: body.params[0],
   }
 
   const values = [adatok.cim, adatok.nev]
