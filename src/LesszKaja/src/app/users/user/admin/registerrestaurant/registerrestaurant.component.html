@@ -26,7 +26,7 @@
     <label for="address">Cím:</label>
     <input type="text" id="address" formControlName="cim">
     <div *ngIf="registerRestaurant.controls['cim'].invalid && (registerRestaurant.controls['cim'].touched || registerRestaurant.controls['cim'].dirty || isFormSubmitted)" class="alert alert-danger">
-      <span *ngIf="registerRestaurant.controls['cim'].errors?.['required'] || registerRestaurant.controls['cim'].errors?.['text']">Ez a mező kötelező!</span>
+      <span *ngIf="registerRestaurant.controls['cim'].errors?.['required'] || registerRestaurant.controls['cim'].errors?.['address']">Ez a mező kötelező!</span>
     </div>
   </div>
   <div>

@@ -24,7 +24,7 @@
     <label for="address">Lakcím:</label>
     <input type="text" id="address" formControlName="cim">
     <div *ngIf="modifyUser.controls['cim'].invalid" class="alert alert-danger">
-      <span *ngIf="modifyUser.controls['cim'].errors?.['text']">Helytelen lakcím!</span>
+      <span *ngIf="modifyUser.controls['cim'].errors?.['address']">Helytelen lakcím!</span>
     </div>
   </div>
   <div>

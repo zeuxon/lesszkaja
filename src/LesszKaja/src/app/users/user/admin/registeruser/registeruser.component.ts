@@ -21,7 +21,7 @@ export class RegisteruserComponent {
           felhasznalonev: new FormControl("",[Validators.required,validator.nameValidator()]),
           email: new FormControl("",[Validators.required,validator.strictEmailValidator()]),
           tel: new FormControl("",[Validators.required,validator.phoneValidator()]),
-          lakcim: new FormControl("",[Validators.required,validator.textValidator()]),
+          lakcim: new FormControl("",[Validators.required,validator.addressValidator()]),
           jelszo: new FormControl("",[Validators.required,validator.passwordValidator()])
         })
     }

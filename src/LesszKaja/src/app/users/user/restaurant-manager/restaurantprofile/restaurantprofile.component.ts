@@ -53,7 +53,7 @@ export class RestaurantprofileComponent {
       nev: new FormControl("", [validator.modifyNameValidator()]),
       emailcim: new FormControl("", [validator.modifyStrictEmailValidator()]),
       telefonszam: new FormControl("", [validator.modifyPhoneValidator()]),
-      cim: new FormControl("", [validator.modifyTextValidator()]),
+      cim: new FormControl("", [validator.modifyAddressValidator()]),
       jelszo: new FormControl("", [validator.modifyPasswordValidator()])
     });
   }

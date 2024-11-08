@@ -51,7 +51,7 @@ export class UserprofileComponent {
       felhasznalonev: new FormControl("", [validator.modifyNameValidator()]),
       emailcim: new FormControl("", [validator.modifyStrictEmailValidator()]),
       telefonszam: new FormControl("", [validator.modifyPhoneValidator()]),
-      lakcim: new FormControl("", [validator.modifyTextValidator()]),
+      lakcim: new FormControl("", [validator.modifyAddressValidator()]),
       jelszo: new FormControl("", [validator.modifyPasswordValidator()])
     });
   }

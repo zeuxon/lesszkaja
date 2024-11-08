@@ -51,7 +51,7 @@
           <input type="text" id="address" formControlName="lakcim" placeholder="Lakcím">
         </div>
         <div *ngIf="userForm.controls['lakcim'].invalid && (userForm.controls['lakcim'].touched || userForm.controls['lakcim'].dirty || isFormSubmitted)" class="alert alert-danger">
-          <span *ngIf="userForm.controls['lakcim'].errors?.['required'] || userForm.controls['lakcim'].errors?.['text']">Ez a mező kötelező!</span>
+          <span *ngIf="userForm.controls['lakcim'].errors?.['required'] || userForm.controls['lakcim'].errors?.['address']">Ez a mező kötelező!</span>
         </div>
       </div>
       <button type="submit" [disabled]="userForm.invalid">Regisztráció</button>

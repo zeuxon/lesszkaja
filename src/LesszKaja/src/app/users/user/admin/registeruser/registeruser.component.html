@@ -26,7 +26,7 @@
     <label for="address">Lakcím:</label>
     <input type="text" id="address" formControlName="lakcim">
     <div *ngIf="registerUser.controls['lakcim'].invalid && (registerUser.controls['lakcim'].touched || registerUser.controls['lakcim'].dirty || isFormSubmitted)" class="alert alert-danger">
-      <span *ngIf="registerUser.controls['lakcim'].errors?.['required'] || registerUser.controls['lakcim'].errors?.['text']">Ez a mező kötelező!</span>
+      <span *ngIf="registerUser.controls['lakcim'].errors?.['required'] || registerUser.controls['lakcim'].errors?.['address']">Ez a mező kötelező!</span>
     </div>
   </div>
   <div>

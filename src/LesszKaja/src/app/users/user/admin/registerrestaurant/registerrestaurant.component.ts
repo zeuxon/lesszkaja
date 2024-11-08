@@ -23,7 +23,7 @@ export class RegisterrestaurantComponent {
           nev: new FormControl("",[Validators.required,validator.nameValidator()]),
           email: new FormControl("",[Validators.required,validator.strictEmailValidator()]),
           tel: new FormControl("",[Validators.required,validator.phoneValidator()]),
-          cim: new FormControl("",[Validators.required,validator.textValidator()]),
+          cim: new FormControl("",[Validators.required,validator.addressValidator()]),
           jelszo: new FormControl("",[Validators.required,validator.passwordValidator()])
         })
     }

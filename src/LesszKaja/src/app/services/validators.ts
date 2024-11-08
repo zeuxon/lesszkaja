@@ -1,5 +1,11 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^[0-9]{11}$/;
+const addressRegex = /^\S+([" "][\S]+)*$/;
+const nameRegex = /^([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,}([" "]([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,})*$/;
+const passwordRegex = /^\S{5,}$/;
+
 // Csak whitespace-e az input?
 export function noWhitespaceMinValidator(minLength:number): ValidatorFn {
   return (control: AbstractControl) => {
@@ -12,7 +18,6 @@ export function noWhitespaceMinValidator(minLength:number): ValidatorFn {
 // Jó email-e?
 export function strictEmailValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const valid = emailRegex.test(control.value) && control.value.length <= 255;
 
     return valid ? null : { strictEmail: true };
@@ -22,36 +27,29 @@ export function strictEmailValidator(): ValidatorFn {
 // Jó telefonszám?
 export function phoneValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const phoneRegex = /^[0-9]{11}$/;
     const valid = phoneRegex.test(control.value) && control.value.length <= 255;
 
     return valid ? null : { phone: true };
   };
 }
 
-export function textValidator(): ValidatorFn {
+export function addressValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const textRegex = /^\S+([" "][\S]+)*$/;
-    const valid = textRegex.test(control.value) && control.value.length <= 255;
-
-    return valid ? null : { text: true };
+    const valid = addressRegex.test(control.value) && control.value.length <= 255;
+    return valid ? null : { address: true };
   };
 }
 
 export function nameValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const nameRegex = /^([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,}([" "]([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,})*$/;
     const valid = nameRegex.test(control.value) && control.value.length <= 255;
-
     return valid ? null : { name: true };
   };
 }
 
 export function passwordValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const passwordRegex = /^\S{5,}$/;
     const valid = passwordRegex.test(control.value) && control.value.length <= 255;
-
     return valid ? null : { password: true };
   };
 }
@@ -67,7 +65,6 @@ export function modifyEmptyValidator(): ValidatorFn {
 
 export function modifyPasswordValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const passwordRegex = /^\S{5,}$/;
     const valid = (passwordRegex.test(control.value) && control.value.length <= 255) ||  !!!control.value;
     return valid ? null : { password: true };
   };
@@ -75,23 +72,20 @@ export function modifyPasswordValidator(): ValidatorFn {
 
 export function modifyNameValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const nameRegex = /^([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,}([" "]([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){3,})*$/;
     const valid = (nameRegex.test(control.value) && control.value.length <= 255) || !!!control.value;
     return valid ? null : { name: true };
   };
 }
 
-export function modifyTextValidator(): ValidatorFn {
+export function modifyAddressValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const textRegex = /^\S+([" "][\S]+)*$/;
-    const valid = (textRegex.test(control.value) && control.value.length <= 255) || !!!control.value;
-    return valid ? null : { text: true };
+    const valid = (addressRegex.test(control.value) && control.value.length <= 255) || !!!control.value;
+    return valid ? null : { address: true };
   };
 }
 
 export function modifyPhoneValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const phoneRegex = /^[0-9]{11}$/;
     const valid = (phoneRegex.test(control.value) && control.value.length <= 255) || !!!control.value;
     return valid ? null : { phone: true };
   };
@@ -99,7 +93,6 @@ export function modifyPhoneValidator(): ValidatorFn {
 
 export function modifyStrictEmailValidator(): ValidatorFn {
   return (control: AbstractControl) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const valid = (emailRegex.test(control.value) && control.value.length <= 255) || !!!control.value;
     return valid ? null : { strictEmail: true };
   };
