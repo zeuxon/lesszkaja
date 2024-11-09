@@ -252,7 +252,7 @@ app.get('/restaurantsitem/*/*/*', (body, res) => {
 
 // Azok a kosarak, amelyeket nem vállaltak el
 app.post('/courier/unassigned', (req, res) => {
-  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+  const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
                 'FROM kosar ' +
                 'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
                 'WHERE kosar.futar_futarid IS NULL AND kosar.kiszallitva = 0';;
@@ -261,32 +261,120 @@ app.post('/courier/unassigned', (req, res) => {
       console.error('Database error:', error);
       return res.status(500).json({ message: 'Database error', error });
     }
-    res.status(200).json(results);  // A lekérdezett rendelések visszaküldése
+    res.status(200).json(results);
   });
 });
 
 // Kosarak, amelyeket egy adott futár vállalt el és még nem szállított ki
 app.post('/courier/assigned', (req, res) => {
-  const { futarid } = req.body; // A bejelentkezett futár ID-jét várjuk
-  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+  const { futarid } = req.body;
+  const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
                 'FROM kosar ' +
                 'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
-                'WHERE kosar.futar_futarid = ? AND kosar.kiszallitva = 0';  // Kiszállítatlan, a futárhoz rendelt kosarak
+                'WHERE kosar.futar_futarid = ? AND kosar.kiszallitva = 0';
 
   connection.query(query, [futarid], (error, results) => {
     if (error) {
       console.error('Database error:', error);
       return res.status(500).json({ message: 'Database error', error });
     }
-    res.status(200).json(results);  // Válasz küldése a frontendnek
+    res.status(200).json(results);
+  });
+});
+
+
+//A megrendelés elvállalása
+app.post('/courier/assign', (req, res) => {
+  const { orderId, futarid } = req.body;
+
+  const query = 'UPDATE kosar SET futar_futarid = ? WHERE id = ?';
+
+  connection.query(query, [futarid, orderId], (error, results) => {
+    if (error) {
+      console.error('Failed to assign order:', error);
+      return res.status(500).send({ message: 'Failed to assign order', error });
+    }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).send({ message: 'Order not found' });
+    }
+
+    res.status(200).send({ message: 'Order assigned successfully!' });
+  });
+});
+
+//A megrendelés megjelölése kiszállítottként
+app.post('/courier/completed', (req, res) => {
+  const { orderId, futarid } = req.body;
+
+  const query = 'UPDATE kosar SET kiszallitva = 1 WHERE id = ? AND futar_futarid = ?';
+
+  connection.query(query, [orderId, futarid], (error, results) => {
+    if (error) {
+      console.error('Failed to assign order:', error);
+      return res.status(500).send({ message: 'Failed to assign order', error });
+    }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).send({ message: 'Order not found or courier not assigned to this order' });
+    }
+
+    res.status(200).send({ message: 'Order completed successfully!' });
+  });
+});
+
+//Megrendelések listázása egy étteremhez
+app.post('/ordermanagement', (req, res) => {
+  const { etteremEmail } = req.body;
+
+  // First, retrieve the restaurant address from the database using the email
+  const getRestaurantAddressQuery = 'SELECT cim FROM etterem WHERE emailcim = ?';
+  
+  connection.query(getRestaurantAddressQuery, [etteremEmail], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Restaurant not found' });
+    }
+
+    const restaurantAddress = results[0].cim;
+
+    // Now use the restaurant address to fetch the orders related to this restaurant
+    const getOrdersQuery = 'SELECT * FROM kosar, felhasznalo WHERE etterem_cim = ? AND felhasznalo_felhasznalonev = felhasznalonev';
+    connection.query(getOrdersQuery, [restaurantAddress], (error, orderResults) => {
+      if (error) {
+        console.error('Database error:', error);
+        return res.status(500).send({ message: 'Database error', error });
+      }
+
+      res.status(200).json(orderResults);
+    });
   });
 });
 
 
 
+//A megrendelés törlése
+app.post('/ordermanagement/delete', (req, res) => {
+  const { orderId } = req.body;
 
+  const query = 'DELETE FROM kosar WHERE id = ?';
+  connection.query(query, [orderId], (error, results) => {
+    if (error) {
+      console.error('Failed to assign order:', error);
+      return res.status(500).send({ message: 'Failed to assign order', error });
+    }
 
+    if (results.affectedRows === 0) {
+      return res.status(404).send({ message: 'Order not found' });
+    }
 
+    res.status(200).send({ message: 'Order deleted successfully!' });
+  });
+});
 
 const port = process.env.PORT || 3000; // Change to 3000
 app.listen(port, () => {
