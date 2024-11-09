@@ -3,14 +3,22 @@ import { inject} from '@angular/core'
 import { UsermanagerService } from "../services/usermanager.service"
 
 
+const defaultRedirects: Record<string, string> = {
+  guest: '/login',
+  user: '/home',
+  courier: '/courierprofile',
+  restaurantmanager: '/restaurantprofile',
+  admin: '/home',
+}
+
 export const userAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const usermanagerService = inject(UsermanagerService);
-  const allowedRoutesForGuest = ['/home', '/register', '/logincourier', '/loginrestaurant', '/login', '/restaurants'];
-  const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile'];
-  const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile'];
-  const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage','/restaurantprofile'];
-  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile'];
+  const allowedRoutesForGuest = ['/home', '/restaurants', '/login', '/logincourier', '/loginrestaurant', '/register'];
+  const allowedRoutesForUser = ['/home', '/restaurants', '/userprofile', '/logout'];
+  const allowedRoutesForCourier = ['/home', '/courierprofile', '/logout'];
+  const allowedRoutesForRestaurantManager = ['/home', '/storage','/restaurantprofile', '/logout'];
+  const allowedRoutesForAdmin = ['/home', '/restaurants','/admin', '/adminprofile', '/logout'];
 
   const userRole : string = usermanagerService.getUserType();
 
@@ -23,69 +31,55 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
   };
 
   const userAllowedRoutes = allowedRoutes[userRole] || [];
-
-  if (userAllowedRoutes.some((path) => state.url.startsWith(path))) {
+  /*if (userAllowedRoutes.some((path) => state.url.startsWith(path))) {
     return true;
-  }
-
-  if (userRole === 'courier') {
-    router.navigate(['/home']);
-    return false;
-  } else if (userRole === 'restaurantmanager') {
-    router.navigate(['/home']);
-    return false;
-  } else if (userRole === 'guest') {
-    router.navigate(['/login']);
-    return false;
-  } else {
-    router.navigate(['/home']);
-    console.log("Rossz dologban sántikálsz")
-    return false;
-  }
-
-
-};
-
-export const userChildAuthGuard: CanActivateChildFn = (route, state) => { //Work in progress
-  const router = inject(Router);
-  const usermanagerService = inject(UsermanagerService);
-  const allowedRoutesForGuest = ['/restaurants'];
-  const allowedRoutesForUser = ['/restaurants'];
-  const allowedRoutesForCourier = ['/home'];
-  const allowedRoutesForRestaurantManager = ['/home'];
-  const allowedRoutesForAdmin = ['/restaurants','/admin'];
-
-  const userRole : string = usermanagerService.getUserType();
-
-  const allowedRoutes: Record<string, string[]> = {
-    guest: allowedRoutesForGuest,
-    user: allowedRoutesForUser,
-    courier: allowedRoutesForCourier,
-    restaurantmanager: allowedRoutesForRestaurantManager,
-    admin: allowedRoutesForAdmin,
-  };
-
-  const userAllowedRoutes = allowedRoutes[userRole] || [];
-
+  }*/
 
   if (userAllowedRoutes.includes(state.url)) {
     return true;
   }
+  router.navigate([defaultRedirects[userRole]])
+  return false;
+};
 
+export const restaurantsChildAuthGuard: CanActivateFn = (route, state) => { //Work in progress
+  const router = inject(Router);
+  const usermanagerService = inject(UsermanagerService);
+  const userRole : string = usermanagerService.getUserType();
 
+  const allowedRoutes: Record<string, boolean> = {
+    guest: true,
+    user: true,
+    courier: false,
+    restaurantmanager: false,
+    admin: true,
+  };
 
-  if (userRole === 'courier') {
-    router.navigate(['/home']);
-    return false;
-  } else if (userRole === 'restaurantmanager') {
-    router.navigate(['/home']);
-    return false;
-  } else if (userRole === 'guest') {
-    router.navigate(['/login']);
-    return false;
-  } else {
-    router.navigate(['/home']);
-    console.log("Rossz dologban sántikálsz")
-    return false;
+  if (allowedRoutes[userRole]) {
+    return true
   }
+
+  router.navigate([defaultRedirects[userRole]])
+  return false;
+};
+
+export const adminChildAuthGuard: CanActivateFn = (route, state) => { //Work in progress
+  const router = inject(Router);
+  const usermanagerService = inject(UsermanagerService);
+  const userRole : string = usermanagerService.getUserType();
+
+  const allowedRoutes: Record<string, boolean> = {
+    guest: false,
+    user: false,
+    courier: false,
+    restaurantmanager: false,
+    admin: true,
+  };
+
+  if (allowedRoutes[userRole]) {
+    return true
+  }
+
+  router.navigate([defaultRedirects[userRole]])
+  return false;
 };

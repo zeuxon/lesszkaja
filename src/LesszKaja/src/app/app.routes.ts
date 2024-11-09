@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
-import { userAuthGuard} from '../app/guards/userauth.guard';
+import { userAuthGuard, restaurantsChildAuthGuard, adminChildAuthGuard} from '../app/guards/userauth.guard';
 
 export const routes: Routes = [
     {
@@ -11,7 +11,6 @@ export const routes: Routes = [
         path: "register",
         loadComponent: () => import("./users/visitor/register/register.component").then(c => c.RegisterComponent),
         canActivate:[userAuthGuard]
-
       },
       {
         path: "login",
@@ -21,12 +20,12 @@ export const routes: Routes = [
       {
         path: "loginrestaurant",
         loadComponent: () => import("./users/visitor/loginrestaurant/loginrestaurant.component").then(c => c.LoginrestaurantComponent),
-        //canActivate:[userAuthGuard]
+        canActivate:[userAuthGuard]
       },
       {
         path: "logincourier",
         loadComponent: () => import("./users/visitor/logincourier/logincourier.component").then(c => c.LogincourierComponent),
-        //canActivate:[userAuthGuard]
+        canActivate:[userAuthGuard]
       },
       {
         path:"logout",
@@ -35,36 +34,42 @@ export const routes: Routes = [
       },
       {
         path:"admin",
-
         canActivate:[userAuthGuard],
         children:[
           {
             path:'',
             loadComponent: () => import("./users/user/admin/admin.component").then(c => c.AdminComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"registercouriers",
             loadComponent: () => import("./users/user/admin/registercourier/registercourier.component").then(c => c.RegistercourierComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"registerrestaurants",
             loadComponent: () => import("./users/user/admin/registerrestaurant/registerrestaurant.component").then(c => c.RegisterrestaurantComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"registerusers",
             loadComponent: () => import("./users/user/admin/registeruser/registeruser.component").then(c => c.RegisteruserComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"modifyusers",
             loadComponent: () => import("./users/user/admin/modifyuser/modifyuser.component").then(c => c.ModifyuserComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"modifyrestaurants",
             loadComponent: () => import("./users/user/admin/modifyrestaurant/modifyrestaurant.component").then(c => c.ModifyrestaurantComponent),
+            canActivate:[adminChildAuthGuard],
           },
           {
             path:"modifycouriers",
             loadComponent: () => import("./users/user/admin/modifycourier/modifycourier.component").then(c => c.ModifycourierComponent),
+            canActivate:[adminChildAuthGuard],
           }
         ]
       },
@@ -74,11 +79,13 @@ export const routes: Routes = [
         children:[
           {
             path:":nev/:cim",
-            loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent)
+            loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent),
+            canActivate:[restaurantsChildAuthGuard],
           },
           {
             path:"",
-            loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent)
+            loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent),
+            canActivate:[userAuthGuard]
           }
         ]
       },
