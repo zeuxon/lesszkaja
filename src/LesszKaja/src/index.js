@@ -229,27 +229,41 @@ app.get('/restaurants/*/*', (body, res) => {
   } );
 });
 
-//Raktárak listázása
-app.get('/storage/:address', (req, res) => {
-  const address = req.query.address; // Retrieve address from query parameter
-
-  if (!address) {
-    return res.status(400).json({ message: "Address is required" });
-  }
-
-  const query = `
-    SELECT r.osszetevok_nev, r.mennyiseg, r.raktarid, r.etterem_cim, r.alaposszetevok_nev
-    FROM raktar r
-    WHERE r.etterem_cim = ?`;
-
-  connection.query(query, [address], (err, results) => {
-    if (err) {
-      console.error('Error fetching data:', err);
-      return res.status(500).send('Error fetching data');
+// Azok a kosarak, amelyeket nem vállaltak el
+app.post('/courier/unassigned', (req, res) => {
+  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+                'FROM kosar ' +
+                'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
+                'WHERE kosar.futar_futarid IS NULL AND kosar.kiszallitva = 0';;
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
     }
-    res.json(results);
+    res.status(200).json(results);  // A lekérdezett rendelések visszaküldése
   });
 });
+
+// Kosarak, amelyeket egy adott futár vállalt el és még nem szállított ki
+app.post('/courier/assigned', (req, res) => {
+  const { futarid } = req.body; // A bejelentkezett futár ID-jét várjuk
+  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+                'FROM kosar ' +
+                'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
+                'WHERE kosar.futar_futarid = ? AND kosar.kiszallitva = 0';  // Kiszállítatlan, a futárhoz rendelt kosarak
+
+  connection.query(query, [futarid], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(200).json(results);  // Válasz küldése a frontendnek
+  });
+});
+
+
+
+
 
 
 

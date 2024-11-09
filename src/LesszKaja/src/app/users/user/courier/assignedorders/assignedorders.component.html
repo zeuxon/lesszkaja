@@ -1,0 +1,15 @@
+
+<h2>Felvett rendelések</h2>
+<div *ngIf="assignedOrders.length > 0; else noAssignedOrders">
+    <div *ngFor="let order of assignedOrders" class="order">
+      <p>Dátum: {{ order.datum }}</p>
+      <p>Összár: {{ order.osszar }} Ft</p>
+      <p>Étterem címe: {{ order.etterem_cim }}</p>
+      <p>Felhasználónév: {{ order.felhasznalonev }}</p> 
+      <p>Lakcím: {{ order.lakcim }}</p> 
+    </div>
+  </div>
+  <ng-template #noAssignedOrders>
+    <p>Nincsenek vállalt rendelések.</p>
+  </ng-template>
+  

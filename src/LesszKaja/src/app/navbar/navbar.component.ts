@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Profil', route: '/courierprofile' },
-        { label: 'Rendelések', route: '/home' },
+        { label: 'Rendelések', route: '/courier' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     } else if (this.usermanager.getUserType() == "restaurantmanager") {
