@@ -1,5 +1,9 @@
 <div>
     <h2>{{termekData.nev}}</h2>
+    <div *ngFor="let extra of extraArray">
+        <p>{{extra}}</p>
+    </div>
+    <br>
     <p (click)="addToCart()">Kosárba</p>
 </div>
 

@@ -20,7 +20,7 @@ export class RestaurantComponent implements OnInit {
 
   termekekArray: Array<{ nev: string; alapar: string, route: string}> = [];
 
-  constructor(private http: HttpClient, private router: Router){
+  constructor(private http: HttpClient){
 
   }
 

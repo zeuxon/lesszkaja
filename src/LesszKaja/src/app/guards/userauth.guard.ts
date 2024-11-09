@@ -14,19 +14,11 @@ const defaultRedirects: Record<string, string> = {
 export const userAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const usermanagerService = inject(UsermanagerService);
-<<<<<<< HEAD
-  const allowedRoutesForGuest = ['/home', '/register', '/logincourier', '/loginrestaurant', '/login', '/restaurants'];
-  const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile'];
-  const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile', '/courier'];
-  const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage','/restaurantprofile'];
-  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile'];
-=======
   const allowedRoutesForGuest = ['/home', '/restaurants', '/login', '/logincourier', '/loginrestaurant', '/register'];
   const allowedRoutesForUser = ['/home', '/restaurants', '/userprofile', '/logout'];
-  const allowedRoutesForCourier = ['/home', '/courierprofile', '/logout'];
+  const allowedRoutesForCourier = ['/home', '/courierprofile', '/logout', "/courier"];
   const allowedRoutesForRestaurantManager = ['/home', '/storage','/restaurantprofile', '/logout'];
   const allowedRoutesForAdmin = ['/home', '/restaurants','/admin', '/adminprofile', '/logout'];
->>>>>>> a6d0d0fdfa0f18e0bea638abdf3c26216cc67afc
 
   const userRole : string = usermanagerService.getUserType();
 

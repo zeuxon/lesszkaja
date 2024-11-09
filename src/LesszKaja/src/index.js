@@ -228,6 +228,27 @@ app.get('/restaurants/*/*', (body, res) => {
     }
   } );
 });
+app.get('/restaurantsitem/*/*/*', (body, res) => {
+  const adatok = {
+    etterem: body.params[0],
+    cim: body.params[1],
+    termek: body.params[2],
+  }
+
+  const values = [adatok.termek, adatok.cim]
+
+  const query = 'SELECT osszetevok.nev FROM osszetevok ' +
+                'INNER JOIN termek_osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id ' +
+                'INNER JOIN termek ON termek_osszetevok.termek_id = termek.id ' +
+                'WHERE termek.nev=? AND termek.etterem_cim=? AND osszetevok.ar>0;';
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      res.status(200).json(results);
+    }
+  } );
+});
 
 // Azok a kosarak, amelyeket nem vállaltak el
 app.post('/courier/unassigned', (req, res) => {

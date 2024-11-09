@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit {
       this.navbarItems=[
         { label: 'Kezdőlap', route: '/home'},
         { label: 'Profil', route: '/restaurantprofile' },
-        { label: 'Raktár', route: '/home' },
+        { label: 'Raktár', route: '/storage' },
         { label: 'Kijelentkezés', route: '/logout' }
       ]
     }
