@@ -8,7 +8,7 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
   const usermanagerService = inject(UsermanagerService);
   const allowedRoutesForGuest = ['/home', '/register', '/logincourier', '/loginrestaurant', '/login', '/restaurants'];
   const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile'];
-  const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile'];
+  const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile', '/courier'];
   const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage','/restaurantprofile'];
   const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile'];
 

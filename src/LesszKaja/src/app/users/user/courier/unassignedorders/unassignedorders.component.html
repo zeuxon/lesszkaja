@@ -1,0 +1,16 @@
+<p>Unassigned orders works!</p>
+
+<h2>Elérhető rendelések</h2>
+<div *ngIf="unassignedOrders.length > 0; else noUnassignedOrders">
+  <div *ngFor="let order of unassignedOrders" class="order">
+    <p>Dátum: {{ order.datum }}</p>
+    <p>Összár: {{ order.osszar }} Ft</p>
+    <p>Étterem címe: {{ order.etterem_cim }}</p>
+    <p>Felhasználónév: {{ order.felhasznalonev }}</p>
+    <p>Lakcím: {{ order.lakcim }}</p>
+  </div>
+</div>
+
+<ng-template #noUnassignedOrders>
+  <p>Nincsenek elérhető rendelések.</p>
+</ng-template>

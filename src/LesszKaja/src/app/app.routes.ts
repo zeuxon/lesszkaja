@@ -107,6 +107,22 @@ export const routes: Routes = [
         loadComponent: () => import("./users/user/restaurant-manager/restaurantprofile/restaurantprofile.component").then(c => c.RestaurantprofileComponent),
         canActivate:[userAuthGuard]
       },
+      {
+        path: "courier",
+        loadComponent: () => import("./users/user/courier/courier.component").then(c => c.CourierComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: 'courier/assignedorders',
+        loadComponent: () => import("./users/user/courier/assignedorders/assignedorders.component").then(c => c.AssignedordersComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
+        path: 'courier/unassignedorders',
+        loadComponent: () => import("./users/user/courier/unassignedorders/unassignedorders.component").then(c => c.UnassignedordersComponent),
+        canActivate:[userAuthGuard]
+      },
+      
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];
