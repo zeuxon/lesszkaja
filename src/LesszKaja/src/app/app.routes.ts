@@ -33,6 +33,10 @@ export const routes: Routes = [
         canActivate:[userAuthGuard]
       },
       {
+        path: "cart",
+        loadComponent: () => import("./users/user/client/shopping-cart/shopping-cart.component").then(c => c.ShoppingCartComponent),
+      },
+      {
         path:"admin",
         canActivate:[userAuthGuard],
         children:[
@@ -80,6 +84,11 @@ export const routes: Routes = [
           {
             path:":nev/:cim",
             loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent),
+            canActivate:[restaurantsChildAuthGuard],
+          },
+          {
+            path:":nev/:cim/:termek",
+            loadComponent: () => import("./restaurant/item/item.component").then(c => c.ItemComponent),
             canActivate:[restaurantsChildAuthGuard],
           },
           {

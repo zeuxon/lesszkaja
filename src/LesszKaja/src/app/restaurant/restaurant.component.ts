@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 
 @Component({
@@ -15,16 +15,17 @@ export class RestaurantComponent implements OnInit {
   restaurantData = {
     name: "",
     cim: "",
+    route: "",
   }
 
-  termekekArray: Array<{ nev: string; alapar: string }> = [];
+  termekekArray: Array<{ nev: string; alapar: string, route: string}> = [];
 
-
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private router: Router){
 
   }
 
   ngOnInit(): void {
+    this.restaurantData.route = "/restaurants/"  + this.restaurantData.name + "/" + this.restaurantData.cim;
     this.http.get("http://localhost:3000/restaurants/" + this.restaurantData.name + "/" + this.restaurantData.cim).subscribe(response => {
       this.loadTermekek(response);
     });
@@ -32,9 +33,10 @@ export class RestaurantComponent implements OnInit {
 
   loadTermekek(termekek: any) {
     for (let index = 0; index < termekek.length; index++) {
-      this.termekekArray[index] = {nev: "", alapar: ""};
+      this.termekekArray[index] = {nev: "", alapar: "", route: ""};
       this.termekekArray[index].nev = termekek[index].nev;
       this.termekekArray[index].alapar = termekek[index].alapar;
+      this.termekekArray[index].route = this.restaurantData.route + "/" + termekek[index].nev;
     }
   }
 

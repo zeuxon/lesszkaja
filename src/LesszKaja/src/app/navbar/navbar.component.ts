@@ -50,7 +50,8 @@ export class NavbarComponent implements OnInit {
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Profil', route: '/userprofile' },
-        { label: 'Kijelentkezés', route: '/logout' }
+        { label: 'Kijelentkezés', route: '/logout' },
+        { label: 'Kosár', route: '/cart' }
       ]
     } else if (this.usermanager.getUserType() == "admin") {
       this.navbarItems=[
@@ -58,7 +59,8 @@ export class NavbarComponent implements OnInit {
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Profil', route: '/adminprofile' },
         { label: 'Admin Panel', route: '/admin' },
-        { label: 'Kijelentkezés', route: '/logout' }
+        { label: 'Kijelentkezés', route: '/logout' },
+        { label: 'Kosár', route: '/cart' }
       ]
     } else if (this.usermanager.getUserType() == "courier") {
       this.navbarItems=[
