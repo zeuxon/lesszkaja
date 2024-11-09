@@ -3,10 +3,11 @@
 <div *ngIf="assignedOrders.length > 0; else noAssignedOrders">
     <div *ngFor="let order of assignedOrders" class="order">
       <p>Dátum: {{ order.datum }}</p>
-      <p>Összár: {{ order.osszar }} Ft</p>
+      <p>Végösszeg: {{ order.osszar }} Ft</p>
       <p>Étterem címe: {{ order.etterem_cim }}</p>
-      <p>Felhasználónév: {{ order.felhasznalonev }}</p> 
+      <p>Név: {{ order.felhasznalonev }}</p> 
       <p>Lakcím: {{ order.lakcim }}</p> 
+      <button (click)="completedOrder(order.id)">Kiszállítva</button>
     </div>
   </div>
   <ng-template #noAssignedOrders>

@@ -231,7 +231,7 @@ app.get('/restaurants/*/*', (body, res) => {
 
 // Azok a kosarak, amelyeket nem vállaltak el
 app.post('/courier/unassigned', (req, res) => {
-  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+  const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
                 'FROM kosar ' +
                 'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
                 'WHERE kosar.futar_futarid IS NULL AND kosar.kiszallitva = 0';;
@@ -247,7 +247,7 @@ app.post('/courier/unassigned', (req, res) => {
 // Kosarak, amelyeket egy adott futár vállalt el és még nem szállított ki
 app.post('/courier/assigned', (req, res) => {
   const { futarid } = req.body; // A bejelentkezett futár ID-jét várjuk
-  const query = 'SELECT kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
+  const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +
                 'FROM kosar ' +
                 'INNER JOIN felhasznalo ON kosar.felhasznalo_felhasznalonev = felhasznalo.felhasznalonev ' +
                 'WHERE kosar.futar_futarid = ? AND kosar.kiszallitva = 0';  // Kiszállítatlan, a futárhoz rendelt kosarak
@@ -263,6 +263,45 @@ app.post('/courier/assigned', (req, res) => {
 
 
 
+app.post('/courier/assign', (req, res) => {
+  const { orderId, futarid } = req.body;
+
+  const query = 'UPDATE kosar SET futar_futarid = ? WHERE id = ?';
+
+  connection.query(query, [futarid, orderId], (error, results) => {
+    if (error) {
+      console.error('Failed to assign order:', error);
+      return res.status(500).send({ message: 'Failed to assign order', error });
+    }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).send({ message: 'Order not found' });
+    }
+
+    res.status(200).send({ message: 'Order assigned successfully!' });
+  });
+});
+
+
+app.post('/courier/completed', (req, res) => {
+  const { orderId, futarid } = req.body;
+
+  // You may want to validate if the courier (futarid) is the one assigned to the order
+  const query = 'UPDATE kosar SET kiszallitva = 1 WHERE id = ? AND futar_futarid = ?';
+
+  connection.query(query, [orderId, futarid], (error, results) => {
+    if (error) {
+      console.error('Failed to assign order:', error);
+      return res.status(500).send({ message: 'Failed to assign order', error });
+    }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).send({ message: 'Order not found or courier not assigned to this order' });
+    }
+
+    res.status(200).send({ message: 'Order completed successfully!' });
+  });
+});
 
 
 
