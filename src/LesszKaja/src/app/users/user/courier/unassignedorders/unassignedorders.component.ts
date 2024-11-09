@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AssignedordersComponent } from '../assignedorders/assignedorders.component';
 
 @Component({
   selector: 'app-unassignedorders',
@@ -55,6 +56,7 @@ export class UnassignedordersComponent {
         next: (response) => {
           console.log('Order assigned successfully', response);
           this.getUnassignedOrders();
+          location.reload();
         },
         error: (error) => {
           console.error('Error assigning order:', error);

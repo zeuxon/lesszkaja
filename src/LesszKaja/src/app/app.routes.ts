@@ -138,6 +138,11 @@ export const routes: Routes = [
         loadComponent: () => import("./users/user/courier/unassignedorders/unassignedorders.component").then(c => c.UnassignedordersComponent),
         canActivate:[userAuthGuard]
       },
+      {
+        path: 'ordermanagement',
+        loadComponent: () => import("./users/user/restaurant-manager/order-management/order-management.component").then(c => c.OrderManagementComponent),
+        canActivate:[userAuthGuard]
+      },
       
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
