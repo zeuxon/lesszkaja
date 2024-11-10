@@ -237,16 +237,21 @@ app.get('/restaurantsitem/*/*/*', (body, res) => {
 
   const values = [adatok.termek, adatok.cim]
 
-  const query = 'SELECT osszetevok.nev FROM osszetevok ' +
+  const query = 'SELECT osszetevok.nev, termek.id FROM osszetevok ' +
                 'INNER JOIN termek_osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id ' +
                 'INNER JOIN termek ON termek_osszetevok.termek_id = termek.id ' +
                 'WHERE termek.nev=? AND termek.etterem_cim=? AND osszetevok.ar>0;';
+
+  const id_query = 'SELECT termek.id FROM termek WHERE termek.nev=? AND termek.etterem_cim=?;';
   connection.query(query, values, (error, results) => {
-    if (error) {
-      console.error('Database error:', error);
-    }else{
-      res.status(200).json(results);
-    }
+    connection.query(id_query, values, (error2, results2) => {
+      if (error || error2) {
+        console.error('Database error:', error);
+      }else{
+        res.status(200).json({results: results, id: results2[0].id});
+      }
+    });
+
   } );
 });
 

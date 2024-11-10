@@ -1,10 +1,11 @@
 <div>
     <h2>{{termekData.nev}}</h2>
-    <div *ngFor="let extra of extraArray">
-        <p>{{extra}}</p>
+    <p>Itt csak a nem 0 árral rendelkező összetevők jelennek meg!</p>
+    <div *ngFor="let item of extraArray | keyvalue">
+        <input [checked]="item.value" type="checkbox" (change)="changeChoice(item.key)">{{item.key}}
     </div>
     <br>
-    <p (click)="addToCart()">Kosárba</p>
+    <input type="button" (click)="addToCart()" value="Kosárba">
 </div>
 
 <p>item works!</p>
