@@ -16,7 +16,8 @@ export class ItemComponent implements OnInit {
   termekData = {
     id: 0,
     parentroute: "",
-    nev: ""
+    nev: "",
+    //cim: ""
   }
 
   extraArray = new Map<String, boolean>();
@@ -35,12 +36,20 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
     
     let segments: Array<UrlSegment> = this.router.parseUrl(this.router.url).root.children[PRIMARY_OUTLET].segments;
-    this.termekData.parentroute = "/restaurants/" + segments[1].path + "/" + segments[2].path;
-    let url = "restaurantsitem/" + segments[1].path + "/" + segments[2].path + "/"+ segments[3].path;
+    this.termekData.parentroute = "/restaurants/" + segments[1].path;
+    //this.termekData.cim = this.router.url;
+    let etterem_id = segments[1].path + "/" + this.termekData.id;
 
-    const ettermek = this.http.get("http://localhost:3000/" + url).subscribe((response: any) => {
-    this.termekData.id = response.id;
-    if(response.results.length > 0) this.loadExtras(response.results);
+    //console.log(this.router.url);
+
+    const termek_nev = this.http.post("http://localhost:3000/getname", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
+      this.termekData.nev = response[0].nev;
+    });
+
+    const ettermek = this.http.post("http://localhost:3000/restaurantsitem", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
+      if(response.length > 0){
+        this.loadExtras(response);
+      } 
     });
   }
 
@@ -51,7 +60,7 @@ export class ItemComponent implements OnInit {
   }
 
   @Input()
-  set termek(termek: string) {
-    this.termekData.nev = termek;
+  set termek_id(termekId: number) {
+    this.termekData.id = termekId;
   }
 }

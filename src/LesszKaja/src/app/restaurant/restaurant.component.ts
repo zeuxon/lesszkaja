@@ -13,6 +13,7 @@ import {Router, RouterLink} from '@angular/router';
 })
 export class RestaurantComponent implements OnInit {
   restaurantData = {
+    id: "",
     name: "",
     cim: "",
     route: "",
@@ -25,8 +26,8 @@ export class RestaurantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.restaurantData.route = "/restaurants/"  + this.restaurantData.name + "/" + this.restaurantData.cim;
-    this.http.get("http://localhost:3000/restaurants/" + this.restaurantData.name + "/" + this.restaurantData.cim).subscribe(response => {
+    this.restaurantData.route = "/restaurants/"  + this.restaurantData.id;
+    this.http.get("http://localhost:3000/restaurants/" + this.restaurantData.id).subscribe(response => {
       this.loadTermekek(response);
     });
   }
@@ -36,17 +37,12 @@ export class RestaurantComponent implements OnInit {
       this.termekekArray[index] = {nev: "", alapar: "", route: ""};
       this.termekekArray[index].nev = termekek[index].nev;
       this.termekekArray[index].alapar = termekek[index].alapar;
-      this.termekekArray[index].route = this.restaurantData.route + "/" + termekek[index].nev;
+      this.termekekArray[index].route = this.restaurantData.route + "/" + termekek[index].id;
     }
   }
 
   @Input()
-  set nev(restaurantName: string) {
-    this.restaurantData.name = restaurantName;
-  }
-
-  @Input()
-  set cim(restaurantAddress: string) {
-    this.restaurantData.cim = restaurantAddress;
+  set etterem_id(restaurantId: string) {
+    this.restaurantData.id = restaurantId;
   }
 }

@@ -50,7 +50,7 @@ export class CartManagerService {
                     }
                 }
             }
-            if(mismatch === false && id === parseInt(values[0])){
+            if(mismatch === false && id == parseInt(values[0])){
                 let newNum = parseInt(values[2]) + 1;
                 newString += values[0] + "$" +values[1] + "$" + newNum.toString() + "\n"
             }else{
@@ -58,6 +58,28 @@ export class CartManagerService {
             }
         }
         localStorage.setItem("kosar", newString);
+    }
+
+    getCartArray(): any{
+        let storageItem = localStorage.getItem("kosar");
+        if(storageItem === null) return;
+
+        let array = storageItem.split("\n");
+
+        let returnArray: Array<{termek_id: number, etterem_id: number, extrak: any, db: number, nev: String}> = [];
+
+        let index = 0;
+        for(let item of array){
+            if(item.length === 0) continue;
+
+            let values = item.split("$");
+            let map = new Map(Object.entries(JSON.parse(values[1])));
+
+            returnArray[index] = {termek_id: parseInt(values[0]), etterem_id: 0, extrak: map, db: parseInt(values[2]), nev: "Termék?"};
+            index++;
+        }
+
+        return returnArray;
     }
 
     private mapToString(map: Map<String, boolean>): String {

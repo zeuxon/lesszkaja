@@ -79,8 +79,27 @@ export const routes: Routes = [
       },
       {
         path: "restaurants",
-        canActivate:[userAuthGuard],
+        //canActivate:[userAuthGuard],
         children:[
+          {
+            path:"",
+            loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent),
+            canActivate:[userAuthGuard]
+          },
+          {
+            path:":etterem_id",
+            children:[
+              {
+                path:"",
+                loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent),
+              },
+              {
+                path:":termek_id",
+                loadComponent: () => import("./restaurant/item/item.component").then(c => c.ItemComponent),
+              },
+            ]
+          }
+          /*
           {
             path:":nev/:cim",
             loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent),
@@ -96,6 +115,7 @@ export const routes: Routes = [
             loadComponent: () => import("./restaurantslist/restaurantslist.component").then(c => c.RestaurantslistComponent),
             canActivate:[userAuthGuard]
           }
+            */
         ]
       },
       {

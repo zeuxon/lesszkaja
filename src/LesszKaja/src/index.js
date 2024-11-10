@@ -213,15 +213,16 @@ app.get('/restaurants', (req, res) => {
   } );
 });
 
-app.get('/restaurants/*/*', (body, res) => {
+app.get('/restaurants/*', (body, res) => {
   const adatok = {
-    cim: body.params[1],
-    nev: body.params[0],
+    etterem_id: body.params[0],
   }
 
-  const values = [adatok.cim, adatok.nev]
+  const values = [adatok.etterem_id]
 
-  const query = 'SELECT * FROM termek WHERE etterem_cim=?';
+  const query = 'SELECT termek.id, termek.nev, termek.alapar FROM termek ' +
+                'INNER JOIN etterem ON termek.etterem_cim=etterem.cim ' +
+                'WHERE etterem.id=?;';
   connection.query(query, values, (error, results) => {
     if (error) {
       console.error('Database error:', error);
@@ -230,30 +231,60 @@ app.get('/restaurants/*/*', (body, res) => {
     }
   } );
 });
-app.get('/restaurantsitem/*/*/*', (body, res) => {
-  const adatok = {
-    etterem: body.params[0],
-    cim: body.params[1],
-    termek: body.params[2],
-  }
 
-  const values = [adatok.termek, adatok.cim]
+app.post('/restaurantsitem', (req, res) => {
+  const adatok = req.body
+  const values = [adatok.termek_id, adatok.etterem_id]
 
-  const query = 'SELECT osszetevok.nev, termek.id FROM osszetevok ' +
+  const query = 'SELECT osszetevok.nev, termek.id, termek.nev as termek_nev FROM osszetevok ' +
                 'INNER JOIN termek_osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id ' +
                 'INNER JOIN termek ON termek_osszetevok.termek_id = termek.id ' +
-                'WHERE termek.nev=? AND termek.etterem_cim=? AND osszetevok.ar>0;';
+                'INNER JOIN etterem ON termek.etterem_cim=etterem.cim ' +
+                'WHERE termek.id=? AND etterem.id=? AND osszetevok.ar>0;';
 
-  const id_query = 'SELECT termek.id FROM termek WHERE termek.nev=? AND termek.etterem_cim=?;';
+  //const id_query = 'SELECT termek.id FROM termek WHERE termek.nev=? AND termek.etterem_cim=?;';
   connection.query(query, values, (error, results) => {
-    connection.query(id_query, values, (error2, results2) => {
-      if (error || error2) {
-        console.error('Database error:', error);
-      }else{
-        res.status(200).json({results: results, id: results2[0].id});
-      }
-    });
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      res.status(200).json(results);
+    }
+  } );
+});
 
+app.post('/getname/', (req, res) => {
+  const adatok = req.body;
+
+  values = [adatok.termek_id];
+
+  const query = 'SELECT termek.nev FROM termek WHERE termek.id=?;';
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      res.status(200).json(results);
+    }
+  } );
+});
+
+app.post('/getitem/', (req, res) => {
+  const array = req.body.array;
+
+  ids = "";
+
+  for(let index = 0; index < array.length; index++){
+    ids += array[index].termek_id.toString() + (index == array.length - 1 ? "" : ",");
+  }
+
+  const query = 'SELECT termek.id, termek.nev, etterem.id as etterem_id FROM termek INNER JOIN etterem on termek.etterem_cim=etterem.cim WHERE termek.id IN (' + ids + ')';
+
+  connection.query(query, undefined, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      res.status(200).json(results);
+    }
   } );
 });
 

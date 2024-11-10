@@ -12,8 +12,8 @@ import { ListComponent } from './list/list.component';
   styleUrl: './restaurantslist.component.scss'
 })
 export class RestaurantslistComponent implements OnInit {
-  ettermekArray: Array<{ nev: string; cim: string; route: string}> = [];
-  shownEttermek: Array<{ nev: string; cim: string; route: string}> = [];
+  ettermekArray: Array<{id: number, nev: string; cim: string; route: string}> = [];
+  shownEttermek: Array<{id: number, nev: string; cim: string; route: string}> = [];
 
   constructor(private http: HttpClient) {
   }
@@ -27,10 +27,11 @@ export class RestaurantslistComponent implements OnInit {
 
   loadEttermek(ettermek: any) {
     for (let index = 0; index < ettermek.length; index++) {
-      this.ettermekArray[index] = {nev: "", cim: "", route: ""};
+      this.ettermekArray[index] = {id: 0, nev: "", cim: "", route: ""};
       this.ettermekArray[index].nev = ettermek[index].nev;
       this.ettermekArray[index].cim = ettermek[index].cim;
-      this.ettermekArray[index].route = "/restaurants/" + ettermek[index].nev + "/" + ettermek[index].cim;
+      this.ettermekArray[index].id = ettermek[index].id;
+      this.ettermekArray[index].route = "/restaurants/" + ettermek[index].id;
     }
   }
 
