@@ -1,9 +1,7 @@
-<p>storage works!</p>
-
-<div class="storage-list">
-    <h2>Az étteremhez tartozó Árukészlet </h2>
-    
-    <table *ngIf="storages.length > 0">
+<div style="margin: 30px 50px" class="storage-list">
+  <div *ngIf="ingredients.length > 0">
+    <h2>Raktárban lévő összetevők</h2>
+    <table>
       <thead>
         <tr>
           <th>Összetevő</th>
@@ -12,15 +10,53 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let storage of storages">
-          <td>{{ storage.osszetevok_nev }}</td>
-          <td>{{ storage.mennyiseg }}</td>
-          <td>{{ storage.alaposszetevok_nev }}</td>
+        <tr *ngFor="let item of ingredients">
+          <td>{{ item.osszetevo }}</td>
+          <td>{{ item.mennyiseg }}</td>
+          <td>{{ item.id }}</td>
         </tr>
       </tbody>
     </table>
-    
-    <p *ngIf="storages.length === 0">Nem található étteremhez tartozó raktár.</p>
+  </div>
+  <p *ngIf="ingredients.length == 0">Nem található étteremhez tartozó raktár.</p>
+  <br>
+  <div *ngIf="products.length > 0">
+    <h2>Termékkészlet</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ár</th>
+          <th>Cím</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products">
+          <td>{{ item.nev }}</td>
+          <td>{{ item.alapar }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form>
+      <form (ngSubmit)="removeProduct()">
+        <label for="remove_product">Remove product:</label>
+        <input type="text" id="remove_product" [(ngModel)]="remove_product" name="remove_product" required>
+        <button type="submit">Remove Product</button>
+      </form>
+    </form>
+  </div>
+  <p *ngIf="products.length == 0">Nem található étteremhez tartozó termékkészlet.</p>
+  <p>Add products:</p>
+  <form>
+    <form (ngSubmit)="addProduct()">
+      <label for="add_product_name">Product name:</label>
+      <input type="text" id="add_product_name" [(ngModel)]="add_product_name" name="add_product_name" required><br>
+      <label for="add_product_value">Product value:</label>
+      <input type="number" id="add_product_value" [(ngModel)]="add_product_value" name="add_product_value" required>
+      <button type="submit">Add Product</button>
+    </form>
+  </form>
+
   </div>
   
   

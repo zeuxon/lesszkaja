@@ -1,11 +1,11 @@
 <nav>
   <div class="nav-content">
     <h1 routerLink="/home">LesszKaja</h1>
-    <ul>
+    <mat-icon class="hamburger-icon" (click)="toggleNavbar()">menu</mat-icon>
+    <ul [class.responsive]="isNavbarOpen">
       <li *ngFor="let item of navbarItems">
-        <a [routerLink]="item.route">{{ item.label }}</a>
+        <a [routerLink]="item.route" (click)="closeNavbar()">{{ item.label }}</a>
       </li>
     </ul>
   </div>
-
 </nav>

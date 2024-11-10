@@ -1,37 +1,34 @@
+<h1>Felhasználó registrálás</h1>
+
 <form [formGroup]="registerUser" (ngSubmit)="onSubmit(registerUser)">
   <div>
-    <label for="username">Felhasználónév:</label>
-    <input type="text" id="username" formControlName="felhasznalonev">
+    <input type="text" id="username" formControlName="felhasznalonev" placeholder="Felhasználónév">
     <div *ngIf="registerUser.controls['felhasznalonev'].invalid && (registerUser.controls['felhasznalonev'].touched || registerUser.controls['felhasznalonev'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerUser.controls['felhasznalonev'].errors?.['required'] || registerUser.controls['felhasznalonev'].errors?.['name']">Ez a mező kötelező!</span>
     </div>
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email">
+    <input type="email" id="email" formControlName="email" placeholder="Email">
     <div *ngIf="registerUser.controls['email'].invalid && (registerUser.controls['email'].touched || registerUser.controls['email'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerUser.controls['email'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerUser.controls['email'].errors?.['required'] && registerUser.controls['email'].errors?.['strictEmail']">Helytelen email!</span>
     </div>
   </div>
   <div>
-    <label for="tel">Tel:</label>
-    <input type="tel" id="tel" formControlName="tel">
+    <input type="tel" id="tel" formControlName="tel" placeholder="Telefonszám">
     <div *ngIf="registerUser.controls['tel'].invalid && (registerUser.controls['tel'].touched || registerUser.controls['tel'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerUser.controls['tel'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerUser.controls['tel'].errors?.['required']&&registerUser.controls['tel'].errors?.['phone']">Helytelen telefonszám!</span>
     </div>
   </div>
   <div>
-    <label for="address">Lakcím:</label>
-    <input type="text" id="address" formControlName="lakcim">
+    <input type="text" id="address" formControlName="lakcim" placeholder="Lakcím">
     <div *ngIf="registerUser.controls['lakcim'].invalid && (registerUser.controls['lakcim'].touched || registerUser.controls['lakcim'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerUser.controls['lakcim'].errors?.['required'] || registerUser.controls['lakcim'].errors?.['address']">Ez a mező kötelező!</span>
     </div>
   </div>
   <div>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" formControlName="jelszo">
+    <input type="password" id="password" formControlName="jelszo" placeholder="Jelszó">
     <div *ngIf="registerUser.controls['jelszo'].invalid && (registerUser.controls['jelszo'].touched || registerUser.controls['jelszo'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerUser.controls['jelszo'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerUser.controls['jelszo'].errors?.['required']&&registerUser.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>

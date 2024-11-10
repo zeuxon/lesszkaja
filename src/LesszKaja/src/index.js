@@ -534,6 +534,8 @@ app.post('/ordermanagement', (req, res) => {
 
 
 
+
+
 //A megrendelés törlése
 app.post('/ordermanagement/delete', (req, res) => {
   const { orderId } = req.body;
@@ -554,8 +556,76 @@ app.post('/ordermanagement/delete', (req, res) => {
 });
 
 
+app.get('/storage_get_ingredients', (req, res) => {
+  const query = 'SELECT * FROM raktar';
+  
+  connection.query(query, (err, results) => {
+    if(err) {
+      console.error('Error fetching data:', err.message);
+      res.status(500).send('Server Error');
+      return;
+    }
+    res.send(results);
+  });
+});
 
-var DEBUG = true;
+app.get('/storage_get_products', (req, res) => {
+  const restaurant_addr = req.query.addr;
+  const query = 'SELECT * FROM termek WHERE etterem_cim = ?';
+  
+  connection.query(query, [restaurant_addr], (err, results) => {
+    if(err) {
+      console.error('Error fetching data:', err.message);
+      res.status(500).json({ message: 'Server Error'});
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
+
+app.post('/remove_product', (req, res) => {
+  const prod_name = req.body.name;
+  const query = "DELETE FROM termek WHERE nev = ?";
+  connection.query(query, [prod_name], (err, result) => {
+    if(err) {
+      console.error('Error deleting record:', err.message);
+      return res.status(500).json({ message: 'Error deleting record.' });
+    }
+    if (result.affectedRows == 0) {
+      console.log("No matching record found to delete.");
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    console.log("Record successfully deleted.");
+    res.status(200).send(result);
+  })
+});
+
+
+app.post('/add_product', (req, res) => {
+  const {value, name, addr} = req.body;
+  const query = 'INSERT INTO termek (alapar, nev, etterem_cim) VALUES (?, ?, ?)'
+  connection.query(query, [value, name, addr], (err, result) => {
+    if(err) {
+      console.error('Error adding record:', err.message);
+      return res.status(500).json({ message: 'Error adding record.' });
+    }
+    console.log("Record added successfully.", result  );
+    res.status(200).json({ message: 'Record added succesfully.' });
+  })
+});
+
+
+
+
+
+
+
+
+
+
+//var DEBUG = true;
+var DEBUG = false;
 /****** Etterem funkciok ******/
 
 // termek hozzaadasa a termek tablahoz

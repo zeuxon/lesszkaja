@@ -1,30 +1,28 @@
+<h1>Futár registrálás</h1>
+
 <form [formGroup]="registerCourier" (ngSubmit)="onSubmit(registerCourier)">
   <div>
-    <label for="username">Név:</label>
-    <input type="text" id="username" formControlName="nev">
+    <input type="text" id="username" formControlName="nev" placeholder="Felhasználónév">
     <div *ngIf="registerCourier.controls['nev'].invalid && (registerCourier.controls['nev'].touched || registerCourier.controls['nev'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerCourier.controls['nev'].errors?.['required'] || registerCourier.controls['nev'].errors?.['name']">Ez a mező kötelező!</span>
     </div>
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email">
+    <input type="email" id="email" formControlName="email" placeholder="Email">
     <div *ngIf="registerCourier.controls['email'].invalid && (registerCourier.controls['email'].touched || registerCourier.controls['email'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerCourier.controls['email'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerCourier.controls['email'].errors?.['required'] && registerCourier.controls['email'].errors?.['strictEmail']">Helytelen email!</span>
     </div>
   </div>
   <div>
-    <label for="tel">Tel:</label>
-    <input type="tel" id="tel" formControlName="tel">
+    <input type="tel" id="tel" formControlName="tel" placeholder="Telefonszám">
     <div *ngIf="registerCourier.controls['tel'].invalid && (registerCourier.controls['tel'].touched || registerCourier.controls['tel'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerCourier.controls['tel'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerCourier.controls['tel'].errors?.['required']&&registerCourier.controls['tel'].errors?.['phone']">Helytelen telefonszám!</span>
     </div>
   </div>
   <div>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" formControlName="jelszo">
+    <input type="password" id="password" formControlName="jelszo" placeholder="Jelszó">
     <div *ngIf="registerCourier.controls['jelszo'].invalid && (registerCourier.controls['jelszo'].touched || registerCourier.controls['jelszo'].dirty || isFormSubmitted)" class="alert alert-danger">
       <span *ngIf="registerCourier.controls['jelszo'].errors?.['required']">Ez a mező kötelező!</span>
       <span *ngIf="!registerCourier.controls['jelszo'].errors?.['required']&&registerCourier.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
@@ -33,4 +31,3 @@
 
   <button type="submit" [disabled]="registerCourier.invalid">Register</button>
 </form>
-<p>registercourier works!</p>
