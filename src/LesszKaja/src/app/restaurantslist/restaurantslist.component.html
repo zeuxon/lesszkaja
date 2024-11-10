@@ -18,14 +18,5 @@
 </div>
 
 <div class="restaurantlist-container">
-
-
-    <div *ngFor="let item of ettermekArray"  [routerLink]="item.route">
-        <img src="../../assets/images/mcdonalds.png" alt="">
-        <div class="restaurantlist-container-text">
-            <h5>{{ item.nev }}</h5>
-            <p>Burger, Shake</p>
-        </div>
-
-    </div>
+    <app-list [show]="shownEttermek"></app-list>
 </div>
