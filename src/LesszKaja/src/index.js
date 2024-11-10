@@ -3,6 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const dotenv = require('dotenv');
+const { exit } = require('process');
+const crypto = require('crypto');
 dotenv.config();
 
 const connection = mysql.createConnection({
@@ -354,6 +356,166 @@ app.post('/ordermanagement/delete', (req, res) => {
     res.status(200).send({ message: 'Order deleted successfully!' });
   });
 });
+
+
+
+var DEBUG = true;
+/****** Etterem funkciok ******/
+
+// termek hozzaadasa a termek tablahoz
+function add_product_to_termek(add_product) {
+  const query = 'INSERT INTO termek (alapar, nev, etterem_cim) VALUES (?, ?, ?)';
+  connection.query(query, add_product, (err, results) => {
+      if(err) {
+          console.error('Error executing query:', err);
+          return;
+      }
+      console.log('Record inserted with ID:', results);
+      console.log();
+  })
+}
+
+if (DEBUG)
+  add_product_to_termek([ 1200, "Disznósajt", 'Budapest, József körút 87.' ]);
+
+
+// termek torlese a termek tablabol
+function delete_product_from_termek(id) {
+    const query = 'DELETE FROM termek WHERE nev = ?';
+    connection.query(query, [id], (err, res) => {
+        if (err) {
+            console.error('Error executing query:', err);
+            return;
+        }
+        console.log('Deleted record:', res);
+        console.log();
+    })
+}
+
+if (DEBUG)
+  delete_product_from_termek("Disznósajt");
+
+
+// termek aranak valtoztatasa a termek tablaban
+function change_price(id, value) {
+    const query = 'UPDATE termek SET alapar = ? WHERE nev = ?';
+    connection.query(query, [value, id], (err, res) => {
+        if (err) {
+            console.error('Error executing query:', err);
+            return;
+        }
+        console.log("Update successfull:", res);
+        console.log();
+    })
+}
+
+if (DEBUG)
+  change_price("Cheese Burger",  999);
+
+
+// termek rekord megszerzese a termek tablabol
+function get_product(id) {
+    return new Promise((resolve, reject) => {
+        const query = 'SELECT * FROM termek WHERE nev = ?';
+        connection.query(query, [id], (err, res) => {
+            if (err) {
+                console.error('Error executing query.');
+                reject(err);
+                return;
+            }
+            console.log('Succesfully retrived record.');
+            resolve(res);
+        })
+    })
+}
+
+if (DEBUG)
+  get_product('Cheese Burger')
+      .then(res => console.log("Query record:", res))
+      .catch(err => console.log("Query error:", err));
+
+
+/*******Admin funkciok ********/
+
+// etterem hozzaadasa az etterem tablahoz
+function add_restaurant(values) {
+  const query = 'INSERT INTO etterem (nev, emailcim, jelszo, telefonszam, cim) VALUES (?, ?, ?, ?, ?)';
+  values[2] = crypto.createHash('sha256').update(values[2]).digest('hex');
+  connection.query(query, values, (err, results) => {
+      if(err) {
+          console.error('Error executing query:', err);
+          return;
+      }
+      console.log();
+      console.log('Record inserted with ID:', results.insertId);
+  })
+}
+
+if (DEBUG)
+  add_restaurant(['Jako Cukraszda', 'info@jakocukraszda.com', 'jako1234', '0630000000', 'Kecskeméti Jakó Cukrászda 1.']);
+
+
+// etterem torlese az etterem tablabol 
+function delete_restaurant(id) {
+  const query = 'DELETE FROM etterem WHERE nev = ?';
+  connection.query(query, [id], (err, res) => {
+      if (err) {
+          console.error('Error executing query:', err);
+          return;
+      }
+      console.log();
+      console.log('Deleted record:', res.affectedRows);
+  })
+}
+
+if (DEBUG)
+  delete_restaurant('Jako Cukraszda');
+
+
+// etterem lekerdezese az etterem tablabol
+function buildQuery(params) {
+  let baseQuery = 'SELECT * FROM etterem WHERE ';
+  const conditions = [];
+  const values = [];
+
+  const fields = ['nev', 'emailcim', 'jelszo', 'telefonszam', 'cim'];
+
+  fields.forEach((field, index) => {
+      if (params[index] !== '*') {
+          conditions.push(`${field} = ?`);
+          values.push(params[index]);
+      }
+  });
+
+  if (conditions.length === 0) {
+      return { query: 'SELECT * FROM etterem', values: [] };
+  }
+  
+  return {query: baseQuery + conditions.join(' AND '), values};
+}
+
+function get_restaurants(params) {
+  return new Promise((resolve, reject) => {
+      const { query, values } = buildQuery(params);
+      connection.query(query, values, (err, res) => {
+          if (err) {
+              console.error("Error executing query.");
+              reject(err);
+              return;
+          }
+          console.log("Successfully retrieved records.");
+          resolve(res);
+      });
+  });
+}
+
+if (DEBUG)
+  get_restaurants(['*', '*', '*', '*', '*'])
+    .then(result => console.log("Query records:", result))
+    .catch(err => console.error("Query failed:", err));
+
+
+
 
 const port = process.env.PORT || 3000; // Change to 3000
 app.listen(port, () => {
