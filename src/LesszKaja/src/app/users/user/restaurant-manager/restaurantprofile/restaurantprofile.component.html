@@ -1,35 +1,32 @@
+<h1>Étterem adatok módosítása</h1>
+
 <form [formGroup]="modifyUser" (ngSubmit)="onSubmit(modifyUser)">
   <div>
-    <label for="username">Felhasználónév:</label>
-    <input type="text" id="username" formControlName="nev">
+    <input type="text" id="username" formControlName="nev" placeholder="Név">
     <div *ngIf="modifyUser.controls['nev'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['nev'].errors?.['name']">Helytelen felhasználónév!</span>
     </div>
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="emailcim">
+    <input type="email" id="email" formControlName="emailcim" placeholder="Email">
     <div *ngIf="modifyUser.controls['emailcim'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['emailcim'].errors?.['strictEmail']">Helytelen email!</span>
     </div>
   </div>
   <div>
-    <label for="tel">Tel:</label>
-    <input type="tel" id="tel" formControlName="telefonszam">
+    <input type="tel" id="tel" formControlName="telefonszam" placeholder="Telefonszám">
     <div *ngIf="modifyUser.controls['telefonszam'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['telefonszam'].errors?.['phone']">Helytelen telefonszám!</span>
     </div>
   </div>
   <div>
-    <label for="address">Lakcím:</label>
-    <input type="text" id="address" formControlName="cim">
+    <input type="text" id="address" formControlName="cim" placeholder="Cím">
     <div *ngIf="modifyUser.controls['cim'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['cim'].errors?.['address']">Helytelen lakcím!</span>
     </div>
   </div>
   <div>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" formControlName="jelszo">
+    <input type="password" id="password" formControlName="jelszo" placeholder="Jelszó">
     <div *ngIf="modifyUser.controls['jelszo'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
     </div>

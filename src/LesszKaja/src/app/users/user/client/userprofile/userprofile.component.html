@@ -1,35 +1,31 @@
+<h1>Adatok módosítása</h1>
 <form [formGroup]="modifyUser" (ngSubmit)="onSubmit(modifyUser)">
   <div>
-    <label for="username">Felhasználónév:</label>
-    <input type="text" id="username" formControlName="felhasznalonev">
+    <input type="text" id="username" formControlName="felhasznalonev" placeholder="Felhasználónév">
     <div *ngIf="modifyUser.controls['felhasznalonev'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['felhasznalonev'].errors?.['name']">Helytelen felhasználónév!</span>
     </div>
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="emailcim">
+    <input type="email" id="email" formControlName="emailcim" placeholder="Email">
     <div *ngIf="modifyUser.controls['emailcim'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['emailcim'].errors?.['strictEmail']">Helytelen email!</span>
     </div>
   </div>
   <div>
-    <label for="tel">Tel:</label>
-    <input type="tel" id="tel" formControlName="telefonszam">
+    <input type="tel" id="tel" formControlName="telefonszam" placeholder="Telefonszám">
     <div *ngIf="modifyUser.controls['telefonszam'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['telefonszam'].errors?.['phone']">Helytelen telefonszám!</span>
     </div>
   </div>
   <div>
-    <label for="address">Lakcím:</label>
-    <input type="text" id="address" formControlName="lakcim">
+    <input type="text" id="address" formControlName="lakcim" placeholder="Lakcím">
     <div *ngIf="modifyUser.controls['lakcim'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['lakcim'].errors?.['address']">Helytelen lakcím!</span>
     </div>
   </div>
   <div>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" formControlName="jelszo">
+    <input type="password" id="password" formControlName="jelszo" placeholder="Jelszó">
     <div *ngIf="modifyUser.controls['jelszo'].invalid" class="alert alert-danger">
       <span *ngIf="modifyUser.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
     </div>
