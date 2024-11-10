@@ -6,13 +6,8 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { UsermanagerService } from '../../../../services/usermanager.service';
-import { hashSync } from "bcrypt-ts";
 import * as validator from "../../../../services/validators";
 
-/**
- * @title Table with expandable rows
- */
 @Component({
   selector: 'table-expandable-rows-example',
   styleUrls: ['modifyuser.component.scss'],
@@ -22,7 +17,7 @@ import * as validator from "../../../../services/validators";
       state('collapsed,void', style({ height: '0px', minHeight: '0' })),
       state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]), 
+    ]),
   ],
   standalone: true,
   imports: [MatTableModule, MatButtonModule, MatIconModule, HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule]
@@ -31,15 +26,54 @@ export class ModifyuserComponent implements OnInit {
   http = inject(HttpClient);
   usersArray: Array<User> = [];
   dataSource = new MatTableDataSource<User>(this.usersArray);
-  columnsToDisplay = ['id', 'felhasznalonev', 'emailcim', 'telefonszam', 'lakcim'];
+  columnsToDisplay = ['id', 'felhasznalonev', 'emailcim', 'telefonszam', 'lakcim', 'felfuggesztve'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement!: User | null;
+  emptyForm = new FormGroup({});
+
+  modifyUsers: Map<number, FormGroup> = new Map();
 
   ngOnInit(): void {
-    console.log("ModifyuserComponent initialized");
     this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
       this.loadUsers(response);
+      this.initializeFormGroups(response);
     });
+  }
+
+  deleteUser(id:number) {
+    this.http.delete("http://localhost:3000/deleteuser"+"/"+id).subscribe((response: any) => {
+      this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+        this.loadUsers(response);
+        this.modifyUsers.delete(id);
+        });
+    })
+  }
+
+  suspendUser(id:number,felfuggesztve:boolean) {
+    this.http.post("http://localhost:3000/suspenduser", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
+      this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+        this.loadUsers(response);
+      });
+    })
+  }
+
+  onButtonClick(userId: number): void {
+    console.log("Button clicked for user with ID:", userId);
+    // Add your code here to handle the specific user
+  }
+
+  initializeFormGroups(users: any) {
+    this.modifyUsers = new Map(
+      users.map((user: any) => [
+        user.id,
+        new FormGroup({
+          felhasznalonev: new FormControl("", [validator.modifyNameValidator()]),
+          emailcim: new FormControl("", [validator.modifyStrictEmailValidator()]),
+          telefonszam: new FormControl("", [validator.modifyPhoneValidator()]),
+          lakcim: new FormControl("", [validator.modifyAddressValidator()]),
+        })
+      ])
+    );
   }
 
   loadUsers(users: any) {
@@ -48,104 +82,87 @@ export class ModifyuserComponent implements OnInit {
       felhasznalonev: user.felhasznalonev,
       emailcim: user.emailcim,
       telefonszam: user.telefonszam,
-      lakcim: user.lakcim
+      lakcim: user.lakcim,
+      felfuggesztve: user.felfuggesztve ? "igen" : "nem"
     }));
-    this.dataSource.data = this.usersArray; // Update the dataSource with the loaded data
-    console.log(this.usersArray);
+    this.dataSource.data = this.usersArray;
   }
 
   toggleRow(element: User) {
     this.expandedElement = this.expandedElement === element ? null : element;
   }
 
-  userFields: Array<keyof UserData> = ['felhasznalonev', 'emailcim', 'jelszo', 'telefonszam', 'lakcim'];
+  userFields: Array<keyof UserData> = ['felhasznalonev', 'emailcim', 'telefonszam', 'lakcim'];
 
-  anyFieldHasValue(): boolean {
-    return this.userFields.some(field => !!this.modifyUser.get(field)?.value);
+  anyFieldHasValue(id:number): boolean {
+    const form = this.modifyUsers.get(id)
+    return form ? this.userFields.some(field => !!form.get(field)?.value) : false;
   }
 
   userTempModifyData: UserData = {
     felhasznalonev: "",
     emailcim: "",
-    jelszo: "",
     telefonszam: "",
     lakcim: "",
-    id: 0,
+    id : 0
   };
 
-  responseData!: UserData;
-  responseDataConverter: any;
-  userManager = inject(UsermanagerService)
-  modifyUser: FormGroup;
+  defaultData!: UserData;
   isFormSubmitted: boolean = false;
   SuccessfulModify: boolean = true;
   OneFieldValid: boolean = true;
 
-  constructor() {
-    this.modifyUser = new FormGroup({
-      felhasznalonev: new FormControl("", [validator.modifyNameValidator()]),
-      emailcim: new FormControl("", [validator.modifyStrictEmailValidator()]),
-      telefonszam: new FormControl("", [validator.modifyPhoneValidator()]),
-      lakcim: new FormControl("", [validator.modifyAddressValidator()]),
-      jelszo: new FormControl("", [validator.modifyPasswordValidator()])
-    });
-  }
 
 
-  onSubmit(form: any) {
-    const isFormValid = this.modifyUser.valid;
-    this.isFormSubmitted = false;
+  onSubmit(element:any) {
+    const userForm = this.modifyUsers.get(element.id);
+    if (userForm) {
 
-    this.OneFieldValid = this.userFields.some(field => !!this.modifyUser.get(field)?.value);
-    if (this.OneFieldValid) {
-      this.isFormSubmitted = true;
-      this.http.post('http://localhost:3000/login', {
-        emailcim: this.userManager.getUserEmail(),
-        jelszo: this.userManager.getUserPassword()
-      }).subscribe(response => {
-        this.responseDataConverter = response;
 
-        this.responseData = this.responseDataConverter.results[0] as UserData;
-        this.userTempModifyData['id'] = this.responseData['id'];
+      const isFormValid = userForm.valid;
+      this.isFormSubmitted = false;
+
+
+    if (this.anyFieldHasValue(element.id)) {
+        this.isFormSubmitted = true;
+        this.userTempModifyData["id"]=element["id"];
 
         this.userFields.forEach(field => {
-          const control = this.modifyUser.get(field);
+          const control = userForm.get(field);
           if (control && !control.value) {
-            this.userTempModifyData[field] = String(this.responseData[field]);
+            this.userTempModifyData[field] = String(element[field]);
           } else {
-            this.userTempModifyData[field] = this.modifyUser.controls[field].value
-            if (field == "jelszo") {
-              localStorage["jelszo"]=this.userTempModifyData[field];
-              this.userTempModifyData[field] = hashSync(this.userTempModifyData[field])
-            }
+            this.userTempModifyData[field] = userForm.controls[field].value
           }
         });
-
-        localStorage["emailcim"]=this.userTempModifyData["emailcim"];
-
-        this.http.post('http://localhost:3000/modifyuser', this.userTempModifyData).subscribe(response => {
-
-          this.modifyUser.reset({
+        this.http.post('http://localhost:3000/modifyuseradmin', this.userTempModifyData).subscribe(response => {
+          console.log(this.userTempModifyData)
+          userForm.reset({
             felhasznalonev: '',
             email: '',
             telefonszam: '',
             lakcim: '',
-            jelszo: ''
           });
-          this.modifyUser.markAsPristine();
-          this.modifyUser.markAsUntouched();
+          userForm.markAsPristine();
+          userForm.markAsUntouched();
 
           this.SuccessfulModify = true;
+          this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+          this.loadUsers(response);
+          });
         }, error => {
           console.log(error);
+          this.SuccessfulModify = false;
         });
 
-      }, error => {
-        console.log(error);
-        this.SuccessfulModify = false;
-      });
+      }
     }
-    }
+
+  }
+
+
+
+
 }
 
 export interface User {
@@ -154,13 +171,13 @@ export interface User {
   emailcim: string;
   telefonszam: string;
   lakcim: string;
+  felfuggesztve: boolean;
 }
 
 interface UserData {
   felhasznalonev: string;
   emailcim: string;
-  jelszo: string;
   telefonszam: string;
   lakcim: string;
-  id: number | string;
+  id: string | number
 }
