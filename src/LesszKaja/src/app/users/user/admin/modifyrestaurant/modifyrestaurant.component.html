@@ -1,1 +1,76 @@
-<p>modifyrestaurant works!</p>
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+  <!-- Dynamic Columns -->
+  <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef> {{ column }} </th>
+    <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+  </ng-container>
+
+  <!-- Expand Column -->
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row" (click)="toggleRow(element); $event.stopPropagation()">
+        <mat-icon>{{ expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Expanded Detail Column -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div class="example-element-detail" [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+
+
+          <ng-container *ngIf="modifyRestaurants.get(element.id) as userForm">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit(element)">
+            <div>
+              <label for="username">Név:</label>
+              <input type="text" id="username" formControlName="nev">
+              <div *ngIf="userForm.controls['nev']?.invalid" class="alert alert-danger">
+                <span *ngIf="userForm.controls['nev']?.errors?.['name']">Helytelen felhasználónév!</span>
+              </div>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" formControlName="emailcim">
+              <div *ngIf="userForm.controls['emailcim']?.invalid" class="alert alert-danger">
+                <span *ngIf="userForm.controls['emailcim']?.errors?.['strictEmail']">Helytelen email!</span>
+              </div>
+            </div>
+            <div>
+              <label for="tel">Tel:</label>
+              <input type="tel" id="tel" formControlName="telefonszam">
+              <div *ngIf="userForm.controls['telefonszam']?.invalid" class="alert alert-danger">
+                <span *ngIf="userForm.controls['telefonszam']?.errors?.['phone']">Helytelen telefonszám!</span>
+              </div>
+           </div>
+            <div>
+              <label for="address">Cím:</label>
+              <input type="text" id="address" formControlName="cim">
+              <div *ngIf="userForm.controls['cim']?.invalid" class="alert alert-danger">
+                <span *ngIf="userForm.controls['cim']?.errors?.['address']">Helytelen lakcím!</span>
+              </div>
+            </div>
+
+            <button type="submit" [disabled]="!anyFieldHasValue(element.id) || modifyRestaurants.get(element.id)?.invalid">Módosít</button>
+            <button (click)="deleteRestaurant(element.id)">Törlés</button>
+            <button *ngIf="element.felfuggesztve=='nem'" (click)="suspendRestaurant(element.id,true)">Felfüggeszt</button>
+            <button *ngIf="element.felfuggesztve=='igen'" (click)="suspendRestaurant(element.id,false)">Felfüggesztés visszavonása</button>
+          </form>
+          </ng-container>
+
+
+
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element" (click)="toggleRow(element)">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

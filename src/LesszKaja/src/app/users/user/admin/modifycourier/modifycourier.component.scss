@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+.example-element-diagram {
+  display: flex;
+  justify-content: space-evenly;
+  padding-block: 10px;
+  background: lightgray;
+  color: var(--Dark);
+  font-size: 20px;
+  font-family: 'Maven Pro';
+}

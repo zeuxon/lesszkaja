@@ -1,18 +1,28 @@
 import { Component, OnInit, Injector } from '@angular/core';
-import {Router, RouterLink, RouterOutlet } from '@angular/router';
-import {UsermanagerService} from "../services/usermanager.service";
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { UsermanagerService } from "../services/usermanager.service";
 import { CommonModule } from '@angular/common';
 import { NavbarService } from '../services/navbar.service';
+import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule],
+  imports: [RouterOutlet, RouterLink, CommonModule, MatIconModule], // Add MatIconModule to imports
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-
 export class NavbarComponent implements OnInit {
+  isNavbarOpen = false;
+
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+  closeNavbar() {
+    this.isNavbarOpen = false;
+  }
+
   navbarItems: Array<{ label: string; route: string }> = [];
   private navbarService: NavbarService;
 
@@ -27,8 +37,6 @@ export class NavbarComponent implements OnInit {
       this.updateNavbar();
     });
     this.loadNavbarItems();
-    //console.log(this.usermanager.isLoggedIn());
-    //console.log(localStorage);
     this.updateNavbar();
   }
 
@@ -38,52 +46,48 @@ export class NavbarComponent implements OnInit {
 
   loadNavbarItems() {
     if (!this.usermanager.isLoggedIn()) {
-      this.navbarItems=[
+      this.navbarItems = [
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Bejelentkezés', route: '/login' },
         { label: 'Regisztráció', route: '/register' }
-      ]
+      ];
     } else if (this.usermanager.getUserType() == "user") {
-      console.log("LEFUT");
-      this.navbarItems=[
+      this.navbarItems = [
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Profil', route: '/userprofile' },
         { label: 'Kijelentkezés', route: '/logout' },
         { label: 'Kosár', route: '/cart' }
-      ]
+      ];
     } else if (this.usermanager.getUserType() == "admin") {
-      this.navbarItems=[
+      this.navbarItems = [
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Profil', route: '/adminprofile' },
         { label: 'Admin Panel', route: '/admin' },
         { label: 'Kijelentkezés', route: '/logout' },
         { label: 'Kosár', route: '/cart' }
-      ]
+      ];
     } else if (this.usermanager.getUserType() == "courier") {
-      this.navbarItems=[
+      this.navbarItems = [
         { label: 'Kezdőlap', route: '/home' },
         { label: 'Profil', route: '/courierprofile' },
         { label: 'Rendelések', route: '/courier' },
         { label: 'Kijelentkezés', route: '/logout' }
-      ]
+      ];
     } else if (this.usermanager.getUserType() == "restaurantmanager") {
-      this.navbarItems=[
-        { label: 'Kezdőlap', route: '/home'},
+      this.navbarItems = [
+        { label: 'Kezdőlap', route: '/home' },
         { label: 'Profil', route: '/restaurantprofile' },
         { label: 'Raktár', route: '/storage' },
         { label: 'Megrendelések', route: '/ordermanagement' },
         { label: 'Kijelentkezés', route: '/logout' }
-      ]
+      ];
     }
   }
-
-
 
   public openRegister(): void {
     this.router.navigateByUrl("register");
   }
-
 }

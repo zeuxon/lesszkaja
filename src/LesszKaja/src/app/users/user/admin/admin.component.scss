@@ -1,0 +1,45 @@
+h1 {
+    color: var(--Dark, #313638);
+    text-align: center;
+    padding-top: 16px;
+}
+
+
+.admin-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    ul {
+
+        li {
+            list-style: none;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+                font-size: 20px;
+
+                text-decoration: none;
+                color: var(--Dark);
+                transition: .3s;
+
+                &:hover {
+                    color: var(--Red);
+                    transition: .3s;
+                }
+
+            }
+
+        }
+
+
+    }
+
+}
