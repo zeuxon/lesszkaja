@@ -1,1 +1,83 @@
-<p>modifyuser works!</p>
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+  <!-- Dynamic Columns -->
+  <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef> {{ column }} </th>
+    <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+  </ng-container>
+
+  <!-- Expand Column -->
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row" (click)="toggleRow(element); $event.stopPropagation()">
+        <mat-icon>{{ expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Expanded Detail Column -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div class="example-element-detail" [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+
+
+
+          
+          <form [formGroup]="modifyUser" (ngSubmit)="onSubmit(modifyUser)">
+            <input type="text" id="id" formControlName="id" value="{{ element.id }}" hidden>
+            <div>
+              <label for="username">Felhasználónév:</label>
+              <input type="text" id="username" formControlName="felhasznalonev">
+              <div *ngIf="modifyUser.controls['felhasznalonev'].invalid" class="alert alert-danger">
+                <span *ngIf="modifyUser.controls['felhasznalonev'].errors?.['name']">Helytelen felhasználónév!</span>
+              </div>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" formControlName="emailcim">
+              <div *ngIf="modifyUser.controls['emailcim'].invalid" class="alert alert-danger">
+                <span *ngIf="modifyUser.controls['emailcim'].errors?.['strictEmail']">Helytelen email!</span>
+              </div>
+            </div>
+            <div>
+              <label for="tel">Tel:</label>
+              <input type="tel" id="tel" formControlName="telefonszam">
+              <div *ngIf="modifyUser.controls['telefonszam'].invalid" class="alert alert-danger">
+                <span *ngIf="modifyUser.controls['telefonszam'].errors?.['phone']">Helytelen telefonszám!</span>
+              </div>
+            </div>
+            <div>
+              <label for="address">Lakcím:</label>
+              <input type="text" id="address" formControlName="lakcim">
+              <div *ngIf="modifyUser.controls['lakcim'].invalid" class="alert alert-danger">
+                <span *ngIf="modifyUser.controls['lakcim'].errors?.['address']">Helytelen lakcím!</span>
+              </div>
+            </div>
+            <div>
+              <label for="password">Jelszó:</label>
+              <input type="password" id="password" formControlName="jelszo">
+              <div *ngIf="modifyUser.controls['jelszo'].invalid" class="alert alert-danger">
+                <span *ngIf="modifyUser.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
+              </div>
+            </div>
+            <button type="submit" [disabled]="!anyFieldHasValue() || modifyUser.invalid">Módosít</button>
+            <span *ngIf="!OneFieldValid">Nincs adat!</span>
+            <span *ngIf="SuccessfulModify && isFormSubmitted">Sikeres módosítás!</span>
+            <span *ngIf="!SuccessfulModify && isFormSubmitted">Sikertelen módosítás!</span>
+          </form>
+
+
+
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element" (click)="toggleRow(element)">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

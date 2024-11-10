@@ -547,3 +547,14 @@ const port = process.env.PORT || 3000; // Change to 3000
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);
 });
+
+app.get('/getusers', (req, res) => {
+  const query = 'SELECT id, felhasznalonev, emailcim, telefonszam, lakcim FROM felhasznalo WHERE admine = 0';
+  connection.query(query, null, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      return res.status(200).json(results);
+    }
+  } );
+});
