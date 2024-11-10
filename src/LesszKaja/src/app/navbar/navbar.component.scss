@@ -1,64 +1,101 @@
 nav {
     background: var(--Red);
     box-shadow: 0px 2px 22px -3px rgba(0, 0, 0, 0.8);
-
+  
     .nav-content {
+      display: flex;
+      width: 80%;
+      margin: 0 auto;
+      gap: 64px;
+      align-items: center;
+      justify-content: space-between;
+  
+      h1 {
+        color: var(--light);
+        font-family: 'Gluten', sans-serif;
+        cursor: pointer;
+      }
+  
+      .hamburger-icon {
+        display: none;
+        cursor: pointer;
+        color: var(--light);
+      }
+  
+      ul {
+        width: 100%;
         display: flex;
-        width: 80%;
-        margin: 0 auto;
-        gap: 64px;
-        align-items: center;
-
-        h1 {
+        gap: 16px;
+  
+        li {
+          list-style: none;
+  
+          a {
             color: var(--light);
-            font-family: 'Gluten', sans-serif;
-            cursor: pointer;
-        }
-    
-        ul {
-            width: 100%;
-            display: flex;
-            gap: 16px;
-            li {
-                list-style: none;
-
-                a {
-                    color: var(--light);
-                    text-decoration: none;
-                    font-family: 'Maven Pro', sans-serif;
-                    font-size: 18px;
-                    transition: .5s;
-                    font-weight: 500;
-                    position: relative;
-                    
-                    &::after {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        width: 0;
-                        height: 2px;
-                        background: var(--Accent);
-                        transition: width 0.3s ease-in-out;
-                      }
-
-                    &:hover {
-                        color: var(--Accent);
-                        transition: color 0.5s;
-                        
-                        &::after {
-                            width: 100%;
-                          }
-
-                      }
-                }
+            text-decoration: none;
+            font-family: 'Maven Pro', sans-serif;
+            font-size: 18px;
+            transition: .5s;
+            font-weight: 500;
+            position: relative;
+  
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background: var(--Accent);
+              transition: width 0.3s ease-in-out;
             }
-    
+  
+            &:hover {
+              color: var(--Accent);
+              transition: color 0.5s;
+  
+              &::after {
+                width: 100%;
+              }
+            }
+          }
         }
+      }
+  
+      @media (max-width: 1150px) {
+        .hamburger-icon {
+          display: block;
+        }
+  
+        ul {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: var(--Red);
+          width: 100%;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+          &.responsive {
+            display: flex;
+          }
+  
+          li {
+            margin: 10px 0;
+  
+            a {
+              padding: 10px;
+              display: block;
+            }
+          }
+        }
+      }
+      @media (max-width: 500px) {
+        h1 {
+            font-size: 36px;
+        }
+      }
     }
-
-
-
-}
-
+  }
