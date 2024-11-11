@@ -1,0 +1,68 @@
+rf-ettermek/futar
+
+Név: McDonalds
+Emailcím: info@mcdonalds.com
+Jelszó: mcdonalds123
+Telefonszám: 36301234567
+Cím: Budapest, József körút 87.
+
+Név: KFC
+Emailcím: contact@kfc.com
+Jelszó: kfc456
+Telefonszám: 36307654321
+Cím: Budapest, Váci út 1-3.
+
+Név: Burger King
+Emailcím: support@burgerking.com
+Jelszó: burgerking789
+Telefonszám: 36202345678
+Cím: Budapest, Király utca 42.
+
+Név: Pizza Hut
+Emailcím: info@pizzahut.com
+Jelszó: pizzahut321
+Telefonszám: 36308765432
+Cím: Győr, Fő tér 5.
+
+Név: Subway
+Emailcím: contact@subway.com
+Jelszó: subway654
+Telefonszám: 36703456789
+Cím: Debrecen, Dózsa György út 8.
+
+Név: Starbucks
+Emailcím: support@starbucks.com
+Jelszó: starbucks987
+Telefonszám: 36301239876
+Cím: Budapest, Deák Ferenc tér 7.
+
+Név: Pasta Bella
+Emailcím: info@pastabella.com
+Jelszó: pastabella456
+Telefonszám: 36204567890
+Cím: Budapest, Rákóczi út 54.
+
+Név: Padthai Wokbar
+Emailcím: contact@padthai.com
+Jelszó: padthai321
+Telefonszám: 36705678901
+Cím: Budapest, Andrássy út 20.
+
+Név: Wasabi
+Emailcím: info@wasabi.com
+Jelszó: wasabi789
+Telefonszám: 36306789012
+Cím: Budapest, Lövőház utca 2-6.
+
+Név: Bamba Marha Burger Bár
+Emailcím: support@bambamarha.com
+Jelszó: bambamarha123
+Telefonszám: 36207890123
+Cím: Budapest, Kazinczy utca 11.
+
+
+
+
+Futarok:nev, email, jelszo, telszam, lakcim
+1.Futaregy, futaregy@futar.com, futaregy, 0000000000, futarvagyok
+2.Futarketto,futarketto@futar.com,futarketto, 11111111111,en is futar vagyok
