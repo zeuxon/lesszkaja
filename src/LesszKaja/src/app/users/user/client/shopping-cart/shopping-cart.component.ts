@@ -11,7 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss'
 })
-export class ShoppingCartComponent implements OnInit{
+export class ShoppingCartComponent implements OnInit {
 
   itemsArray: Array<{termek_id: number, etterem_id: number, extrak: any, db: number, nev: String}> = [];
 
@@ -19,7 +19,9 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   modifyItem(modifiedIndex: number): void{
-    let removedItem = this.itemsArray.splice(modifiedIndex, 1)[0];
+    if(modifiedIndex > this.itemsArray.length-1 || modifiedIndex < 0) return;
+
+    let removedItem = this.itemsArray[modifiedIndex];
 
     //this.cartManager.removeItem(modifiedIndex, removedItem);
     
@@ -28,12 +30,32 @@ export class ShoppingCartComponent implements OnInit{
       modifying: true,
     }});
     */
-
     this.rotuer.navigate(["/restaurants/" + removedItem.etterem_id + "/" + removedItem.termek_id], {queryParams: {
       modifying: true,
+      index: modifiedIndex
+      //4. mérföldkőben max majd átadja a extrákat módosításnál és betölti hogy mi volt kiválasztva de ehhez kéne még egy sql query úgyhogy így hagyom
+      //extrak: this.extraToString(modifiedIndex)
     }});
 
     //console.log(removedItem);
+  }
+
+  private extraToString(index: number){
+    if(this.itemsArray[index].extrak === undefined) return "";
+    let string = "";
+    for(let [key, value] of this.itemsArray[index].extrak){
+      if(value) {
+        string += key + ";";
+      }
+    }
+    return string;
+  }
+
+  removeItem(removedIndex: number): void{
+    if(removedIndex > this.itemsArray.length-1 || removedIndex < 0) return;
+    let removedItem = this.itemsArray.splice(removedIndex, 1)[0];
+
+    this.cartManager.removeItem(removedIndex);
   }
 
   ngOnInit(): void {

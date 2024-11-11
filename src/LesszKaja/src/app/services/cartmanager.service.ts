@@ -26,7 +26,7 @@ export class CartManagerService {
     }
 
     private getCart(): any {
-        return localStorage === undefined || localStorage.getItem("kosar") === null ? "" : localStorage.getItem("kosar");
+        return typeof localStorage == 'undefined' || localStorage.getItem("kosar") === null ? "" : localStorage.getItem("kosar");
     }
 
     incrRecord(id: number, extrak: Map<String, boolean>): any{
@@ -61,8 +61,8 @@ export class CartManagerService {
     }
 
     getCartArray(): any{
-        let storageItem = localStorage.getItem("kosar");
-        if(storageItem === null) return;
+        let storageItem = this.getCart();
+        if(storageItem == "") return;
 
         let array = storageItem.split("\n");
 
@@ -80,6 +80,80 @@ export class CartManagerService {
         }
 
         return returnArray;
+    }
+
+    private cartToArray(): any{
+        let kosar: String = this.getCart();
+        if(kosar === "") return undefined;
+
+        let kosarRows = kosar.split("\n");
+
+        let kosarArray: Array<{id: number, extrak: any, db: number}> = [];
+        for(let index = 0; index < kosarRows.length; index++){
+            if(kosarRows[index].length === 0) continue;
+            let kosarData = kosarRows[index].split("$");
+            let map = new Map(Object.entries(JSON.parse(kosarData[1])));
+            kosarArray[index] = {id: parseInt(kosarData[0]), extrak: map, db: parseInt(kosarData[2])};
+        }
+        return kosarArray;
+    }
+
+    private arrayToCart(array: any): void{
+        let kosar: String = this.getCart();
+        if(kosar === "") return;
+
+        let cart = "";
+        for(let kosarRow of array){
+            cart += kosarRow.id + "$" + JSON.stringify(Object.fromEntries(kosarRow.extrak.entries())) + "$" + kosarRow.db + "\n";
+        }
+        
+        localStorage.setItem("kosar", cart);
+    }
+
+    setItemCount(index: number, count: number): void {
+        if(count < 1) count = 1;
+        let cart = this.cartToArray();
+        if(cart === undefined) return; 
+
+        cart[index].db = count;
+
+        this.arrayToCart(cart);
+    }
+
+    removeItem(index:number){
+        let cart = this.cartToArray();
+        if(cart === undefined) return; 
+
+        cart.splice(index, 1);
+
+        this.arrayToCart(cart);
+    }
+
+    modifyItem(index: number, termek_id: number, extrak: Map<String, boolean>): boolean {
+        let toStore: String = termek_id.toString() + "$" + JSON.stringify(Object.fromEntries(extrak.entries()));
+
+        let cart = this.cartToArray();
+        if(cart === undefined || index > cart.length-1 || index < 0) return false;
+
+        if(this.checkIfExists(toStore)){
+            if(cart[index].id == termek_id){
+                let mismatch: Boolean = false;
+                for(let [key, value] of extrak){
+                    if(value != cart[index].extrak.get(key)) {
+                        mismatch = true;
+                        break;
+                    }
+                }
+                return !mismatch;
+            }
+            return false;
+        }
+
+        let oldDb = cart[index].db;
+        cart[index] = {id: termek_id, extrak: extrak, db: oldDb};
+
+        this.arrayToCart(cart);
+        return true;
     }
 
     private mapToString(map: Map<String, boolean>): String {

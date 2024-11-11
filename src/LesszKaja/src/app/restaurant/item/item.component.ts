@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { PRIMARY_OUTLET, Router, RouterLink, UrlSegment, UrlSegmentGroup } from '@angular/router';
+import { PRIMARY_OUTLET, Route, Router, RouterLink, UrlSegment, UrlSegmentGroup } from '@angular/router';
 import { CartManagerService } from '../../services/cartmanager.service';
 import { KeyValuePipe } from '@angular/common';
 
@@ -20,11 +20,23 @@ export class ItemComponent implements OnInit {
     //cim: ""
   }
 
+  alreadyExists = false;
+
   extraArray = new Map<String, boolean>();
 
   constructor(private router: Router, private http: HttpClient, private cartManager: CartManagerService){}
 
   addToCart(): void{
+    let params: any = this.router.routerState.snapshot.root.queryParams;
+    console.log(params);
+    if(params.modifying == "true"){
+      let shouldNavigate = this.cartManager.modifyItem(params.index, this.termekData.id, this.extraArray);
+      this.alreadyExists = !shouldNavigate;
+
+      if(shouldNavigate) this.router.navigateByUrl("/cart");
+      return;
+    }
+
     this.cartManager.addToCart(this.termekData.id, this.extraArray);
     this.router.navigateByUrl(this.termekData.parentroute);
   }
@@ -34,7 +46,6 @@ export class ItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     let segments: Array<UrlSegment> = this.router.parseUrl(this.router.url).root.children[PRIMARY_OUTLET].segments;
     this.termekData.parentroute = "/restaurants/" + segments[1].path;
     //this.termekData.cim = this.router.url;

@@ -406,7 +406,7 @@ app.post('/restaurantsitem', (req, res) => {
   const adatok = req.body
   const values = [adatok.termek_id, adatok.etterem_id]
 
-  const query = 'SELECT osszetevok.nev, termek.id, termek.nev as termek_nev FROM osszetevok ' +
+  const query = 'SELECT osszetevok.id, osszetevok.nev, termek.id as termek_id, termek.nev as termek_nev FROM osszetevok ' +
                 'INNER JOIN termek_osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id ' +
                 'INNER JOIN termek ON termek_osszetevok.termek_id = termek.id ' +
                 'INNER JOIN etterem ON termek.etterem_cim=etterem.cim ' +
