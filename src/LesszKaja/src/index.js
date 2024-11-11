@@ -73,7 +73,7 @@ app.post('/registerrestaurant', (req, res) => {
 app.post('/login', (req, res) => {
   const {emailcim, jelszo} = req.body;
 
-  const query = 'SELECT id, felhasznalonev, emailcim, jelszo, telefonszam, lakcim, admine FROM felhasznalo WHERE emailcim=?';
+  const query = 'SELECT id, felhasznalonev, emailcim, jelszo, telefonszam, lakcim, admine, felfuggesztve FROM felhasznalo WHERE emailcim=?';
   const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
@@ -89,7 +89,7 @@ app.post('/login', (req, res) => {
 app.post('/logincourier', (req, res) => {
   const {emailcim, jelszo} = req.body;
 
-  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam FROM futar WHERE emailcim=?';
+  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam, felfuggesztve FROM futar WHERE emailcim=?';
   const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
@@ -105,7 +105,7 @@ app.post('/logincourier', (req, res) => {
 app.post('/loginrestaurant', (req, res) => {
   const {emailcim, jelszo} = req.body;
 
-  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam, cim FROM etterem WHERE emailcim=?';
+  const query = 'SELECT id, nev, emailcim, jelszo, telefonszam, cim, felfuggesztve FROM etterem WHERE emailcim=?';
   const values = [emailcim, jelszo];
 
   connection.query(query, values, (error, results) => {
@@ -589,7 +589,7 @@ app.post('/ordermanagement/delete', (req, res) => {
 
 app.get('/storage_get_ingredients', (req, res) => {
   const query = 'SELECT * FROM raktar';
-  
+
   connection.query(query, (err, results) => {
     if(err) {
       console.error('Error fetching data:', err.message);
@@ -603,7 +603,7 @@ app.get('/storage_get_ingredients', (req, res) => {
 app.get('/storage_get_products', (req, res) => {
   const restaurant_addr = req.query.addr;
   const query = 'SELECT * FROM termek WHERE etterem_cim = ?';
-  
+
   connection.query(query, [restaurant_addr], (err, results) => {
     if(err) {
       console.error('Error fetching data:', err.message);

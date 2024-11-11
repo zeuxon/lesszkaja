@@ -24,10 +24,18 @@ export class LogincourierComponent {
   };
 
   private logInSuccess() {
+    if (this.userData === undefined) {
+      return false;
+    }
     return compareSync(this.userLoginData.jelszo, this.userData.jelszo); // hashek osszevetese
   }
 
+  suspended = false;
+  formSubmitted = false;
+  validData = false;
+
   onSubmit(form: any) {
+    this.formSubmitted = true;
     this.userLoginData = {
       emailcim: form.value.email,
       jelszo: form.value.password,
@@ -39,20 +47,32 @@ export class LogincourierComponent {
 
         // Menetkövetés
         // Ki kell törölni kijelentkezéskor
-        console.log('id: ' + this.userData.id);
+        //console.log('id: ' + this.userData.id);
 
         if (this.logInSuccess()) {
-          localStorage.setItem('id', this.userData.id); // Az id mentése
-          localStorage.setItem('jelszo', this.userData.jelszo);
-          localStorage.setItem('emailcim', this.userData.emailcim);
-          localStorage.setItem('tipus', 'courier');
+          this.validData = true;
+          if (!this.userData.felfuggesztve) {
+            this.suspended = false;
 
-          this.navbarService.triggerRefresh();
-          this.router.navigateByUrl('home');
+
+            localStorage.setItem('id', this.userData.id); // Az id mentése
+            localStorage.setItem('jelszo', this.userData.jelszo);
+            localStorage.setItem('emailcim', this.userData.emailcim);
+            localStorage.setItem('tipus', 'courier');
+
+            this.navbarService.triggerRefresh();
+            this.router.navigateByUrl('home');
+          } else {
+            this.suspended = true;
+          }
+        } else {
+          this.suspended = false;
+          this.validData=false;
         }
       },
       (error) => {
-        console.log(error);
+        this.suspended = false;
+        this.validData=false;
       }
     );
   }
