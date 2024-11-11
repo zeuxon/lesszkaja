@@ -27,10 +27,18 @@ export class LoginComponent {
   };
 
   private logInSuccess() {
+    if (this.userData === undefined) {
+      return false;
+    }
     return compareSync(this.userLoginData.jelszo, this.userData.jelszo); //hashek osszevetese
   }
 
+  suspended = false;
+  formSubmitted = false;
+  validData = false;
+
   onSubmit(form: any) {
+    this.formSubmitted = true;
     this.userLoginData = {
       emailcim: form.value.email,
       jelszo: form.value.password,
@@ -38,6 +46,7 @@ export class LoginComponent {
 
   this.http.post('http://localhost:3000/login',this.userLoginData)
   .subscribe(response=> {
+
     this.userData=response;
     this.userData=this.userData.results[0];
 
@@ -45,8 +54,11 @@ export class LoginComponent {
     //Ki kell törölni kijelentkezéskor
 
     if (this.logInSuccess()) {
+      this.validData = true;
+      if (!this.userData.felfuggesztve) {
+      this.suspended = false;
       localStorage.setItem("jelszo", this.userData.jelszo);
-    localStorage.setItem("emailcim", this.userData.emailcim);
+      localStorage.setItem("emailcim", this.userData.emailcim);
     if (this.userData.admine) {
       localStorage.setItem("tipus", "admin")
     } else {
@@ -55,9 +67,16 @@ export class LoginComponent {
     // this.navbar.updateNavbar();
     this.navbarService.triggerRefresh();
     this.router.navigateByUrl("home");
+    } else {
+      this.suspended = true;
+    }
+    } else {
+      this.suspended = false;
+      this.validData=false;
     }
   }, error => {
-    console.log(error);
+    this.suspended = false;
+    this.validData=false;
   });
   }
 

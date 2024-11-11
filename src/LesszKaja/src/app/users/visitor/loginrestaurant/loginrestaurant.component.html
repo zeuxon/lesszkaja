@@ -15,6 +15,8 @@
         <input type="password" id="password" name="password" placeholder="Jelszó" ngModel required>
       </div>
       <button type="submit" [disabled]="!loginForm.form.valid">Bejelentkezés</button>
+      <span class="hiba" *ngIf="suspended && formSubmitted">Fel van függesztve!</span>
+      <span class="hiba" *ngIf="!validData && !suspended && formSubmitted">Helytelen adatok!</span>
     </form>
     <div class="login-container-text-2">
       <p><span>Jelentkezz</span> be máshogy</p>
