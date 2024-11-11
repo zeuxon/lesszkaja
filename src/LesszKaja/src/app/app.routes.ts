@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
-import { userAuthGuard, restaurantsChildAuthGuard, adminChildAuthGuard} from '../app/guards/userauth.guard';
+import { userAuthGuard, restaurantsChildAuthGuard, adminChildAuthGuard, restaurantOrderGuard} from '../app/guards/userauth.guard';
 
 export const routes: Routes = [
     {
@@ -79,7 +79,6 @@ export const routes: Routes = [
       },
       {
         path: "restaurants",
-        //canActivate:[userAuthGuard],
         children:[
           {
             path:"",
@@ -91,10 +90,12 @@ export const routes: Routes = [
             children:[
               {
                 path:"",
+                canActivate:[restaurantsChildAuthGuard],
                 loadComponent: () => import("./restaurant/restaurant.component").then(c => c.RestaurantComponent),
               },
               {
                 path:":termek_id",
+                canActivate:[restaurantOrderGuard],
                 loadComponent: () => import("./restaurant/item/item.component").then(c => c.ItemComponent),
               },
             ]
@@ -163,7 +164,7 @@ export const routes: Routes = [
         loadComponent: () => import("./users/user/restaurant-manager/order-management/order-management.component").then(c => c.OrderManagementComponent),
         canActivate:[userAuthGuard]
       },
-      
+
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
 ];
