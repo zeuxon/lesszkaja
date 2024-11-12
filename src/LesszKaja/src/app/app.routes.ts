@@ -35,6 +35,7 @@ export const routes: Routes = [
       {
         path: "cart",
         loadComponent: () => import("./users/user/client/shopping-cart/shopping-cart.component").then(c => c.ShoppingCartComponent),
+        canActivate:[userAuthGuard]
       },
       {
         path:"admin",
@@ -118,6 +119,11 @@ export const routes: Routes = [
           }
             */
         ]
+      },
+      {
+        path: "order",
+        loadComponent: () => import("./order/order.component").then(c => c.OrderComponent),
+        canActivate:[userAuthGuard]
       },
       {
         path: "storage",

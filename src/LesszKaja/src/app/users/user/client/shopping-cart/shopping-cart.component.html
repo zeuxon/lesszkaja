@@ -6,5 +6,6 @@
             <p *ngIf="extra.value === true">{{extra.key}}</p>
         </div>
     </div>
+    <input type="button" (click)="purchaseItems()" value="Vásárlás" *ngIf="hasItem()">
 </div>
-<p>shopping-cart works!</p>
+<p *ngIf="!hasItem()">A kosár üres</p>

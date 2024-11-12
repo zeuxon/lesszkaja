@@ -458,6 +458,33 @@ app.post('/getitem/', (req, res) => {
   } );
 });
 
+app.post('/order', (req, res) => {
+  adatok = req.body;
+  
+  kosar = adatok.adat;
+  email = adatok.email;
+
+  string = "";
+  for(let index = 0; index < kosar.length; index++){
+    string += kosar[index].termek_id + (index == kosar.length-1 ? "" : ",");
+  }
+
+  const query = 'SELECT termek.id as termek_id, termek.alapar, etterem.cim FROM etterem ' +
+                'INNER JOIN termek ON etterem.cim=termek.etterem_cim ' +
+                'WHERE termek.id IN (' + string + ');';
+  
+  values = [email];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }else{
+      res.status(200).json(results);
+      console.log(results);
+    }
+  } );
+});
+
 // Azok a kosarak, amelyeket nem vállaltak el
 app.post('/courier/unassigned', (req, res) => {
   const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +

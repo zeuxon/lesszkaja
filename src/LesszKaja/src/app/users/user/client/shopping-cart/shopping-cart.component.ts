@@ -18,6 +18,10 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartManager: CartManagerService, private rotuer: Router, private http: HttpClient){
   }
 
+  hasItem(): boolean{
+    return typeof this.itemsArray != 'undefined' && this.itemsArray.length > 0;
+  }
+
   modifyItem(modifiedIndex: number): void{
     if(modifiedIndex > this.itemsArray.length-1 || modifiedIndex < 0) return;
 
@@ -56,6 +60,10 @@ export class ShoppingCartComponent implements OnInit {
     let removedItem = this.itemsArray.splice(removedIndex, 1)[0];
 
     this.cartManager.removeItem(removedIndex);
+  }
+
+  purchaseItems(): void{
+    this.rotuer.navigateByUrl("/order");
   }
 
   ngOnInit(): void {

@@ -1,1 +1,15 @@
-<p>order works!</p>
+<div>
+    <h2>Vásárlás</h2>
+    <label for="utanvet">Utánvét</label>
+    <input type="radio" name="fizetes" id="utanvet" (change)="radioStateChange('utanvet')" checked>
+    <br>
+    <label for="kartyas">Kártyás fizetés</label>
+    <input type="radio" name="fizetes" id="kartyas" (change)="radioStateChange('kartyas')">
+    <form #orderForm="ngForm" (ngSubmit)="onSubmit(orderForm)">
+        <div *ngIf="!utanvetOpcio">
+            <label for="kartyaszam"></label>
+            <input id="kartyaszam" name="kartyaszam" inputmode="numeric" required>
+        </div>
+        <button type="submit">Fizetés</button>
+    </form>
+</div>

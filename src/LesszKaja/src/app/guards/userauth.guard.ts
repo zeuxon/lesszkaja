@@ -19,10 +19,10 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
   const userRole : string = usermanagerService.getUserType();
 
   const allowedRoutesForGuest = ['/home', '/register', '/logincourier', '/loginrestaurant', '/login', '/restaurants'];
-  const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile'];
+  const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile', "/order", "/cart"];
   const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile', '/courier'];
   const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage','/restaurantprofile','/ordermanagement'];
-  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile','/ordermanagement'];
+  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile','/ordermanagement', "/order", "/cart"];
 
   const allowedRoutes: Record<string, string[]> = {
     guest: allowedRoutesForGuest,
