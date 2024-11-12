@@ -50,7 +50,7 @@ export class StorageComponent implements OnInit {
 
   removeProduct() {
     console.log('Remove product.');
-    this.http.post('http://localhost:3000/remove_product', {name: this.remove_product}).subscribe(
+    this.http.post('http://localhost:3000/storage_remove_product', {name: this.remove_product}).subscribe(
       (response) => {
         console.log('Product succesfully deleted:', response);
         location.reload();
@@ -64,7 +64,7 @@ export class StorageComponent implements OnInit {
   add_product_name?: string;
   add_product_value?: number;
   addProduct() {
-    this.http.post('http://localhost:3000/add_product', {
+    this.http.post('http://localhost:3000/storage_add_product', {
       value: this.add_product_value, 
       name: this.add_product_name, 
       addr: this.address
