@@ -587,6 +587,9 @@ app.post('/ordermanagement/delete', (req, res) => {
 });
 
 
+
+/** Storage */
+
 app.get('/storage_get_ingredients', (req, res) => {
   const query = 'SELECT * FROM raktar';
 
@@ -614,8 +617,7 @@ app.get('/storage_get_products', (req, res) => {
   });
 });
 
-
-app.post('/remove_product', (req, res) => {
+app.post('/storage_remove_product', (req, res) => {
   const prod_name = req.body.name;
   const query = "DELETE FROM termek WHERE nev = ?";
   connection.query(query, [prod_name], (err, result) => {
@@ -632,8 +634,7 @@ app.post('/remove_product', (req, res) => {
   })
 });
 
-
-app.post('/add_product', (req, res) => {
+app.post('/storage_add_product', (req, res) => {
   const {value, name, addr} = req.body;
   const query = 'INSERT INTO termek (alapar, nev, etterem_cim) VALUES (?, ?, ?)'
   connection.query(query, [value, name, addr], (err, result) => {
@@ -641,12 +642,12 @@ app.post('/add_product', (req, res) => {
       console.error('Error adding record:', err.message);
       return res.status(500).json({ message: 'Error adding record.' });
     }
-    console.log("Record added successfully.", result  );
+    console.log("Record added successfully with ID:", result.insertId  );
     res.status(200).json({ message: 'Record added succesfully.' });
   })
 });
 
-
+/** End storage */
 
 
 
