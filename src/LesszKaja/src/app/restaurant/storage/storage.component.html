@@ -22,20 +22,7 @@
   <br>
   <div *ngIf="products.length > 0">
     <h2>Termékkészlet</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Ár</th>
-          <th>Cím</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of products">
-          <td>{{ item.nev }}</td>
-          <td>{{ item.alapar }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <app-list [listItems]="this.products"></app-list>
 
     <form>
       <form (ngSubmit)="removeProduct()">
