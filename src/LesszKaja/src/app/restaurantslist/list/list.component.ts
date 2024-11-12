@@ -13,6 +13,6 @@ export class ListComponent {
   @Input() show: Array<{id: number, nev: string; cim: string; route: string}> = [];
 
   ngOnInit() {
-    console.log(this.show);
+    //console.log(this.show);
   }
 }

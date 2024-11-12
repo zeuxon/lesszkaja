@@ -7,8 +7,8 @@
 <div class="restaurantlist-before-container">
     <h3>Népszerű éttermek</h3>
     <div class="search-bar">
-        <form action="">
-            <input type="text">
+        <form (ngSubmit)="search()">
+            <input type="text" [(ngModel)]="searchValue" name="search" required>
             <button>
                 <img src="../../assets/images/Search.svg" alt="">
             </button>
@@ -17,6 +17,5 @@
 
 </div>
 
-<div class="restaurantlist-container">
-    <app-list [show]="shownEttermek"></app-list>
-</div>
+
+<app-list [show]="shownEttermek"></app-list>
