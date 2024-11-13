@@ -1,7 +1,8 @@
 <div>
     <h2>Kosár</h2>
     <div *ngFor="let item of itemsArray; index as i" (click)="modifyItem(i)">
-        <p><span style="font-weight: bold;">{{item.nev}}</span> {{item.db}} db </p>
+        <p><span style="font-weight: bold;">{{item.nev}}</span> {{item.db}} db <input type="button" (click)="removeItem(i)" value="Törlés"></p>
+        
         <div *ngFor="let extra of item.extrak | keyvalue">
             <p *ngIf="extra.value === true">{{extra.key}}</p>
         </div>
