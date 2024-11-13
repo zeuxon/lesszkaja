@@ -2,6 +2,10 @@ h1 {
     color: var(--Dark, #313638);
     text-align: center;
     padding-top: 16px;
+
+    @media screen and (max-width: 500px) {
+        font-size: 40px;
+    }
 }
 
 form {

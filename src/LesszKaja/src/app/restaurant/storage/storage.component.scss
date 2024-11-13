@@ -1,0 +1,142 @@
+.storage-list {
+  margin: 30px 50px;
+  font-family: 'Maven Pro', sans-serif;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .ingredients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--Accent);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  }
+
+  .product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    label {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: var(--Accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--Accent);
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    margin: 20px 30px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .ingredients-table {
+      th, td {
+        padding: 6px;
+        font-size: 14px;
+      }
+    }
+
+    .product-form {
+      label {
+        font-size: 12px;
+      }
+
+      input {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 10px 20px;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    .ingredients-table {
+      th, td {
+        padding: 4px;
+        font-size: 12px;
+      }
+    }
+
+    .product-form {
+      label {
+        font-size: 10px;
+      }
+
+      input {
+        font-size: 12px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+}

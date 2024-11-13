@@ -1,16 +1,15 @@
-
 <h2>Felvett rendelések</h2>
 <div *ngIf="assignedOrders.length > 0; else noAssignedOrders">
-    <div *ngFor="let order of assignedOrders" class="order">
-      <p>Dátum: {{ order.datum }}</p>
-      <p>Végösszeg: {{ order.osszar }} Ft</p>
-      <p>Étterem címe: {{ order.etterem_cim }}</p>
-      <p>Név: {{ order.felhasznalonev }}</p> 
-      <p>Lakcím: {{ order.lakcim }}</p> 
-      <button (click)="completedOrder(order.id)">Kiszállítva</button>
-    </div>
+  <div *ngFor="let order of assignedOrders" class="order">
+    <p><strong>Dátum:</strong> {{ order.datum }}</p>
+    <p><strong>Végösszeg:</strong> {{ order.osszar }} Ft</p>
+    <p><strong>Étterem címe:</strong> {{ order.etterem_cim }}</p>
+    <p><strong>Név:</strong> {{ order.felhasznalonev }}</p>
+    <p><strong>Lakcím:</strong> {{ order.lakcim }}</p>
+    <button (click)="completedOrder(order.id)" class="complete-button">Kiszállítva</button>
   </div>
-  <ng-template #noAssignedOrders>
-    <p>Nincsenek vállalt rendelések.</p>
-  </ng-template>
-  
+</div>
+
+<ng-template #noAssignedOrders>
+  <p>Nincsenek vállalt rendelések.</p>
+</ng-template>

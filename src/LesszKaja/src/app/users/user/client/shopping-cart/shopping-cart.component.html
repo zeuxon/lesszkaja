@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h2>Kosár</h2>
     <div *ngFor="let item of itemsArray; index as i" (click)="modifyItem(i)">
         <p><span style="font-weight: bold;">{{item.nev}}</span> {{item.db}} db <input type="button" (click)="removeItem(i)" value="Törlés"></p>
@@ -9,4 +9,21 @@
     </div>
     <input type="button" (click)="purchaseItems()" value="Vásárlás" *ngIf="hasItem()">
 </div>
-<p *ngIf="!hasItem()">A kosár üres</p>
+<p *ngIf="!hasItem()">A kosár üres</p> -->
+
+<div class="shopping-cart-container">
+    <h2>Kosár</h2>
+    <div *ngFor="let item of itemsArray; index as i" class="cart-item" (click)="modifyItem(i)">
+      <div class="item-details">
+        <p><span class="item-name">{{ item.nev }}</span> {{ item.db }} db</p>
+        <input type="button" (click)="removeItem(i)" value="Törlés" class="remove-button">
+      </div>
+      <div class="item-extras">
+        <div *ngFor="let extra of item.extrak | keyvalue">
+          <p *ngIf="extra.value === true">{{ extra.key }}</p>
+        </div>
+      </div>
+    </div>
+    <input type="button" (click)="purchaseItems()" value="Vásárlás" *ngIf="hasItem()" class="purchase-button">
+    <p *ngIf="!hasItem()" class="empty-cart-message">A kosár üres</p>
+  </div>

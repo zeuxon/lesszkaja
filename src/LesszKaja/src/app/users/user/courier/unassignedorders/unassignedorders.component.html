@@ -1,13 +1,12 @@
-
 <h2>Elérhető rendelések</h2>
 <div *ngIf="unassignedOrders.length > 0; else noUnassignedOrders">
   <div *ngFor="let order of unassignedOrders" class="order">
-    <p>Dátum: {{ order.datum }}</p>
-    <p>Végösszeg: {{ order.osszar }} Ft</p>
-    <p>Étterem címe: {{ order.etterem_cim }}</p>
-    <p>Név: {{ order.felhasznalonev }}</p>
-    <p>Lakcím: {{ order.lakcim }}</p>
-    <button (click)="assignOrder(order.id)">Rendelés felvétele</button>
+    <p><strong>Dátum:</strong> {{ order.datum }}</p>
+    <p><strong>Végösszeg:</strong> {{ order.osszar }} Ft</p>
+    <p><strong>Étterem címe:</strong> {{ order.etterem_cim }}</p>
+    <p><strong>Név:</strong> {{ order.felhasznalonev }}</p>
+    <p><strong>Lakcím:</strong> {{ order.lakcim }}</p>
+    <button (click)="assignOrder(order.id)" class="assign-button">Rendelés felvétele</button>
   </div>
 </div>
 

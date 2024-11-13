@@ -1,0 +1,84 @@
+.shopping-cart-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-width: 600px;
+    margin: 32px auto 0 auto;
+    font-family: 'Maven Pro', sans-serif;
+  
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+  
+    .cart-item {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #f1f1f1;
+      }
+  
+      .item-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .item-name {
+          font-weight: bold;
+          font-size: 18px;
+        }
+  
+        .remove-button {
+          background-color: var(--Red);
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          padding: 8px 12px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: var(--Red);
+          }
+        }
+      }
+  
+      .item-extras {
+        margin-top: 8px;
+  
+        p {
+          font-size: 14px;
+          color: #666;
+        }
+      }
+    }
+  
+    .purchase-button {
+      background-color: var(--Accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: var(--Light-accent);
+      }
+    }
+  
+    .empty-cart-message {
+      font-size: 16px;
+      color: #666;
+      text-align: center;
+      margin-top: 16px;
+    }
+  }
