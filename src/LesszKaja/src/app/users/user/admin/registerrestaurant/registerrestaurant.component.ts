@@ -42,7 +42,7 @@ export class RegisterrestaurantComponent {
 
       //console.log(userData);
 
-    this.http.post('http://localhost:3000/registerrestaurant', restaurantData)
+    this.http.post('/api/registerrestaurant', restaurantData)
     .subscribe(response => {
       this.registerRestaurant.reset({
         nev: '',

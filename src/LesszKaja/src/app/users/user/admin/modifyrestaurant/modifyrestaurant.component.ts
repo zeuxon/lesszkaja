@@ -36,15 +36,15 @@ export class ModifyrestaurantComponent implements OnInit {
   modifyRestaurants: Map<number, FormGroup> = new Map();
 
   ngOnInit(): void {
-    this.http.get("http://localhost:3000/getrestaurants").subscribe((response: any) => {
+    this.http.get("/api/getrestaurants").subscribe((response: any) => {
       this.loadRestaurants(response);
       this.initializeFormGroups(response);
     });
   }
 
   deleteRestaurant(id:number) {
-    this.http.delete("http://localhost:3000/deleterestaurant"+"/"+id).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getrestaurants").subscribe((response: any) => {
+    this.http.delete("/api/deleterestaurant"+"/"+id).subscribe((response: any) => {
+      this.http.get("/api/getrestaurants").subscribe((response: any) => {
         this.loadRestaurants(response);
         this.modifyRestaurants.delete(id);
         });
@@ -52,8 +52,8 @@ export class ModifyrestaurantComponent implements OnInit {
   }
 
   suspendRestaurant(id:number,felfuggesztve:boolean) {
-    this.http.post("http://localhost:3000/suspendrestaurant", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getrestaurants").subscribe((response: any) => {
+    this.http.post("/api/suspendrestaurant", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
+      this.http.get("/api/getrestaurants").subscribe((response: any) => {
         this.loadRestaurants(response);
       });
     })
@@ -137,7 +137,7 @@ export class ModifyrestaurantComponent implements OnInit {
             this.restaurantTempModifyData[field] = restaurantForm.controls[field].value
           }
         });
-        this.http.post('http://localhost:3000/modifyrestaurantadmin', this.restaurantTempModifyData).subscribe(response => {
+        this.http.post('/api/modifyrestaurantadmin', this.restaurantTempModifyData).subscribe(response => {
           console.log(this.restaurantTempModifyData)
           restaurantForm.reset({
             nev: '',
@@ -149,7 +149,7 @@ export class ModifyrestaurantComponent implements OnInit {
           restaurantForm.markAsUntouched();
 
           this.SuccessfulModify = true;
-          this.http.get("http://localhost:3000/getrestaurants").subscribe((response: any) => {
+          this.http.get("/api/getrestaurants").subscribe((response: any) => {
           this.loadRestaurants(response);
           });
         }, error => {

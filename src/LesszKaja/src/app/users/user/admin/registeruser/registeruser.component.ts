@@ -41,7 +41,7 @@ export class RegisteruserComponent {
 
       //console.log(userData);
 
-    this.http.post('http://localhost:3000/register', restaurantData)
+    this.http.post('/api/register', restaurantData)
     .subscribe(response => {
       this.registerUser.reset({
         felhasznalonev: '',

@@ -22,7 +22,7 @@ export class RestaurantslistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const ettermek = this.http.get("http://localhost:3000/restaurants").subscribe(response => {
+    const ettermek = this.http.get("/api/restaurants").subscribe(response => {
       this.loadEttermek(response);
       this.shownEttermek = this.ettermekArray.slice();
     });

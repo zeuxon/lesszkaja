@@ -34,15 +34,15 @@ export class ModifyuserComponent implements OnInit {
   modifyUsers: Map<number, FormGroup> = new Map();
 
   ngOnInit(): void {
-    this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+    this.http.get("/api/getusers").subscribe((response: any) => {
       this.loadUsers(response);
       this.initializeFormGroups(response);
     });
   }
 
   deleteUser(id:number) {
-    this.http.delete("http://localhost:3000/deleteuser"+"/"+id).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+    this.http.delete("/api/deleteuser"+"/"+id).subscribe((response: any) => {
+      this.http.get("/api/getusers").subscribe((response: any) => {
         this.loadUsers(response);
         this.modifyUsers.delete(id);
         });
@@ -50,8 +50,8 @@ export class ModifyuserComponent implements OnInit {
   }
 
   suspendUser(id:number,felfuggesztve:boolean) {
-    this.http.post("http://localhost:3000/suspenduser", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+    this.http.post("/api/suspenduser", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
+      this.http.get("/api/getusers").subscribe((response: any) => {
         this.loadUsers(response);
       });
     })
@@ -135,7 +135,7 @@ export class ModifyuserComponent implements OnInit {
             this.userTempModifyData[field] = userForm.controls[field].value
           }
         });
-        this.http.post('http://localhost:3000/modifyuseradmin', this.userTempModifyData).subscribe(response => {
+        this.http.post('/api/modifyuseradmin', this.userTempModifyData).subscribe(response => {
           console.log(this.userTempModifyData)
           userForm.reset({
             felhasznalonev: '',
@@ -147,7 +147,7 @@ export class ModifyuserComponent implements OnInit {
           userForm.markAsUntouched();
 
           this.SuccessfulModify = true;
-          this.http.get("http://localhost:3000/getusers").subscribe((response: any) => {
+          this.http.get("/api/getusers").subscribe((response: any) => {
           this.loadUsers(response);
           });
         }, error => {

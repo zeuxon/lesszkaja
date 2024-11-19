@@ -65,7 +65,7 @@ export class AdminprofileComponent {
 
     if (this.OneFieldValid) {
       this.isFormSubmitted = true;
-      this.http.post('http://localhost:3000/login', {
+      this.http.post('/api/login', {
         emailcim: this.userManager.getUserEmail(),
         jelszo: this.userManager.getUserPassword()
       }).subscribe(response => {
@@ -90,7 +90,7 @@ export class AdminprofileComponent {
 
         localStorage["emailcim"]=this.userTempModifyData["emailcim"];
 
-        this.http.post('http://localhost:3000/modifyuser', this.userTempModifyData).subscribe(response => {
+        this.http.post('/api/modifyuser', this.userTempModifyData).subscribe(response => {
           console.log(response)
           this.modifyUser.reset({
             felhasznalonev: '',

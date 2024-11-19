@@ -13,7 +13,7 @@ import { ListComponent } from './list/list.component';
   styleUrls: ['./storage.component.scss'],
 })
 export class StorageComponent implements OnInit {
-  constructor(private http: HttpClient) {} 
+  constructor(private http: HttpClient) {}
 
   address: string = 'Budapest, József körút 87.'; // Static address
   ingredients: any[] = [];
@@ -29,7 +29,7 @@ export class StorageComponent implements OnInit {
   }
 
   fetchIngredients(): void {
-    var data = this.http.get('http://localhost:3000/storage_get_ingredients').subscribe(
+    var data = this.http.get('/api/storage_get_ingredients').subscribe(
       (data: any) => {
         console.log('Data succesfully fetched:', data);
         this.ingredients = data;
@@ -41,7 +41,7 @@ export class StorageComponent implements OnInit {
   }
 
   fetchProducts(): void {
-    this.http.get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>>(`http://localhost:3000/storage_get_products?addr=${this.address}`).subscribe(
+    this.http.get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>>(`/api/storage_get_products?addr=${this.address}`).subscribe(
       (data) => {
         console.log('Data succesfully fetched:', data);
         this.products = data;
@@ -54,11 +54,11 @@ export class StorageComponent implements OnInit {
 
   removeProduct() {
     console.log('Remove product.');
-    this.http.post('http://localhost:3000/storage_remove_product', {name: this.remove_product}).subscribe(
+    this.http.post('/api/storage_remove_product', {name: this.remove_product}).subscribe(
       (response) => {
         console.log('Product succesfully deleted:', response);
         this.fetchProducts();
-      }, 
+      },
       (error) => {
         console.error('Delete error:', error);
       }
@@ -68,21 +68,21 @@ export class StorageComponent implements OnInit {
   add_product_name?: string;
   add_product_value?: number;
   addProduct() {
-    this.http.post('http://localhost:3000/storage_add_product', {
-      value: this.add_product_value, 
-      name: this.add_product_name, 
+    this.http.post('/api/storage_add_product', {
+      value: this.add_product_value,
+      name: this.add_product_name,
       addr: this.address
     })
     .subscribe((response) => {
         console.log('Product succesfully added:', response);
         this.fetchProducts();
-      }, 
+      },
       (error) => {
         console.error('Add error:', error);
       }
     );
   }
 
-  
-  
+
+
 }

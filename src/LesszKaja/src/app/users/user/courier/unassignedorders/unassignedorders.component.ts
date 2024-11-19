@@ -23,7 +23,7 @@ export class UnassignedordersComponent {
     if (futaridStr !== null) {
       const futarid = parseInt(futaridStr, 10);
       if (!isNaN(futarid)) {
-        this.http.post<any[]>('http://localhost:3000/courier/unassigned', { futarid }).subscribe({
+        this.http.post<any[]>('/api/courier/unassigned', { futarid }).subscribe({
           next: (orders) => {
             this.unassignedOrders = orders;
           },
@@ -34,7 +34,7 @@ export class UnassignedordersComponent {
       }
     }
   }
-  
+
 
   assignOrder(orderId: number): void {
     const futaridStr = localStorage.getItem('id');
@@ -51,7 +51,7 @@ export class UnassignedordersComponent {
 
     console.log('Assigning order...', orderId, futarid);
 
-    this.http.post('http://localhost:3000/courier/assign', { orderId, futarid })
+    this.http.post('/api/courier/assign', { orderId, futarid })
       .subscribe({
         next: (response) => {
           console.log('Order assigned successfully', response);
@@ -63,6 +63,6 @@ export class UnassignedordersComponent {
         }
       });
   }
-  
-    
+
+
 }

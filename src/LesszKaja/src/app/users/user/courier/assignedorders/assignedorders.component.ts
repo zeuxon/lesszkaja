@@ -16,17 +16,17 @@ export class AssignedordersComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    
+
     this.getAssignedOrders();
   }
 
-  
+
   getAssignedOrders() {
     const futaridStr = localStorage.getItem('id');
     if (futaridStr !== null) {
       const futarid = parseInt(futaridStr, 10);
       if (!isNaN(futarid)) {
-        this.http.post<any[]>('http://localhost:3000/courier/assigned', { futarid })
+        this.http.post<any[]>('/api/courier/assigned', { futarid })
           .subscribe(data => {
             this.assignedOrders = data;
             console.log('Assigned Orders:', data);
@@ -51,7 +51,7 @@ export class AssignedordersComponent {
     }
     console.log('Marking order completed...', orderId);
 
-    this.http.post('http://localhost:3000/courier/completed', { orderId, futarid })
+    this.http.post('/api/courier/completed', { orderId, futarid })
       .subscribe({
         next: (response) => {
           console.log('Order completed successfully', response);
@@ -63,5 +63,5 @@ export class AssignedordersComponent {
       });
 }
 
-  
+
 }

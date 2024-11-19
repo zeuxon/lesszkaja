@@ -460,7 +460,7 @@ app.post('/getitem/', (req, res) => {
 
 app.post('/order', (req, res) => {
   adatok = req.body;
-  
+
   kosar = adatok.adat;
   email = adatok.email;
 
@@ -472,7 +472,7 @@ app.post('/order', (req, res) => {
   const query = 'SELECT termek.id as termek_id, termek.alapar, etterem.cim FROM etterem ' +
                 'INNER JOIN termek ON etterem.cim=termek.etterem_cim ' +
                 'WHERE termek.id IN (' + string + ');';
-  
+
   values = [email];
 
   connection.query(query, values, (error, results) => {

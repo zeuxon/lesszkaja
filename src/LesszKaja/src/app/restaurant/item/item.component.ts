@@ -53,14 +53,14 @@ export class ItemComponent implements OnInit {
 
     //console.log(this.router.url);
 
-    const termek_nev = this.http.post("http://localhost:3000/getname", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
+    const termek_nev = this.http.post("/api/getname", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
       this.termekData.nev = response[0].nev;
     });
 
-    const ettermek = this.http.post("http://localhost:3000/restaurantsitem", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
+    const ettermek = this.http.post("/api/restaurantsitem", {etterem_id: etterem_id, termek_id: this.termekData.id}).subscribe((response: any) => {
       if(response.length > 0){
         this.loadExtras(response);
-      } 
+      }
     });
   }
 

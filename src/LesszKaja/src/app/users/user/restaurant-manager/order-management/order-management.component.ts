@@ -21,7 +21,7 @@ export class OrderManagementComponent {
     const etteremEmail = localStorage.getItem('emailcim');
     console.log(etteremEmail);
     if (etteremEmail !== null) {
-      this.http.post<any>('http://localhost:3000/ordermanagement', { etteremEmail }).subscribe({
+      this.http.post<any>('/api/ordermanagement', { etteremEmail }).subscribe({
         next: (orders) => {
           console.log(orders);  // Inspect the shape of the data returned
           if (Array.isArray(orders)) {
@@ -35,13 +35,13 @@ export class OrderManagementComponent {
           console.error('Error fetching orders:', error);
         }
       });
-      
+
     }
   }
 
   deleteOrder(orderId: number): void {
     console.log('Deleting order...', orderId);
-    this.http.post('http://localhost:3000/ordermanagement/delete', { orderId }).subscribe({
+    this.http.post('/api/ordermanagement/delete', { orderId }).subscribe({
       next: (response) => {
         console.log('Order deleted successfully', response);
         this.getAllOrders();
