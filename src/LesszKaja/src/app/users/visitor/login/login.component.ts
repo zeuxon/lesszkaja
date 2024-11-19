@@ -44,7 +44,7 @@ export class LoginComponent {
       jelszo: form.value.password,
     };
 
-  this.http.post('http://localhost:3000/login',this.userLoginData)
+  this.http.post('/api/login',this.userLoginData)
   .subscribe(response=> {
 
     this.userData=response;

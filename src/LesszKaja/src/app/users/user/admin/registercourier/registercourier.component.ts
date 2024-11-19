@@ -39,7 +39,7 @@ export class RegistercourierComponent {
 
       //console.log(userData);
 
-    this.http.post('http://localhost:3000/registercourier', courierData)
+    this.http.post('/api/registercourier', courierData)
     .subscribe(response => {
       this.registerCourier.reset({
         nev: '',

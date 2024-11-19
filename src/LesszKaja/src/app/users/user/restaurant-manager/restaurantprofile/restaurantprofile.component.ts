@@ -66,7 +66,7 @@ export class RestaurantprofileComponent {
     this.OneFieldValid = this.userFields.some(field => !!this.modifyUser.get(field)?.value);
     if (this.OneFieldValid) {
       this.isFormSubmitted = true;
-      this.http.post('http://localhost:3000/loginrestaurant', {
+      this.http.post('/api/loginrestaurant', {
         emailcim: this.userManager.getUserEmail(),
         jelszo: this.userManager.getUserPassword()
       }).subscribe(response => {
@@ -89,7 +89,7 @@ export class RestaurantprofileComponent {
         });
 
         localStorage["emailcim"]=this.userTempModifyData["emailcim"];
-        this.http.post('http://localhost:3000/modifyrestaurant', this.userTempModifyData).subscribe(response => {
+        this.http.post('/api/modifyrestaurant', this.userTempModifyData).subscribe(response => {
 
           this.modifyUser.reset({
             nev: '',

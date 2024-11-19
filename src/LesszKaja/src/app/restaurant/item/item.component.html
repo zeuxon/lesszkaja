@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h2>{{termekData.nev}}</h2>
     <p>Itt csak a nem 0 árral rendelkező összetevők jelennek meg!</p>
     <div *ngFor="let item of extraArray | keyvalue">
@@ -7,4 +7,18 @@
     <br>
     <input type="button" (click)="addToCart()" value="Kosárba">
     <p *ngIf="alreadyExists">Ilyen már van a kosárban!</p>
-</div>
+</div> -->
+
+<div class="item-container">
+    <h2>{{ termekData.nev }}</h2>
+    <p class="info-text">Itt csak a nem 0 árral rendelkező összetevők jelennek meg!</p>
+    <div class="extras">
+      <div *ngFor="let item of extraArray | keyvalue" class="extra-item">
+        <input [checked]="item.value" type="checkbox" (change)="changeChoice(item.key)">
+        <label>{{ item.key }}</label>
+      </div>
+    </div>
+    <br>
+    <input type="button" (click)="addToCart()" value="Kosárba" class="add-to-cart-button">
+    <p *ngIf="alreadyExists" class="error-message">Ilyen már van a kosárban!</p>
+  </div>

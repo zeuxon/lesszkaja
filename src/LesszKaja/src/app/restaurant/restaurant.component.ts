@@ -27,7 +27,7 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.restaurantData.route = "/restaurants/"  + this.restaurantData.id;
-    this.http.get("http://localhost:3000/restaurants/" + this.restaurantData.id).subscribe(response => {
+    this.http.get("/api/restaurants/" + this.restaurantData.id).subscribe(response => {
       this.loadTermekek(response);
     });
   }

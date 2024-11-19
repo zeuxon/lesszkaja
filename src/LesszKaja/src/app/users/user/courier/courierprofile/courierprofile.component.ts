@@ -64,7 +64,7 @@ export class CourierprofileComponent {
 
     if (this.OneFieldValid) {
       this.isFormSubmitted = true;
-      this.http.post('http://localhost:3000/logincourier', {
+      this.http.post('/api/logincourier', {
         emailcim: this.userManager.getUserEmail(),
         jelszo: this.userManager.getUserPassword()
       }).subscribe(response => {
@@ -89,7 +89,7 @@ export class CourierprofileComponent {
 
         localStorage["emailcim"]=this.userTempModifyData["emailcim"];
 
-        this.http.post('http://localhost:3000/modifycourier', this.userTempModifyData).subscribe(response => {
+        this.http.post('/api/modifycourier', this.userTempModifyData).subscribe(response => {
           console.log(response)
           this.modifyUser.reset({
             nev: '',

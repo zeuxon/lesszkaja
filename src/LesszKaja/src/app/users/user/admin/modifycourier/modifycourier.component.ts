@@ -36,15 +36,15 @@ export class ModifycourierComponent implements OnInit {
   modifyCouriers: Map<number, FormGroup> = new Map();
 
   ngOnInit(): void {
-    this.http.get("http://localhost:3000/getcouriers").subscribe((response: any) => {
+    this.http.get("/api/getcouriers").subscribe((response: any) => {
       this.loadCouriers(response);
       this.initializeFormGroups(response);
     });
   }
 
   deleteCourier(id:number) {
-    this.http.delete("http://localhost:3000/deletecourier"+"/"+id).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getcouriers").subscribe((response: any) => {
+    this.http.delete("/api/deletecourier"+"/"+id).subscribe((response: any) => {
+      this.http.get("/api/getcouriers").subscribe((response: any) => {
         this.loadCouriers(response);
         this.modifyCouriers.delete(id);
         });
@@ -52,8 +52,8 @@ export class ModifycourierComponent implements OnInit {
   }
 
   suspendCourier(id:number,felfuggesztve:boolean) {
-    this.http.post("http://localhost:3000/suspendcourier", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
-      this.http.get("http://localhost:3000/getcouriers").subscribe((response: any) => {
+    this.http.post("/api/suspendcourier", {felfuggesztve:felfuggesztve,id : id}).subscribe((response: any) => {
+      this.http.get("/api/getcouriers").subscribe((response: any) => {
         this.loadCouriers(response);
       });
     })
@@ -135,7 +135,7 @@ export class ModifycourierComponent implements OnInit {
             this.courierTempModifyData[field] = courierForm.controls[field].value
           }
         });
-        this.http.post('http://localhost:3000/modifycourieradmin', this.courierTempModifyData).subscribe(response => {
+        this.http.post('/api/modifycourieradmin', this.courierTempModifyData).subscribe(response => {
           console.log(this.courierTempModifyData)
           courierForm.reset({
             nev: '',
@@ -146,7 +146,7 @@ export class ModifycourierComponent implements OnInit {
           courierForm.markAsUntouched();
 
           this.SuccessfulModify = true;
-          this.http.get("http://localhost:3000/getcouriers").subscribe((response: any) => {
+          this.http.get("/api/getcouriers").subscribe((response: any) => {
           this.loadCouriers(response);
           });
         }, error => {

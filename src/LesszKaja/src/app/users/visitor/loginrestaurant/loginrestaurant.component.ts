@@ -41,7 +41,7 @@ export class LoginrestaurantComponent {
       jelszo: form.value.password,
     };
 
-  this.http.post('http://localhost:3000/loginrestaurant',this.userLoginData)
+  this.http.post('/api/loginrestaurant',this.userLoginData)
   .subscribe(response=> {
 
     this.userData=response;

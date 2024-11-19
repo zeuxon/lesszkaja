@@ -28,7 +28,7 @@ export class ShoppingCartComponent implements OnInit {
     let removedItem = this.itemsArray[modifiedIndex];
 
     //this.cartManager.removeItem(modifiedIndex, removedItem);
-    
+
     /*
     this.rotuer.navigate([removedItem.etterem_cim + ""], {queryParams: {
       modifying: true,
@@ -70,7 +70,7 @@ export class ShoppingCartComponent implements OnInit {
     this.itemsArray = this.cartManager.getCartArray();
 
     if(this.itemsArray !== undefined){
-      this.http.post("http://localhost:3000/getitem", {array: this.itemsArray}).subscribe((response: any) => {
+      this.http.post("/api/getitem", {array: this.itemsArray}).subscribe((response: any) => {
         for(let item of this.itemsArray){
           for(let res_item of response){
             if(item.termek_id == res_item.id) {

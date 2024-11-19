@@ -41,7 +41,7 @@ export class LogincourierComponent {
       jelszo: form.value.password,
     };
 
-    this.http.post('http://localhost:3000/logincourier', this.userLoginData).subscribe(
+    this.http.post('/api/logincourier', this.userLoginData).subscribe(
       (response: any) => {
         this.userData = response.results[0]; // az első találat
 

@@ -33,7 +33,7 @@ export class OrderComponent {
     this.router.navigate(["/cart"], {queryParams: {succes: true}}) //Ez sem működik a routeguard miatt majd valamikor fixelve lesz :-)
     localStorage.removeItem("kosar");
 
-    //this.http.post('http://localhost:3000/order', {email: localStorage.getItem("emailcim"), adat: this.cartManager.getCartArray()}).subscribe(response => {
+    //this.http.post('/api/order', {email: localStorage.getItem("emailcim"), adat: this.cartManager.getCartArray()}).subscribe(response => {
 
     //});
   }

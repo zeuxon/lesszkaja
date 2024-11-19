@@ -1,17 +1,18 @@
-<p>order-management works!</p>
-<h2>Megrendelések törlése</h2>
+<div class="order-management-container">
+  <h2>Megrendelések törlése</h2>
 
-<div *ngIf="allOrders.length > 0; else noOrders">
-  <div *ngFor="let order of allOrders" class="order">
-    <p>Dátum: {{ order.datum }}</p>
-    <p>Végösszeg: {{ order.osszar }} Ft</p>
-    <p>Étterem címe: {{ order.etterem_cim }}</p>
-    <p>Név: {{ order.felhasznalo_felhasznalonev }}</p>
-    <p>Lakcím: {{ order.lakcim }}</p>
-    <button (click)="deleteOrder(order.id)">Rendelés törlése</button>
+  <div *ngIf="allOrders.length > 0; else noOrders">
+    <div *ngFor="let order of allOrders" class="order">
+      <p><strong>Dátum:</strong> {{ order.datum }}</p>
+      <p><strong>Végösszeg:</strong> {{ order.osszar }} Ft</p>
+      <p><strong>Étterem címe:</strong> {{ order.etterem_cim }}</p>
+      <p><strong>Név:</strong> {{ order.felhasznalo_felhasznalonev }}</p>
+      <p><strong>Lakcím:</strong> {{ order.lakcim }}</p>
+      <button (click)="deleteOrder(order.id)" class="delete-button">Rendelés törlése</button>
+    </div>
   </div>
-</div>
 
-<ng-template #noOrders>
-  <p>Nincsenek elérhető rendelések.</p>
-</ng-template>
+  <ng-template #noOrders>
+    <p>Nincsenek elérhető rendelések.</p>
+  </ng-template>
+</div>

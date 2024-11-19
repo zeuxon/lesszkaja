@@ -1,15 +1,20 @@
-<div>
-    <h2>Vásárlás</h2>
-    <label for="utanvet">Utánvét</label>
-    <input type="radio" name="fizetes" id="utanvet" (change)="radioStateChange('utanvet')" checked>
-    <br>
-    <label for="kartyas">Kártyás fizetés</label>
-    <input type="radio" name="fizetes" id="kartyas" (change)="radioStateChange('kartyas')">
-    <form #orderForm="ngForm" (ngSubmit)="onSubmit(orderForm)">
-        <div *ngIf="!utanvetOpcio">
-            <label for="kartyaszam"></label>
-            <input id="kartyaszam" name="kartyaszam" inputmode="numeric" required>
-        </div>
-        <button type="submit">Fizetés</button>
-    </form>
+<div class="order-container">
+  <h2>Vásárlás</h2>
+  <div class="payment-options">
+    <label for="utanvet">
+      <input type="radio" name="fizetes" id="utanvet" (change)="radioStateChange('utanvet')" checked>
+      Utánvét
+    </label>
+    <label for="kartyas">
+      <input type="radio" name="fizetes" id="kartyas" (change)="radioStateChange('kartyas')">
+      Kártyás fizetés
+    </label>
+  </div>
+  <form #orderForm="ngForm" (ngSubmit)="onSubmit(orderForm)" class="order-form">
+    <div *ngIf="!utanvetOpcio" class="card-details">
+      <label for="kartyaszam">Kártyaszám</label>
+      <input id="kartyaszam" name="kartyaszam" inputmode="numeric" required>
+    </div>
+    <button type="submit" class="submit-button">Fizetés</button>
+  </form>
 </div>

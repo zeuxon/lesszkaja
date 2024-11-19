@@ -1,4 +1,4 @@
-# Tesztjegyzőkönyv-Felhasználók regisztrálása
+# Tesztjegyzőkönyv-Éttermek keresése, szűrése és ételek részletezése, személyreszabása
 
 Az alábbi tesztdokumentum a LesszKaja projekthez tartozó 8.3.19.3. "Éttermek keresése és szűrése" és "Ételek részletezése és személyreszabása" tesztelésehez készült. Felelőse: Dudás Tímea
 
