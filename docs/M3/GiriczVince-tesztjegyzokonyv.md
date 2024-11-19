@@ -1,4 +1,4 @@
-# Tesztjegyzőkönyv-Kosár módosítása és türlés tesztelése
+# Tesztjegyzőkönyv-Kosár módosítása és törlés tesztelése
 
 Az alábbi tesztdokumentum a LesszKaja projekthez tartozó 8.3.17 Kosár kezelése funkcióhoz készült. Felelőse: Giricz Vince 
 
