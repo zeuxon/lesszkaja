@@ -3,7 +3,7 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const phoneRegex = /^[0-9]{11}$/;
 const addressRegex = /^\S+([" "][\S]+)*$/;
-const nameRegex = /^([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){2,}([" "]([a-zA-ZéÉíÍüÜőŐáÁúÚóÓ]){2,})*$/;
+const nameRegex = /^([a-zA-ZéÉíÍüÜőŐöÖűŰáÁúÚóÓ]){2,}([" "]([a-zA-ZéÉíÍüÜöÖőŐűŰáÁúÚóÓ]){2,})*$/;
 const passwordRegex = /^\S{5,}$/;
 
 // Csak whitespace-e az input?
