@@ -464,6 +464,12 @@ app.post('/order', (req, res) => {
   kosar = adatok.adat;
   email = adatok.email;
 
+  console.log(kosar);
+
+  return;
+
+  console.log(parsed);
+
   string = "";
   for(let index = 0; index < kosar.length; index++){
     string += kosar[index].termek_id + (index == kosar.length-1 ? "" : ",");

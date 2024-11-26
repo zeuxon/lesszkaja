@@ -31,10 +31,12 @@ export class OrderComponent {
   onSubmit(orderForm: any): void{
     //Valamiért a formban nincs benne a kártyaszám?
     this.router.navigate(["/cart"], {queryParams: {succes: true}}) //Ez sem működik a routeguard miatt majd valamikor fixelve lesz :-)
-    localStorage.removeItem("kosar");
 
-    //this.http.post('/api/order', {email: localStorage.getItem("emailcim"), adat: this.cartManager.getCartArray()}).subscribe(response => {
+    this.http.post('/api/order', {email: localStorage.getItem("emailcim"), adat: localStorage.getItem("kosar")}).subscribe(response => {
 
-    //});
+      localStorage.removeItem("kosar");
+    });
+
+    
   }
 }
