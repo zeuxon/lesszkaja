@@ -464,31 +464,43 @@ app.post('/order', (req, res) => {
   kosar = adatok.adat;
   email = adatok.email;
 
-  console.log(kosar);
+  adatok = kosar.split("\n");
 
-  return;
+  let dateobj = new Date();
+  dateStr = dateobj.getFullYear() + "-" + dateobj.getMonth() + "-" + dateobj.getDay();
 
-  console.log(parsed);
+  console.log(dateStr);
 
-  string = "";
-  for(let index = 0; index < kosar.length; index++){
-    string += kosar[index].termek_id + (index == kosar.length-1 ? "" : ",");
+  idArray = [];
+
+  console.log();
+  for(let adat of adatok){
+    if(adat == "") continue;
+    vals = adat.split("$");
+    id = vals[0];
+    idArray[idArray.length] = "'" + id + "'";
+    feltetStr = vals[1];
+    db = vals[2];
   }
 
-  const query = 'SELECT termek.id as termek_id, termek.alapar, etterem.cim FROM etterem ' +
-                'INNER JOIN termek ON etterem.cim=termek.etterem_cim ' +
-                'WHERE termek.id IN (' + string + ');';
+  idStr = idArray.join(", ");
 
-  values = [email];
+  const sql = 'INSERT INTO kosar (datum, osszar, felhasznalo_felhasznalonev, etterem_cim) ' +
+              'VALUES (?, (SELECT SUM(alapar) FROM termek WHERE termek.id IN (' + idStr + ')), (SELECT felhasznalonev FROM felhasznalo WHERE emailcim=?), (SELECT etterem_cim FROM termek WHERE id=?) );';
+  
+  console.log();
+  adatok = [dateStr, email, parseInt(idArray[0].replace("'", ""))];
 
-  connection.query(query, values, (error, results) => {
+  connection.query(sql, adatok, (error, results) => {
     if (error) {
       console.error('Database error:', error);
     }else{
       res.status(200).json(results);
-      console.log(results);
+      //console.log(results);
     }
   } );
+
+  return;
 });
 
 // Azok a kosarak, amelyeket nem vállaltak el
