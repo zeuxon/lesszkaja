@@ -494,22 +494,36 @@ app.post('/order', (req, res) => {
     }
   }
 
-  console.log(map);
+  cases = "";
+
+  osszetevok = [];
+
+  for(let [key, value] of map){
+    cases += "WHEN osszetevok.id = " + key + " THEN " + value + " ";
+    osszetevok.push(key);
+  }
   
-  when = '(CASE WHEN osszetevok.id IN () THEN 1 ELSE 1 END)';
+  when = '(CASE ' + cases + 'ELSE 1 END)';
 
   idStr = idArray.join(", ");
 
   parsedId = parseInt(idArray[0].replace("'", ""));
 
-  const modSql = 'INSERT INTO raktar SET (raktar.id, raktar.mennyiseg, raktar.etterem_id) '+
-                  'VALUES ()' +
-                  'ON DUPLICATE KEY UPDATE raktar.mennyiseg = VALUES(raktar.mennyiseg).'
+  const modSql = 'INSERT INTO raktar (raktar.id, raktar.osszetevo, raktar.mennyiseg, raktar.etterem_id) '+
+                  'SELECT osszetevok.raktar_id, raktar.osszetevo, (raktar.mennyiseg - SUM(osszetevok.egyseg *'+ when +') ) AS db, raktar.etterem_id' +
+                  'FROM osszetevok' +
+                  'INNER JOIN raktar ON raktar.id = osszetevok.raktar_id' +
+                  'WHERE osszetevok.id IN ('+osszetevok.join(", ")+')' +
+                  'GROUP BY osszetevok.raktar_id' +
+                  'ON DUPLICATE KEY UPDATE raktar.mennyiseg = VALUES(raktar.mennyiseg);';
 
+  //connection.query(modSql, [], (error, results) => {
+  //});
+
+  
   const sql = 'INSERT INTO kosar (datum, osszar, felhasznalo_felhasznalonev, etterem_cim) ' +
               'VALUES (?, (SELECT SUM(alapar) FROM termek WHERE termek.id IN (' + idStr + ')), (SELECT felhasznalonev FROM felhasznalo WHERE emailcim=?), (SELECT etterem_cim FROM termek WHERE id=?) );';
 
-  console.log();
   adatok = [dateStr, email, parsedId];
 
   connection.query(sql, adatok, (error, results) => {
