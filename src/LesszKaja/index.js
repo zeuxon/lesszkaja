@@ -668,7 +668,6 @@ app.post('/courier/completed', (req, res) => {
 app.post('/ordermanagement', (req, res) => {
   const { etteremEmail } = req.body;
 
-  // First, retrieve the restaurant address from the database using the email
   const getRestaurantAddressQuery = 'SELECT cim FROM etterem WHERE emailcim = ?';
 
   connection.query(getRestaurantAddressQuery, [etteremEmail], (error, results) => {
@@ -683,7 +682,6 @@ app.post('/ordermanagement', (req, res) => {
 
     const restaurantAddress = results[0].cim;
 
-    // Now use the restaurant address to fetch the orders related to this restaurant
     const getOrdersQuery = 'SELECT * FROM kosar, felhasznalo WHERE etterem_cim = ? AND felhasznalo_felhasznalonev = felhasznalonev';
     connection.query(getOrdersQuery, [restaurantAddress], (error, orderResults) => {
       if (error) {
@@ -724,29 +722,61 @@ app.post('/ordermanagement/delete', (req, res) => {
 /** Storage */
 
 app.get('/storage_get_ingredients', (req, res) => {
-  const query = 'SELECT * FROM raktar';
-
-  connection.query(query, (err, results) => {
-    if(err) {
-      console.error('Error fetching data:', err.message);
-      res.status(500).send('Server Error');
-      return;
+  const { etteremEmail } = req.query;
+  
+  const getRestaurantIdQuery = 'SELECT id FROM etterem WHERE emailcim = ?';
+  
+  connection.query(getRestaurantIdQuery, [etteremEmail], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
     }
-    res.send(results);
+
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Restaurant not found' });
+    }
+
+    const restaurantId = results[0].id;
+    const query = 'SELECT * FROM raktar WHERE etterem_id = ?';
+  
+    connection.query(query, [restaurantId], (err, results) => {
+      if (err) {
+        console.error('Error fetching data:', err.message);
+        res.status(500).send('Server Error');
+        return;
+      }
+      res.send(results);
+    });
   });
 });
 
 app.get('/storage_get_products', (req, res) => {
-  const restaurant_addr = req.query.addr;
-  const query = 'SELECT * FROM termek WHERE etterem_cim = ?';
-
-  connection.query(query, [restaurant_addr], (err, results) => {
-    if(err) {
-      console.error('Error fetching data:', err.message);
-      res.status(500).json({ message: 'Server Error'});
-      return;
+  const { etteremEmail } = req.query;
+  
+  const getRestaurantAddressQuery = 'SELECT cim FROM etterem WHERE emailcim = ?';
+  
+  connection.query(getRestaurantAddressQuery, [etteremEmail], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
     }
-    res.status(200).send(results);
+
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Restaurant not found' });
+    }
+
+    const restaurant_addr = results[0].cim;
+
+    const query = 'SELECT * FROM termek WHERE etterem_cim = ?';
+  
+    connection.query(query, [restaurant_addr], (err, results) => {
+      if (err) {
+        console.error('Error fetching data:', err.message);
+        res.status(500).json({ message: 'Server Error' });
+        return;
+      }
+      res.status(200).send(results);
+    });
   });
 });
 
@@ -768,15 +798,31 @@ app.post('/storage_remove_product', (req, res) => {
 });
 
 app.post('/storage_add_product', (req, res) => {
-  const {value, name, addr} = req.body;
+  const {value, name, email} = req.body;
+
+  const getRestaurantAddressQuery = 'SELECT cim FROM etterem WHERE emailcim = ?';
+
+  connection.query(getRestaurantAddressQuery, [email], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Restaurant not found' });
+    }
+
+    const restaurant_addr = results[0].cim;
+
   const query = 'INSERT INTO termek (alapar, nev, etterem_cim) VALUES (?, ?, ?)'
-  connection.query(query, [value, name, addr], (err, result) => {
+  connection.query(query, [value, name, restaurant_addr], (err, result) => {
     if(err) {
       console.error('Error adding record:', err.message);
       return res.status(500).json({ message: 'Error adding record.' });
     }
     console.log("Record added successfully with ID:", result.insertId  );
     res.status(200).json({ message: 'Record added succesfully.' });
+    })
   })
 });
 
@@ -806,7 +852,6 @@ app.post('/getuserbyid', (req, res) => {
     res.status(200).json({results});
   });
 });
-
 
 
 
