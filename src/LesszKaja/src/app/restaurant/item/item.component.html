@@ -16,7 +16,7 @@
     <div class="extras">
       <div *ngFor="let item of extraArray | keyvalue" class="extra-item">
         <input [checked]="item.value" type="checkbox" (change)="changeChoice(item.key)">
-        <label>{{ item.key }}</label>
+        <label>{{ nameArray.get(item.key) }}</label>
       </div>
     </div>
     <br>

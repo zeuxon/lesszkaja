@@ -20,7 +20,7 @@
       </div>
       <div class="item-extras">
         <div *ngFor="let extra of item.extrak | keyvalue">
-          <p *ngIf="extra.value === true">{{ extra.key }}</p>
+          <p *ngIf="extra.value === true"> {{get(extra.key)}} </p>
         </div>
       </div>
     </div>
