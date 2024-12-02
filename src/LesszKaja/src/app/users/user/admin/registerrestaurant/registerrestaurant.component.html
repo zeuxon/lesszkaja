@@ -38,5 +38,5 @@
     <input type="file" id="profilePicture" (change)="onFileChange($event)">
   </div>
 
-  <button type="submit" [disabled]="registerRestaurant.invalid">Register</button>
+  <button type="submit" [disabled]="registerRestaurant.invalid || !!!this.selectedFile">Register</button>
 </form>
