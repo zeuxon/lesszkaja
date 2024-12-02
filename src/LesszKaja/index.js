@@ -5,6 +5,9 @@ const mysql = require('mysql');
 const dotenv = require('dotenv');
 const { exit } = require('process');
 const crypto = require('crypto');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 dotenv.config();
 
 const connection = mysql.createConnection({
@@ -13,6 +16,18 @@ const connection = mysql.createConnection({
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE
 });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'src/assets/images/restaurantprofiles'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+
+const upload = multer({ storage: storage });
+
 
 // console.log(connection.config.host);
 
@@ -54,8 +69,9 @@ app.post('/registercourier', (req, res) => {
   });
 });
 //register restaurant
-app.post('/registerrestaurant', (req, res) => {
-  const { nev, emailcim, jelszo, telefonszam, cim } = req.body;
+app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
+  const restaurantData = JSON.parse(req.body.restaurantData);
+  const { nev, emailcim, jelszo, telefonszam, cim } = restaurantData;
 
   const query = 'INSERT INTO etterem (nev, emailcim, jelszo, telefonszam, cim) VALUES (?, ?, ?, ?, ?)';
   const values = [nev, emailcim, jelszo, telefonszam, cim];
@@ -65,7 +81,29 @@ app.post('/registerrestaurant', (req, res) => {
       console.error('Database error:', error);
       return res.status(500).json({ message: 'Database error', error });
     }
-    res.status(201).json({ message: 'User registered successfully'});
+
+    const restaurantId = results.insertId;
+    const tempFilePath = req.file.path;
+    const newFilePath = path.join(__dirname, 'src/assets/images/restaurantprofiles', `${restaurantId}.png`);
+
+    fs.rename(tempFilePath, newFilePath, (err) => {
+      if (err) {
+        console.error('File rename error:', err);
+        return res.status(500).json({ message: 'File rename error', err });
+      }
+
+      const updateQuery = 'UPDATE etterem SET kep = ? WHERE id = ?';
+      const updateValues = [`${restaurantId}.png`, restaurantId];
+
+      connection.query(updateQuery, updateValues, (updateError) => {
+        if (updateError) {
+          console.error('Database error:', updateError);
+          return res.status(500).json({ message: 'Database error', updateError });
+        }
+
+        res.status(201).json({ message: 'Restaurant registered successfully' });
+      });
+    });
   });
 });
 

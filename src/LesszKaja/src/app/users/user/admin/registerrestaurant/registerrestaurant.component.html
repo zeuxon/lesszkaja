@@ -34,6 +34,9 @@
       <span *ngIf="!registerRestaurant.controls['jelszo'].errors?.['required']&&registerRestaurant.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
     </div>
   </div>
+  <div>
+    <input type="file" id="profilePicture" (change)="onFileChange($event)">
+  </div>
 
   <button type="submit" [disabled]="registerRestaurant.invalid">Register</button>
 </form>
