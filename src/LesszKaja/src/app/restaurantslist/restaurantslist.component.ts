@@ -14,8 +14,8 @@ import { log } from 'console';
   styleUrl: './restaurantslist.component.scss'
 })
 export class RestaurantslistComponent implements OnInit {
-  ettermekArray: Array<{id: number, nev: string; cim: string; route: string}> = [];
-  shownEttermek: Array<{id: number, nev: string; cim: string; route: string}> = [];
+  ettermekArray: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
+  shownEttermek: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
   searchValue: string = "";
 
   constructor(private http: HttpClient) {
@@ -30,10 +30,16 @@ export class RestaurantslistComponent implements OnInit {
 
   loadEttermek(ettermek: any) {
     for (let index = 0; index < ettermek.length; index++) {
-      this.ettermekArray[index] = {id: 0, nev: "", cim: "", route: ""};
+      this.ettermekArray[index] = {id: 0, nev: "", cim: "", route: "", image:"../../assets/images/restaurantprofiles/"};
       this.ettermekArray[index].nev = ettermek[index].nev;
       this.ettermekArray[index].cim = ettermek[index].cim;
       this.ettermekArray[index].id = ettermek[index].id;
+      if (ettermek[index].kep != null) {
+        this.ettermekArray[index].image += ettermek[index].kep;
+      } else {
+        this.ettermekArray[index].image += "mcdonalds.png";
+      }
+
       this.ettermekArray[index].route = "/restaurants/" + ettermek[index].id;
     }
   }

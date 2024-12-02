@@ -17,10 +17,13 @@
             box-shadow: 0px 2px 22px -3px rgba(0, 0, 0, 0.55);
             z-index: 8;
         }
-    
+
 
         img {
             border-radius: 4px 4px 0 0;
+            object-fit: cover;
+            width: 265px;
+            height: 120px;
         }
 
         background: #FFFFFF;
