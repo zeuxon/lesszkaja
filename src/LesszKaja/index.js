@@ -406,11 +406,11 @@ app.post('/restaurantsitem', (req, res) => {
   const adatok = req.body
   const values = [adatok.termek_id, adatok.etterem_id]
 
-  const query = 'SELECT osszetevok.id, osszetevok.nev, termek.id as termek_id, termek.nev as termek_nev FROM osszetevok ' +
+  const query = 'SELECT osszetevok.ar, osszetevok.id, osszetevok.nev, termek.id as termek_id, termek.nev as termek_nev FROM osszetevok ' +
                 'INNER JOIN termek_osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id ' +
                 'INNER JOIN termek ON termek_osszetevok.termek_id = termek.id ' +
                 'INNER JOIN etterem ON termek.etterem_cim=etterem.cim ' +
-                'WHERE termek.id=? AND etterem.id=? AND osszetevok.ar>0;';
+                'WHERE termek.id=? AND etterem.id=?;';
 
   //const id_query = 'SELECT termek.id FROM termek WHERE termek.nev=? AND termek.etterem_cim=?;';
   connection.query(query, values, (error, results) => {
@@ -469,35 +469,56 @@ app.post('/order', (req, res) => {
   let dateobj = new Date();
   dateStr = dateobj.getFullYear() + "-" + dateobj.getMonth() + "-" + dateobj.getDay();
 
-  console.log(dateStr);
-
   idArray = [];
+  feltetArray = [];
 
-  console.log();
   for(let adat of adatok){
     if(adat == "") continue;
     vals = adat.split("$");
     id = vals[0];
     idArray[idArray.length] = "'" + id + "'";
-    feltetStr = vals[1];
+    feltetArray.push(Object.entries(JSON.parse(vals[1])));
     db = vals[2];
   }
 
+  //map = Object.entries(JSON.parse(feltetStr));
+
+  let map = new Map();
+
+  for(let item of feltetArray){
+    for(let [key, value] of item){
+      if(value == true){
+        val = map.get(key);
+        map.set(key, val == undefined ? 1 : val+1);
+      }
+    }
+  }
+
+  console.log(map);
+  
+  when = '(CASE WHEN osszetevok.id IN () THEN 1 ELSE 1 END)';
+
   idStr = idArray.join(", ");
+
+  parsedId = parseInt(idArray[0].replace("'", ""));
+
+  const modSql = 'INSERT INTO raktar SET (raktar.id, raktar.mennyiseg, raktar.etterem_id) '+
+                  'VALUES ()' +
+                  'ON DUPLICATE KEY UPDATE raktar.mennyiseg = VALUES(raktar.mennyiseg).'
 
   const sql = 'INSERT INTO kosar (datum, osszar, felhasznalo_felhasznalonev, etterem_cim) ' +
               'VALUES (?, (SELECT SUM(alapar) FROM termek WHERE termek.id IN (' + idStr + ')), (SELECT felhasznalonev FROM felhasznalo WHERE emailcim=?), (SELECT etterem_cim FROM termek WHERE id=?) );';
   
   console.log();
-  adatok = [dateStr, email, parseInt(idArray[0].replace("'", ""))];
+  adatok = [dateStr, email, parsedId];
 
   connection.query(sql, adatok, (error, results) => {
     if (error) {
       console.error('Database error:', error);
-    }else{
+      return res.status(500).json({ message: 'Database error', error });
+    }
       res.status(200).json(results);
       //console.log(results);
-    }
   } );
 
   return;
