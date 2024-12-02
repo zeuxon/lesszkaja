@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  @Input() show: Array<{id: number, nev: string; cim: string; route: string}> = [];
+  @Input() show: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
 
   ngOnInit() {
     //console.log(this.show);

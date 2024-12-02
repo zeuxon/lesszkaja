@@ -373,7 +373,7 @@ app.get('/getrestaurants', (req, res) => {
 
 //Étterem függvények
 app.get('/restaurants', (req, res) => {
-  const query = 'SELECT id, nev, cim FROM etterem';
+  const query = 'SELECT id, nev, cim, kep FROM etterem';
   connection.query(query, null, (error, results) => {
     if (error) {
       console.error('Database error:', error);
@@ -487,7 +487,7 @@ app.post('/order', (req, res) => {
 
   const sql = 'INSERT INTO kosar (datum, osszar, felhasznalo_felhasznalonev, etterem_cim) ' +
               'VALUES (?, (SELECT SUM(alapar) FROM termek WHERE termek.id IN (' + idStr + ')), (SELECT felhasznalonev FROM felhasznalo WHERE emailcim=?), (SELECT etterem_cim FROM termek WHERE id=?) );';
-  
+
   console.log();
   adatok = [dateStr, email, parseInt(idArray[0].replace("'", ""))];
 
