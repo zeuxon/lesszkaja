@@ -15,13 +15,20 @@ export class ShoppingCartComponent implements OnInit {
 
   itemsArray: Array<{termek_id: number, etterem_id: number, extrak: any, db: number, nev: String}> = [];
 
-  nameMap: Map<String, String> = new Map();
+  nameMap: Map<String, String> = new Map<String, String>();
 
   constructor(private cartManager: CartManagerService, private rotuer: Router, private http: HttpClient){
   }
 
   hasItem(): boolean{
     return typeof this.itemsArray != 'undefined' && this.itemsArray.length > 0;
+  }
+
+  get(param: any): any{
+    if(param == undefined) {
+      return "";
+    }
+    return this.nameMap.get(param);
   }
 
   modifyItem(modifiedIndex: number): void{
@@ -94,7 +101,9 @@ export class ShoppingCartComponent implements OnInit {
     };
 
     this.http.post("/api/loadextras", {array: arr}).subscribe((response: any) => {
-
+      for(let item of response){
+        this.nameMap.set(item.id.toString(), item.nev);
+      }
     })
 
   }
