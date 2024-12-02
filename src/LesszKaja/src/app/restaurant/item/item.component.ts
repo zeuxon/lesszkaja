@@ -23,6 +23,7 @@ export class ItemComponent implements OnInit {
   alreadyExists = false;
 
   extraArray = new Map<String, boolean>();
+  baseArray = new Array();
 
   constructor(private router: Router, private http: HttpClient, private cartManager: CartManagerService){}
 
@@ -66,7 +67,11 @@ export class ItemComponent implements OnInit {
 
   loadExtras(extras: any): void{
     for (let index = 0; index < extras.length; index++) {
-      this.extraArray.set(extras[index].nev, false);
+      if(extras[index].ar > 0) {
+        this.extraArray.set(extras[index].nev, false);
+      }else if(extras[index].ar == 0){
+        this.baseArray.push(extras[index].nev);
+      }
     }
   }
 

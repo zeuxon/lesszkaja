@@ -11,6 +11,7 @@
 
 <div class="item-container">
     <h2>{{ termekData.nev }}</h2>
+    <p>{{baseArray.join(", ")}}</p>
     <p class="info-text">Itt csak a nem 0 árral rendelkező összetevők jelennek meg!</p>
     <div class="extras">
       <div *ngFor="let item of extraArray | keyvalue" class="extra-item">
