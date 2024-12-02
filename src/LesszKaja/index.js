@@ -538,6 +538,21 @@ app.post('/order', (req, res) => {
   return;
 });
 
+app.post('/loadextras', (req,res) => {
+
+  array = req.body.array;
+
+  const sql = 'SELECT osszetevok.id, osszetevok.nev FROM osszetevok WHERE osszetevok.id IN ('+array.join(", ")+')'
+
+  connection.query(sql, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    res.status(200).json(results);
+  });
+});
+
 // Azok a kosarak, amelyeket nem vállaltak el
 app.post('/courier/unassigned', (req, res) => {
   const query = 'SELECT kosar.id, kosar.futar_futarid, kosar.datum, kosar.osszar, kosar.etterem_cim, felhasznalo.felhasznalonev, felhasznalo.lakcim ' +

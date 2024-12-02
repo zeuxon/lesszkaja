@@ -15,6 +15,8 @@ export class ShoppingCartComponent implements OnInit {
 
   itemsArray: Array<{termek_id: number, etterem_id: number, extrak: any, db: number, nev: String}> = [];
 
+  nameMap: Map<String, String> = new Map();
+
   constructor(private cartManager: CartManagerService, private rotuer: Router, private http: HttpClient){
   }
 
@@ -82,6 +84,18 @@ export class ShoppingCartComponent implements OnInit {
         }
       });
     }
+
+    let arr = [];
+
+    for(let item of this.itemsArray){
+      for(let [key, value] of item.extrak){
+        arr.push(key);
+      }
+    };
+
+    this.http.post("/api/loadextras", {array: arr}).subscribe((response: any) => {
+
+    })
 
   }
 }
