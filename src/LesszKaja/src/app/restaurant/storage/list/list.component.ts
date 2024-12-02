@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -10,4 +10,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ListComponent {
   @Input() listItems?: Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>;
+
+  @Output() removeItem = new EventEmitter<number>();
+
+  onRemoveClick(itemId: number):void {
+    this.removeItem.emit(itemId);
+  }
 }

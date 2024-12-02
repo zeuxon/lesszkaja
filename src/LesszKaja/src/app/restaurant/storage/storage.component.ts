@@ -53,9 +53,9 @@ fetchProducts(): void {
 }
 
 
-  removeProduct() {
+  removeProduct(remove_id: number) {
     console.log('Remove product.');
-    this.http.post('/api/storage_remove_product', {name: this.remove_product}).subscribe(
+    this.http.post('/api/storage_remove_product', {name: remove_id}).subscribe(
       (response) => {
         console.log('Product succesfully deleted:', response);
         this.fetchProducts();

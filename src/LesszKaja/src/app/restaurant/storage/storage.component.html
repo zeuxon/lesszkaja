@@ -22,16 +22,11 @@
   <br>
   <div *ngIf="products.length > 0">
     <h2>Termékkészlet</h2>
-    <app-list [listItems]="this.products"></app-list>
-
-    <form (ngSubmit)="removeProduct()" class="product-form">
-      <label for="remove_product">Remove product:</label>
-      <input type="text" id="remove_product" [(ngModel)]="remove_product" name="remove_product" required>
-      <button type="submit">Remove Product</button>
-    </form>
+    <app-list [listItems]="this.products" (removeItem)="removeProduct($event)"></app-list>
   </div>
   <p *ngIf="products.length == 0">Nem található étteremhez tartozó termékkészlet.</p>
-  <p>Add products:</p>
+  <br>
+  <h3>Add products:</h3>
   <form (ngSubmit)="addProduct()" class="product-form">
     <label for="add_product_name">Product name:</label>
     <input type="text" id="add_product_name" [(ngModel)]="add_product_name" name="add_product_name" required><br>

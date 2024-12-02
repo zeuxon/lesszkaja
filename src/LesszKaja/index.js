@@ -782,7 +782,7 @@ app.get('/storage_get_products', (req, res) => {
 
 app.post('/storage_remove_product', (req, res) => {
   const prod_name = req.body.name;
-  const query = "DELETE FROM termek WHERE nev = ?";
+  const query = "DELETE FROM termek WHERE id = ?";
   connection.query(query, [prod_name], (err, result) => {
     if(err) {
       console.error('Error deleting record:', err.message);
