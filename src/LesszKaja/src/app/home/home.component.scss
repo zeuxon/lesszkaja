@@ -18,7 +18,7 @@
 
     .hero-content {
 
-        
+
         h2 {
             color: var(--Dark, #313638);
 
@@ -32,6 +32,7 @@
             text-shadow:rgba(0, 0, 0, 0.25) 0px 4px 4px;
         }
         a {
+            text-decoration: none;
             border-radius: 8px;
             color: var(--Light, #FAF9F5);
             background: var(--Accent, #EEB310);
@@ -44,6 +45,13 @@
             line-height: 120%; /* 24px */
             cursor: pointer;
             box-shadow:rgba(0, 0, 0, 0.25) 0px 4px 4px;
+            transition: 0.3s;
+
+            &:hover {
+                transition: 0.3s;
+                background: var(--Light-accent, #EEB310);
+            }
+
         }
 
         // .hero-content-rendeles {
@@ -64,7 +72,7 @@
         //         font-weight: 400;
         //         line-height: 120%; /* 12px */
         //         padding-left: 8px;
-                
+
         //     }
 
         //     div {
@@ -91,7 +99,7 @@
         //         font-weight: 400;
         //         line-height: 120%; /* 15.6px */
         //         opacity: 0.6;
-                
+
         //     }
 
         //     div>
@@ -102,7 +110,7 @@
 .mit-ennel {
     margin-block: 64px;
     margin-inline: 5%;
-  
+
     h2 {
       color: var(--Dark, #313638);
       font-family: Gluten;
@@ -112,19 +120,30 @@
       line-height: 120%; /* 58.8px */
       margin-bottom: 32px;
     }
-  
+
     .mit-ennel-boxes {
       display: flex;
       width: 100%;
       justify-content: space-between;
       gap: 16px;
-  
+
       .mit-ennel-box {
         width: 30%;
         aspect-ratio: 3/2;
         background-size: cover;
-        background-image: url("../../assets/images/mit-ennel-1.png");
-  
+
+        &:nth-child(1) {
+          background-image: url("../../assets/images/mit-ennel-1.png");
+        }
+      
+        &:nth-child(2) {
+          background-image: url("../../assets/images/mit-ennel-2.png");
+        }
+      
+        &:nth-child(3) {
+          background-image: url("../../assets/images/mit-ennel-3.png");
+        }
+
         .cover {
           background: linear-gradient(180deg, rgba(0, 0, 0, 0.17) 61.37%, #000 100%);
           width: 100%;
@@ -132,7 +151,7 @@
           display: flex;
           justify-content: center;
           align-items: flex-end;
-  
+
           p {
             color: var(--Light, #FAF9F5);
             font-family: "Maven Pro";
@@ -141,45 +160,46 @@
             font-weight: 500;
             line-height: 120%; /* 24px */
             margin-bottom: 16px;
+            text-align: center;
           }
         }
       }
     }
-  
+
     @media (max-width: 1024px) {
       .mit-ennel-boxes {
         flex-direction: column;
         align-items: center;
-  
+
         .mit-ennel-box {
           width: 80%;
           margin-bottom: 16px;
         }
       }
     }
-  
+
     @media (max-width: 768px) {
       h2 {
         font-size: 36px;
       }
-  
+
       .mit-ennel-boxes {
         .mit-ennel-box {
           width: 100%;
         }
       }
     }
-  
+
     @media (max-width: 480px) {
       h2 {
         font-size: 28px;
       }
-  
+
       .mit-ennel-boxes {
         .mit-ennel-box {
           width: 100%;
         }
-  
+
         .cover p {
           font-size: 20px;
         }
@@ -197,13 +217,13 @@
     gap: 40px;
     z-index: 1;
     background: #FFFFFF;
-  
+
     .mi-lesszkaja-content {
       width: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-  
+
       h4 {
         color: var(--Dark, #313638);
         font-family: "Maven Pro";
@@ -213,7 +233,7 @@
         line-height: 120%; /* 30px */
         margin-bottom: 64px;
       }
-      
+
       h3 {
         color: var(--Dark, #313638);
         font-family: "Maven Pro";
@@ -223,7 +243,7 @@
         line-height: 120%; /* 48px */
         margin-bottom: 16px;
       }
-  
+
       p {
         color: var(--Dark, #313638);
         font-family: "Maven Pro";
@@ -235,83 +255,83 @@
         width: 60%;
       }
     }
-  
+
     img {
       width: 50%;
     }
-  
+
     @media (max-width: 1430px) {
       margin: 100px 50px;
       flex-direction: column;
       padding: 40px 20px;
-  
+
       .mi-lesszkaja-content {
         width: 100%;
         text-align: center;
-  
+
         h4 {
           font-size: 22px;
           margin-bottom: 32px;
         }
-        
+
         h3 {
           font-size: 32px;
           margin-bottom: 16px;
         }
-  
+
         p {
           font-size: 18px;
           width: 100%;
         }
       }
-  
+
       img {
         width: 80%;
         margin-top: 20px;
       }
     }
-  
+
     @media (max-width: 768px) {
       margin: 80px 20px;
       padding: 30px 15px;
-  
+
       .mi-lesszkaja-content {
         h4 {
           font-size: 20px;
         }
-        
+
         h3 {
           font-size: 28px;
         }
-  
+
         p {
           font-size: 16px;
         }
       }
-  
+
       img {
         width: 100%;
       }
     }
-  
+
     @media (max-width: 480px) {
       margin: 60px 10px;
       padding: 20px 10px;
-  
+
       .mi-lesszkaja-content {
         h4 {
           font-size: 18px;
         }
-        
+
         h3 {
           font-size: 24px;
         }
-  
+
         p {
           font-size: 14px;
         }
       }
-  
+
       img {
         width: 100%;
       }
@@ -327,7 +347,7 @@
     justify-content: center;
     padding-bottom: 64px;
     align-items: flex-end;
-  
+
     .gondoltad-volna-text {
       display: flex;
       flex-direction: column;
@@ -340,7 +360,7 @@
       width: 40%;
       padding: 32px;
       box-shadow: 0px 2px 22px -3px rgba(0, 0, 0, 0.25);
-  
+
       h2 {
         color: var(--Dark, #313638);
         text-align: center;
@@ -350,7 +370,7 @@
         font-weight: 300;
         line-height: 120%; /* 58.8px */
       }
-  
+
       p {
         color: var(--Dark, #313638);
         text-align: center;
@@ -360,7 +380,7 @@
         font-weight: 600;
         line-height: 120%; /* 37.2px */
         opacity: 0.7;
-  
+
         span {
           opacity: 1;
           color: var(--Red, #C11A29);
@@ -372,66 +392,66 @@
         }
       }
     }
-  
+
     @media (max-width: 1024px) {
       height: auto;
       padding-bottom: 40px;
-  
+
       .gondoltad-volna-text {
         width: 60%;
         padding: 24px;
-  
+
         h2 {
           font-size: 36px;
         }
-  
+
         p {
           font-size: 24px;
-  
+
           span {
             font-size: 24px;
           }
         }
       }
     }
-  
+
     @media (max-width: 768px) {
       height: auto;
       padding-bottom: 30px;
-  
+
       .gondoltad-volna-text {
         width: 80%;
         padding: 20px;
-  
+
         h2 {
           font-size: 28px;
         }
-  
+
         p {
           font-size: 20px;
-  
+
           span {
             font-size: 20px;
           }
         }
       }
     }
-  
+
     @media (max-width: 480px) {
       height: auto;
       padding-bottom: 20px;
-  
+
       .gondoltad-volna-text {
         width: 90%;
         padding: 16px;
-  
+
         h2 {
           font-size: 24px;
         }
-  
+
         p {
           font-size: 18px;
-  
+
           span {
             font-size: 18px;
           }
@@ -453,27 +473,40 @@
     font-weight: 400;
     line-height: 120%; /* 15.6px */
     flex-wrap: wrap;
-  
+
     .social-icons {
       display: flex;
       gap: 16px;
+      
+      img {
+        cursor: pointer;
+      }
+
     }
-  
+
     p {
       margin: 8px 0;
+      transition: color 0.3s;
+
+      span:hover {
+        transition: color 0.3s;
+
+        color: var(--Accent, #EEB310);
+      }
     }
-  
+
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
       text-align: center;
-  
+
       .social-icons {
         margin-bottom: 16px;
       }
-  
+
       p {
         margin: 4px 0;
+
       }
     }
   }

@@ -1,5 +1,5 @@
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,12 +7,16 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrls: ['./list.component.scss'],
 })
-export class ListComponent {
-  @Input() show: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
+export class ListComponent implements OnInit {
+  @Input() show: Array<{ id: number; nev: string; image: string; eteltipusok?: { nev: string }[], route: string}> = [];
 
   ngOnInit() {
-    //console.log(this.show);
+    this.show.forEach(item => {
+      if (!item.eteltipusok) {
+        item.eteltipusok = [];
+      }
+    });
   }
 }

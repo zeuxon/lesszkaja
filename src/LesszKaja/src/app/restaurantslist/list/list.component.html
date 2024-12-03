@@ -1,12 +1,14 @@
 <div class="restaurantlist-container">
     <div *ngFor="let item of show" [routerLink]="item.route">
-        <img [src]=item.image alt="Restaurant Image">
-            <div class="restaurantlist-container-text">
-                <h5>{{ item.nev }}</h5>
-                <h5></h5>
-
-                <p>Burger, Shake</p>
-            </div>
-
+      <img [src]="item.image" alt="Restaurant Image">
+      <div class="restaurantlist-container-text">
+        <h5>{{ item.nev }}</h5>
+        <div class="tags" *ngIf="item.eteltipusok">
+          <span class="tag">{{ item.eteltipusok }}</span>
+        </div>
+        <div *ngIf="!item.eteltipusok">
+          <p>Nincs elérhető ételtípus.</p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

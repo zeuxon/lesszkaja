@@ -15,7 +15,7 @@ import { ListComponent } from './list/list.component';
 export class StorageComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  address: string = 'Budapest, József körút 87.'; // Static address
+  email = localStorage.getItem('emailcim'); // Static address
   ingredients: any[] = [];
   products: Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }> = [];
   remove_product: string = "";
@@ -27,34 +27,35 @@ export class StorageComponent implements OnInit {
       console.log("Products tartalma:", it);
     });
   }
+fetchIngredients(): void {
+  var data = this.http.get(`/api/storage_get_ingredients?etteremEmail=${this.email}`).subscribe(
+    (data: any) => {
+      console.log('Data successfully fetched:', data);
+      this.ingredients = data;
+    },
+    (error) => {
+      console.log('Error', error);
+    }
+  );
+}
 
-  fetchIngredients(): void {
-    var data = this.http.get('/api/storage_get_ingredients').subscribe(
-      (data: any) => {
-        console.log('Data succesfully fetched:', data);
-        this.ingredients = data;
-      },
-      (error) => {
-        console.log('Error', error);
-      }
-    );
-  }
 
-  fetchProducts(): void {
-    this.http.get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>>(`/api/storage_get_products?addr=${this.address}`).subscribe(
-      (data) => {
-        console.log('Data succesfully fetched:', data);
-        this.products = data;
-      },
-      (error) => {
-        console.log('Error', error);
-      }
-    );
-  }
+fetchProducts(): void {
+  this.http.get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>>(`/api/storage_get_products?etteremEmail=${this.email}`).subscribe(
+    (data) => {
+      console.log('Data successfully fetched:', data);
+      this.products = data;
+    },
+    (error) => {
+      console.log('Error', error);
+    }
+  );
+}
 
-  removeProduct() {
+
+  removeProduct(remove_id: number) {
     console.log('Remove product.');
-    this.http.post('/api/storage_remove_product', {name: this.remove_product}).subscribe(
+    this.http.post('/api/storage_remove_product', {name: remove_id}).subscribe(
       (response) => {
         console.log('Product succesfully deleted:', response);
         this.fetchProducts();
@@ -68,10 +69,14 @@ export class StorageComponent implements OnInit {
   add_product_name?: string;
   add_product_value?: number;
   addProduct() {
+    console.log(this.add_product_name);
+    console.log(this.add_product_value);
+    console.log(this.email);
+
     this.http.post('/api/storage_add_product', {
       value: this.add_product_value,
       name: this.add_product_name,
-      addr: this.address
+      email: this.email
     })
     .subscribe((response) => {
         console.log('Product succesfully added:', response);
