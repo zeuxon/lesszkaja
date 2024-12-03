@@ -1,1 +1,23 @@
-<p>orderhistory works!</p>
+<div class="order-container">
+    <h1>Rendelési előzmények</h1>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Rendelés dátuma</th>
+          <th>Összeg</th>
+          <th>Kiszállítás státusza</th>
+          <th>Étterem címe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ formatDate(order.datum) }}</td>
+          <td>{{ order.osszar }} Ft</td>
+          <td>{{ order.kiszallitva ? 'Kiszállítva' : 'Megrendelés alatt' }}</td>
+          <td>{{ order.etterem_cim }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

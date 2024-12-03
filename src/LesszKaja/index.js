@@ -695,6 +695,43 @@ app.post('/order', (req, res) => {
   return;
 });
 
+app.post('/orderhistory', (req, res) => {
+  const emailcim = req.body.emailcim;
+
+  if (!emailcim) {
+    return res.status(400).json({ message: 'Email is required in the body' });
+  }
+
+  const getUsernameQuery = 'SELECT felhasznalonev FROM felhasznalo WHERE emailcim = ?';
+  connection.query(getUsernameQuery, [emailcim], (error, results) => {
+    if (error) {
+      return res.status(500).json({ message: 'Database error', error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const username = results[0].felhasznalonev;
+    const getOrdersQuery = 'SELECT datum, osszar, kiszallitva, etterem_cim FROM kosar WHERE felhasznalo_felhasznalonev = ?';
+    
+    connection.query(getOrdersQuery, [username], (err, orderResults) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error fetching order history', error: err });
+      }
+      
+      const result = orderResults.map(order => ({
+        ...order,
+        kiszallitva: order.kiszallitva === 1
+      }));
+      
+      res.json(result);
+    });
+  });
+});
+
+
+
 app.post('/loadextras', (req,res) => {
 
   array = req.body.array;
