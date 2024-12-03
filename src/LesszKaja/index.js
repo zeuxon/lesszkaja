@@ -76,11 +76,15 @@ app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
   const query = 'INSERT INTO etterem (nev, emailcim, jelszo, telefonszam, cim) VALUES (?, ?, ?, ?, ?)';
   const values = [nev, emailcim, jelszo, telefonszam, cim];
 
+
   connection.query(query, values, (error, results) => {
     if (error) {
       console.error('Database error:', error);
       return res.status(500).json({ message: 'Database error', error });
     }
+
+   
+
 
     const restaurantId = results.insertId;
     const tempFilePath = req.file.path;
@@ -91,6 +95,17 @@ app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
         console.error('File rename error:', err);
         return res.status(500).json({ message: 'File rename error', err });
       }
+
+      const querystorage = 'INSERT INTO raktar (osszetevo, mennyiseg, etterem_id) VALUES (?, ?, ?)';
+      const valuesstorage = [null, null, restaurantId];
+      
+    
+      connection.query(querystorage, valuesstorage, (error, results) => {
+        if (error) {
+          console.error('Database error:', error);
+          return res.status(500).json({ message: 'Database error', error });
+        }
+
 
       const updateQuery = 'UPDATE etterem SET kep = ? WHERE id = ?';
       const updateValues = [`${restaurantId}.png`, restaurantId];
@@ -103,6 +118,7 @@ app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
 
         res.status(201).json({ message: 'Restaurant registered successfully' });
       });
+    });
     });
   });
 });
