@@ -494,6 +494,11 @@ app.post('/order', (req, res) => {
     }
   }
 
+  let tempArr = Array.from(map.keys());
+  tempArr.unshift(-1);
+
+  let osszetevoIdStr = tempArr.join(", ");
+
   cases = "";
 
   osszetevok = [];
@@ -502,13 +507,38 @@ app.post('/order', (req, res) => {
     cases += "WHEN osszetevok.id = " + key + " THEN " + value + " ";
     osszetevok.push(key);
   }
-  
-  when = '(CASE ' + cases + 'ELSE 1 END)';
+
+  idArray.unshift(-1);
 
   idStr = idArray.join(", ");
 
-  parsedId = parseInt(idArray[0].replace("'", ""));
+  when = '(CASE WHEN osszetevok.id = -1 THEN 1 ' + cases + 'ELSE 1 END)';
 
+  const queryOsszetevok = 'SELECT osszetevok.id, (osszetevok.egyseg * '+when+') as db, raktar_id FROM osszetevok' +
+  '  INNER JOIN termek_osszetevok ON osszetevok.id = termek_osszetevok.osszetevo_id' +
+  '  WHERE termek_osszetevok.osszetevo_id IN ('+osszetevoIdStr+') OR (termek_osszetevok.termek_id IN ('+idStr+') AND osszetevok.ar = 0)' +
+  '  GROUP BY osszetevok.id;'
+
+  connection.query(queryOsszetevok, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+    }
+
+    for(let elem of results){
+      let itQuery = 'UPDATE raktar SET raktar.mennyiseg = raktar.mennyiseg - ' + elem.db + '  WHERE raktar.id = ' + elem.raktar_id;
+      connection.query(itQuery, (error, results) => {
+        if (error) console.error('Database error:', error);
+      });
+    }
+    //console.log(results);
+  } );
+
+ //értelem vége
+
+ idArray.shift(); //Kiszedjük a placeholder -1 értéket (különben nagy bajok vannak)
+ 
+  parsedId = parseInt(idArray[0].replace("'", ""));
+/*
   const modSql = 'INSERT INTO raktar (raktar.id, raktar.osszetevo, raktar.mennyiseg, raktar.etterem_id) '+
                   'SELECT osszetevok.raktar_id, raktar.osszetevo, (raktar.mennyiseg - SUM(osszetevok.egyseg *'+ when +') ) AS db, raktar.etterem_id' +
                   'FROM osszetevok' +
@@ -516,6 +546,9 @@ app.post('/order', (req, res) => {
                   'WHERE osszetevok.id IN ('+osszetevok.join(", ")+')' +
                   'GROUP BY osszetevok.raktar_id' +
                   'ON DUPLICATE KEY UPDATE raktar.mennyiseg = VALUES(raktar.mennyiseg);';
+
+  const test = 'SELECT osszetevok.id FROM osszetevok WHERE'
+  */
 
   //connection.query(modSql, [], (error, results) => {
   //});
