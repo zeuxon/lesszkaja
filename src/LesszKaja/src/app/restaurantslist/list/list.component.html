@@ -1,5 +1,5 @@
 <div class="restaurantlist-container">
-    <div *ngFor="let item of show">
+    <div *ngFor="let item of show" [routerLink]="item.route">
       <img [src]="item.image" alt="Restaurant Image">
       <div class="restaurantlist-container-text">
         <h5>{{ item.nev }}</h5>
@@ -12,4 +12,3 @@
       </div>
     </div>
   </div>
-  
