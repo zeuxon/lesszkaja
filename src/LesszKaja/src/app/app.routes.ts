@@ -28,6 +28,11 @@ export const routes: Routes = [
         canActivate:[userAuthGuard]
       },
       {
+        path: "modifycost",
+        loadComponent: () => import("./users/user/restaurant-manager/modifycost/modifycost.component").then(c => c.ModifycostComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
         path:"logout",
         component: LogoutComponent,
         canActivate:[userAuthGuard]
