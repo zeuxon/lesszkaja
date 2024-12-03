@@ -71,7 +71,7 @@ app.post('/registercourier', (req, res) => {
 //register restaurant
 app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
   const restaurantData = JSON.parse(req.body.restaurantData);
-  const { nev, emailcim, jelszo, telefonszam, cim } = restaurantData;
+  const { nev, emailcim, jelszo, telefonszam, cim} = restaurantData;
 
   const query = 'INSERT INTO etterem (nev, emailcim, jelszo, telefonszam, cim) VALUES (?, ?, ?, ?, ?)';
   const values = [nev, emailcim, jelszo, telefonszam, cim];
@@ -84,8 +84,6 @@ app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
     }
 
    
-
-
     const restaurantId = results.insertId;
     const tempFilePath = req.file.path;
     const newFilePath = path.join(__dirname, 'src/assets/images/restaurantprofiles', `${restaurantId}.png`);
@@ -97,7 +95,7 @@ app.post('/registerrestaurant', upload.single('profilePicture'), (req, res) => {
       }
 
       const querystorage = 'INSERT INTO raktar (osszetevo, mennyiseg, etterem_id) VALUES (?, ?, ?)';
-      const valuesstorage = [null, null, restaurantId];
+      const valuesstorage = [null, 5000, restaurantId];
       
     
       connection.query(querystorage, valuesstorage, (error, results) => {
@@ -753,7 +751,7 @@ app.get('/storage_get_ingredients', (req, res) => {
     }
 
     const restaurantId = results[0].id;
-    const query = 'SELECT * FROM raktar WHERE etterem_id = ?';
+    const query = 'SELECT mennyiseg FROM raktar WHERE etterem_id = ?';
   
     connection.query(query, [restaurantId], (err, results) => {
       if (err) {
