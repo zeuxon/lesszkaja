@@ -499,6 +499,32 @@ app.get('/restaurants-with-foodtypes', (req, res) => {
 });
 
 
+app.get('/storage_get_products', (req, res) => {
+  const { etteremEmail } = req.query;
+
+  const query = `
+    SELECT nev, alapar
+    FROM termek
+    WHERE etterem_cim = (
+      SELECT cim FROM etterem WHERE emailcim = ?
+    )
+  `;
+
+  connection.query(query, [etteremEmail], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'No products found for this restaurant' });
+    }
+
+    res.send(results);
+  });
+});
+
+
 
 
 app.post('/restaurantsitem', (req, res) => {
