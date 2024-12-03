@@ -12,7 +12,12 @@
           <td>{{ item.nev }}</td>
           <td>{{ item.alapar }}</td>
           <td>
-
+            <input
+              type="number"
+              [(ngModel)]="item.modifiedValue"
+              placeholder="New cost"
+            />
+            <button (click)="modifyCost(item.id, item.modifiedValue)">Modify</button>
           </td>
         </tr>
       </tbody>

@@ -1,5 +1,4 @@
-
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-modifycost',
   standalone: true,
-  imports: [ CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './modifycost.component.html',
   styleUrls: ['./modifycost.component.scss'],
 })
@@ -15,43 +14,50 @@ export class ModifycostComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   email = localStorage.getItem('emailcim'); // Static address
-  products: Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }> = [];
-  modifyProductId?: number;
-  modifyProductValue?: number;
+  products: Array<{ id: number; alapar: number; nev: string; etterem_cim: string; modifiedValue?: number }> = [];
 
   ngOnInit(): void {
     this.fetchProducts();
   }
 
   fetchProducts(): void {
-    this.http.get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string; }>>(`/api/storage_get_products?etteremEmail=${this.email}`).subscribe(
-      (data) => {
-        console.log('Products fetched:', data);
-        this.products = data;
-      },
-      (error) => {
-        console.error('Error fetching products:', error);
-      }
-    );
+    this.http
+      .get<Array<{ id: number; alapar: number; nev: string; etterem_cim: string }>>(
+        `/api/storage_get_products?etteremEmail=${this.email}`
+      )
+      .subscribe(
+        (data) => {
+          console.log('Products fetched:', data);
+          this.products = data.map((product) => ({
+            ...product,
+            modifiedValue: product.alapar,
+          }));
+        },
+        (error) => {
+          console.error('Error fetching products:', error);
+        }
+      );
   }
 
-  modifyCost(): void {
-    if (this.modifyProductId == null || this.modifyProductValue == null) {
-      console.error('Modify fields are incomplete.');
+  modifyCost(productId: number, newCost: number | undefined): void {
+    if (newCost == null || newCost < 0) {
+      console.error('Invalid cost value.');
       return;
     }
 
-    this.http.post('/api/storage_modify_product', {
-      id: this.modifyProductId,
-      value: this.modifyProductValue
-    }).subscribe(
-      (response) => {
-        console.log('Product cost modified:', response);
-        this.fetchProducts(); // Refresh the product list
-      },
-      (error) => {
-        console.error('Modify cost error:', error);
-      }
-    );
+    this.http
+      .post('/api/modifyitem', {
+        id: productId,
+        value: newCost,
+      })
+      .subscribe(
+        (response) => {
+          console.log(`Product ID ${productId} cost modified to ${newCost}`, response);
+          this.fetchProducts();
+        },
+        (error) => {
+          console.error('Modify cost error:', error);
+        }
+      );
   }
 }

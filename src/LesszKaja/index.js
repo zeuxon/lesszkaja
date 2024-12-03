@@ -499,28 +499,25 @@ app.get('/restaurants-with-foodtypes', (req, res) => {
 });
 
 
-app.get('/storage_get_products', (req, res) => {
-  const { etteremEmail } = req.query;
+app.post('/modifyitem', (req, res) => {
+  const { id, value } = req.body; 
 
-  const query = `
-    SELECT nev, alapar
-    FROM termek
-    WHERE etterem_cim = (
-      SELECT cim FROM etterem WHERE emailcim = ?
-    )
-  `;
+  if (value == null || value < 0) {
+    return res.status(400).json({ message: 'Invalid cost value provided' });
+  }
 
-  connection.query(query, [etteremEmail], (error, results) => {
+  const query = 'UPDATE termek SET alapar=? WHERE id=?';
+  const values = [value, id];
+
+  connection.query(query, values, (error, results) => {
     if (error) {
       console.error('Database error:', error);
-      return res.status(500).send({ message: 'Database error', error });
+      return res.status(500).json({ message: 'Database error', error });
     }
-
-    if (results.length === 0) {
-      return res.status(404).send({ message: 'No products found for this restaurant' });
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: 'Product not found' });
     }
-
-    res.send(results);
+    res.status(200).json({ message: 'Product modified successfully' });
   });
 });
 
