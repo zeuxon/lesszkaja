@@ -45,6 +45,13 @@
             line-height: 120%; /* 24px */
             cursor: pointer;
             box-shadow:rgba(0, 0, 0, 0.25) 0px 4px 4px;
+            transition: 0.3s;
+
+            &:hover {
+                transition: 0.3s;
+                background: var(--Light-accent, #EEB310);
+            }
+
         }
 
         // .hero-content-rendeles {
@@ -124,7 +131,18 @@
         width: 30%;
         aspect-ratio: 3/2;
         background-size: cover;
-        background-image: url("../../assets/images/mit-ennel-1.png");
+
+        &:nth-child(1) {
+          background-image: url("../../assets/images/mit-ennel-1.png");
+        }
+      
+        &:nth-child(2) {
+          background-image: url("../../assets/images/mit-ennel-2.png");
+        }
+      
+        &:nth-child(3) {
+          background-image: url("../../assets/images/mit-ennel-3.png");
+        }
 
         .cover {
           background: linear-gradient(180deg, rgba(0, 0, 0, 0.17) 61.37%, #000 100%);
@@ -142,6 +160,7 @@
             font-weight: 500;
             line-height: 120%; /* 24px */
             margin-bottom: 16px;
+            text-align: center;
           }
         }
       }
@@ -458,10 +477,22 @@
     .social-icons {
       display: flex;
       gap: 16px;
+      
+      img {
+        cursor: pointer;
+      }
+
     }
 
     p {
       margin: 8px 0;
+      transition: color 0.3s;
+
+      span:hover {
+        transition: color 0.3s;
+
+        color: var(--Accent, #EEB310);
+      }
     }
 
     @media (max-width: 768px) {
@@ -475,6 +506,7 @@
 
       p {
         margin: 4px 0;
+
       }
     }
   }
