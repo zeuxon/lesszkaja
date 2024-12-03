@@ -28,9 +28,10 @@ export class ModifycostComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log('Products fetched:', data);
+          // Initialize modifiedValue as undefined to ensure placeholder shows
           this.products = data.map((product) => ({
             ...product,
-            modifiedValue: product.alapar,
+            modifiedValue: undefined, // Remove initial cost in the input field
           }));
         },
         (error) => {

@@ -1,8 +1,9 @@
+<h1>Termékek árainak frissítése</h1>
 <div class="product-list">
     <table>
       <thead>
         <tr>
-          <th>Cím</th>
+          <th>Név</th>
           <th>Ár</th>
           <th>Módosított ár</th>
         </tr>
@@ -15,9 +16,9 @@
             <input
               type="number"
               [(ngModel)]="item.modifiedValue"
-              placeholder="New cost"
+              placeholder="Új ár"
             />
-            <button (click)="modifyCost(item.id, item.modifiedValue)">Modify</button>
+            <button (click)="modifyCost(item.id, item.modifiedValue)">Frissítés</button>
           </td>
         </tr>
       </tbody>
