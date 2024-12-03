@@ -566,7 +566,7 @@ app.post('/order', (req, res) => {
   adatok = kosar.split("\n");
 
   let dateobj = new Date();
-  dateStr = dateobj.getFullYear() + "-" + dateobj.getMonth() + "-" + dateobj.getDay();
+  dateStr = dateobj.getFullYear() + "-" + (dateobj.getMonth()+1) + "-" + dateobj.getDay();
 
   idArray = [];
   feltetArray = [];
