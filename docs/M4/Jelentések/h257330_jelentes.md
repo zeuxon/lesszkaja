@@ -7,11 +7,14 @@ ___
 #### Vállalásaim a mérföldkőben: 
 
  - Javított minőségű prototípus a korábbi hiányzó funkciókkal
+ - Prototípus funkciók áttekintése
+ - Szükséges hiányzó funkciók hozzáadása
 
     ##### A feladathoz tartozó issue(k):
 
    - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/61
    - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/62
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/63
 
     ##### A feladat elvégzését alátámasztó commit(ok):
 
