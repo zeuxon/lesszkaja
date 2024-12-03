@@ -5,7 +5,6 @@ const phoneRegex = /^[0-9]{11}$/;
 const addressRegex = /^\S+([" "][\S]+)*$/;
 const nameRegex = /^([a-zA-ZéÉíÍüÜőŐöÖűŰáÁúÚóÓ]){2,}([" "]([a-zA-ZéÉíÍüÜöÖőŐűŰáÁúÚóÓ]){2,})*$/;
 const passwordRegex = /^\S{5,}$/;
-const amountRegex = /^[0-9]{11}$/;
 
 // Csak whitespace-e az input?
 export function noWhitespaceMinValidator(minLength:number): ValidatorFn {
