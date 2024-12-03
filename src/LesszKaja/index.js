@@ -973,3 +973,18 @@ function buildQuery(params) {
   return {query: baseQuery + conditions.join(' AND '), values};
 }
 */
+
+app.post('/getrestaurantbyid', (req, res) => {
+  const id = req.body.id;
+
+  const query = 'SELECT id, nev, emailcim, telefonszam, cim, felfuggesztve FROM etterem WHERE id = ?';
+  const values = [id];
+  
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ status: 'error' });
+    }
+    res.status(200).json({results});
+  });
+});

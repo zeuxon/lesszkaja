@@ -1,5 +1,6 @@
-<h2>Felvett rendelések</h2>
-<div *ngIf="assignedOrders.length > 0; else noAssignedOrders">
+
+<div class="assigned-orders" *ngIf="assignedOrders.length > 0; else noAssignedOrders">
+  <h2>Felvett rendelések</h2>
   <div *ngFor="let order of assignedOrders" class="order">
     <p><strong>Dátum:</strong> {{ order.datum }}</p>
     <p><strong>Végösszeg:</strong> {{ order.osszar }} Ft</p>

@@ -490,7 +490,7 @@
 
       span:hover {
         transition: color 0.3s;
-
+        cursor: pointer;
         color: var(--Accent, #EEB310);
       }
     }

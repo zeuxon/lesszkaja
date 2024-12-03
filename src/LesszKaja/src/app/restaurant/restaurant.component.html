@@ -1,14 +1,18 @@
-<!-- <div *ngFor="let item of termekekArray" [routerLink]="item.route">
-    <div>{{item.nev}} {{item.alapar}}</div>
-</div> -->
+<div class="restaurant-banner">
+  <img [src]="'../../assets/images/restaurantprofiles/' + restaurantData.id + '.png'" alt="Restaurant Banner">
+  <div class="restaurant-info">
+    <h1 class="restaurant-name">{{ restaurantData.name }}</h1>
+    <p class="restaurant-address">{{ restaurantData.cim }}</p>
+  </div>
+</div>
 
 <div class="menu-container">
-    <div *ngFor="let item of termekekArray" class="menu-item" [routerLink]="item.route">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">{{ item.nev }}</h2>
-          <h3 class="card-subtitle">{{ item.alapar }} Ft</h3>
-        </div>
+  <div *ngFor="let item of termekekArray" class="menu-item" [routerLink]="item.route">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">{{ item.nev }}</h2>
+        <h3 class="card-subtitle">{{ item.alapar }} Ft</h3>
       </div>
     </div>
   </div>
+</div>

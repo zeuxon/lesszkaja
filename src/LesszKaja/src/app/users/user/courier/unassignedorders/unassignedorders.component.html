@@ -1,5 +1,6 @@
-<h2>Elérhető rendelések</h2>
-<div *ngIf="unassignedOrders.length > 0; else noUnassignedOrders">
+
+<div class="unassigned-orders" *ngIf="unassignedOrders.length > 0; else noUnassignedOrders">
+  <h2>Elérhető rendelések</h2>
   <div *ngFor="let order of unassignedOrders" class="order">
     <p><strong>Dátum:</strong> {{ order.datum }}</p>
     <p><strong>Végösszeg:</strong> {{ order.osszar }} Ft</p>

@@ -27,9 +27,14 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.restaurantData.route = "/restaurants/"  + this.restaurantData.id;
-    this.http.get("/api/restaurants/" + this.restaurantData.id).subscribe(response => {
-      this.loadTermekek(response);
+    this.http.post("/api/getrestaurantbyid", {id: this.restaurantData.id}).subscribe((response : any) => {
+      this.restaurantData.name = response.results[0].nev;
+      this.restaurantData.cim = response.results[0].cim;
+      this.http.get("/api/restaurants/" + this.restaurantData.id).subscribe(response => {
+        this.loadTermekek(response);
+      });
     });
+
   }
 
   loadTermekek(termekek: any) {
