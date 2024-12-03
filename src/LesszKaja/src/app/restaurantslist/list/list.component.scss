@@ -9,6 +9,8 @@
 
 
     &>div {
+        width: 265px;
+        aspect-ratio: 16/9;
         transition: .2s;
 
         &:hover {
@@ -23,7 +25,7 @@
             border-radius: 4px 4px 0 0;
             object-fit: cover;
             width: 265px;
-            height: 120px;
+            aspect-ratio: 16/9;
         }
 
         background: #FFFFFF;
@@ -58,6 +60,38 @@
         .restaurantlist-container-text {
             margin-inline: 16px;
             padding-block: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+          
+            &::-webkit-scrollbar {
+              height: 4px;
+            }
+          
+            &::-webkit-scrollbar-track {
+              background: none;
+            }
+          
+            &::-webkit-scrollbar-thumb {
+              background: var(--Accent);
+              border-radius: 0;
+            }
+          
+            &::-webkit-scrollbar-thumb:hover {
+              background: var(--Accent);
+            }
+          
+            scrollbar-width: thin;
+            scrollbar-color: var(--Accent) transparent;
+          }
+
+        .tags {
+
+            span {
+                font-family: "Maven Pro";
+                color: var(--Accent);
+                overflow-x: hidden;
+            }
+
         }
 
     }

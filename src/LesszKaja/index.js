@@ -798,7 +798,7 @@ app.get('/storage_get_ingredients', (req, res) => {
     }
 
     const restaurantId = results[0].id;
-    const query = 'SELECT mennyiseg FROM raktar WHERE etterem_id = ?';
+    const query = 'SELECT mennyiseg, osszetevo FROM raktar WHERE etterem_id = ?';
   
     connection.query(query, [restaurantId], (err, results) => {
       if (err) {

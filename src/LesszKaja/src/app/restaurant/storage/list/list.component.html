@@ -1,16 +1,16 @@
 <table>
-    <thead>
-      <tr>
-        <th>Ár</th>
-        <th>Cím</th>
-        <th>Törlés</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of listItems">
-        <td>{{ item.nev }}</td>
-        <td>{{ item.alapar }}</td>
-        <td><button (click)="onRemoveClick(item.id)">Töröl</button></td>
-      </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Ár</th>
+      <th>Cím</th>
+      <th>Törlés</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listItems">
+      <td>{{ item.nev }}</td>
+      <td>{{ item.alapar }}</td>
+      <td><button (click)="onRemoveClick(item.id)" class="delete-button">Töröl</button></td>
+    </tr>
+  </tbody>
 </table>
