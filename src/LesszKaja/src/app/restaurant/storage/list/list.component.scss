@@ -1,0 +1,50 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Maven Pro', sans-serif;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  
+    th, td {
+      padding: 12px 15px;
+    }
+  
+    thead tr {
+      background-color: var(--Accent);
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+  
+    tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+  
+    tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+  
+    tbody tr:last-of-type {
+      border-bottom: 2px solid var(--Accent);
+    }
+  
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+  
+    .delete-button {
+      background-color: var(--Red);
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: var(--Red);
+      }
+    }
+  }
