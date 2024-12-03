@@ -1,4 +1,4 @@
-<h1>Étterem registrálás</h1>
+<h1>Étterem regisztrálás</h1>
 
 <form [formGroup]="registerRestaurant" (ngSubmit)="onSubmit(registerRestaurant)">
   <div>
@@ -34,9 +34,10 @@
       <span *ngIf="!registerRestaurant.controls['jelszo'].errors?.['required']&&registerRestaurant.controls['jelszo'].errors?.['password']">Túl rövid jelszó!</span>
     </div>
   </div>
-  <div>
+  <div class="file-input-container">
     <input type="file" id="profilePicture" (change)="onFileChange($event)">
+    <label for="profilePicture">Profilkép feltöltése</label>
   </div>
 
-  <button type="submit" [disabled]="registerRestaurant.invalid || !!!this.selectedFile">Register</button>
+  <button type="submit" [disabled]="registerRestaurant.invalid || !!!this.selectedFile">Regisztráció</button>
 </form>
