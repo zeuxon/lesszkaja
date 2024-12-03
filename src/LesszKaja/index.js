@@ -454,6 +454,53 @@ app.get('/restaurants/*', (body, res) => {
   } );
 });
 
+app.get('/restaurants-with-foodtypes', (req, res) => {
+  const query = `
+    SELECT etterem.id AS etterem_id, etterem.nev AS etterem_nev, etterem.kep AS image, eteltipusok.nev AS eteltipus_nev
+    FROM etterem
+    LEFT JOIN tipuskapcsolat ON etterem.id = tipuskapcsolat.etterem_id
+    LEFT JOIN eteltipusok ON tipuskapcsolat.eteltipus_id = eteltipusok.id;
+  `;
+
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ error: 'Adatbázis hiba történt.' });
+    }
+
+    // Ellenőrizheted a lekérdezés eredményét, ha szükséges:
+    // console.log('Query results:', results);
+
+    const formattedData = {};
+
+    // Az eredményeket úgy formázzuk, hogy az ételtípusok egyetlen listába kerüljenek
+    results.forEach(row => {
+      if (!formattedData[row.etterem_id]) {
+        formattedData[row.etterem_id] = {
+          id: row.etterem_id,
+          nev: row.etterem_nev,
+          image: row.image,
+          eteltipusok: [],
+        };
+      }
+      if (row.eteltipus_nev && !formattedData[row.etterem_id].eteltipusok.includes(row.eteltipus_nev)) {
+        formattedData[row.etterem_id].eteltipusok.push(row.eteltipus_nev);
+      }
+    });
+
+    // Az ételtípusok vesszővel elválasztva
+    Object.values(formattedData).forEach(item => {
+      item.eteltipusok = item.eteltipusok.join(", ");
+    });
+
+    // Az adatokat az API válaszként küldjük
+    res.status(200).json(Object.values(formattedData));
+  });
+});
+
+
+
+
 app.post('/restaurantsitem', (req, res) => {
   const adatok = req.body
   const values = [adatok.termek_id, adatok.etterem_id]

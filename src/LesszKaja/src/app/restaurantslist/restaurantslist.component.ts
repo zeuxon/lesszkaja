@@ -1,76 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
-import { log } from 'console';
 
 @Component({
   selector: 'app-restaurantslist',
   standalone: true,
   imports: [RouterLink, HttpClientModule, CommonModule, ListComponent, RouterModule, FormsModule],
   templateUrl: './restaurantslist.component.html',
-  styleUrl: './restaurantslist.component.scss'
+  styleUrls: ['./restaurantslist.component.scss'],
 })
 export class RestaurantslistComponent implements OnInit {
-  ettermekArray: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
-  shownEttermek: Array<{id: number, nev: string; cim: string; route: string, image: string}> = [];
+  ettermekArray: Array<{id: number, nev: string; cim: string; route: string, image: string, eteltipusok?: { nev: string }[]}> = [];
+  shownEttermek: Array<{id: number, nev: string; cim: string; route: string, image: string, eteltipusok?: { nev: string }[]}> = [];
   searchValue: string = "";
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    const ettermek = this.http.get("/api/restaurants").subscribe(response => {
+    this.http.get("/api/restaurants-with-foodtypes").subscribe((response: any) => {
       this.loadEttermek(response);
       this.shownEttermek = this.ettermekArray.slice();
     });
   }
 
   loadEttermek(ettermek: any) {
-    for (let index = 0; index < ettermek.length; index++) {
-      this.ettermekArray[index] = {id: 0, nev: "", cim: "", route: "", image:"../../assets/images/restaurantprofiles/"};
-      this.ettermekArray[index].nev = ettermek[index].nev;
-      this.ettermekArray[index].cim = ettermek[index].cim;
-      this.ettermekArray[index].id = ettermek[index].id;
-      if (ettermek[index].kep != null) {
-        this.ettermekArray[index].image += ettermek[index].kep;
-      } else {
-        this.ettermekArray[index].image += "mcdonalds.png";
-      }
-
-      this.ettermekArray[index].route = "/restaurants/" + ettermek[index].id;
-    }
+    this.ettermekArray = ettermek.map((etterem: any) => {
+      return {
+        id: etterem.id,
+        nev: etterem.nev,
+        cim: etterem.cim,
+        route: "/restaurants/" + etterem.id,
+        image: etterem.image ? `../../assets/images/restaurantprofiles/${etterem.image}` : "../../assets/images/restaurantprofiles/mcdonalds.png",
+        eteltipusok: etterem.eteltipusok || []  
+      };
+    });
   }
 
   search() {
-    // Eloszor a nevuk alapjan listazzon
-    this.shownEttermek = this.ettermekArray.filter(it => {
-      return it.nev.toLowerCase().includes(this.searchValue.toLowerCase());
-    })
-
-    console.log("Show ettermek:");
-    this.shownEttermek.forEach(it => {
-      console.log(it.nev, it.cim);
-    })
-
-    // Masodszor a cim alapjan
-    let tempEttermek = this.ettermekArray.filter(it => {
-      return it.cim.toLowerCase().includes(this.searchValue.toLowerCase());
-    })
-
-    console.log("Temp ettermek:");
-    tempEttermek.forEach(it => {
-      console.log(it.nev, it.cim);
-    })
-
-    this.shownEttermek = [
-      ...Array.from(
-        new Map(
-          [...this.shownEttermek, ...tempEttermek].map(item => [item.id, item])
-        ).values()
-      )
-    ];
+    this.shownEttermek = this.ettermekArray.filter(it => 
+      it.nev.toLowerCase().includes(this.searchValue.toLowerCase())
+    );
   }
 }
