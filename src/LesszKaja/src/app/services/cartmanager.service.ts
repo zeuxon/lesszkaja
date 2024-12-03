@@ -29,7 +29,7 @@ export class CartManagerService {
         return typeof localStorage == 'undefined' || localStorage.getItem("kosar") === null ? "" : localStorage.getItem("kosar");
     }
 
-    incrRecord(id: number, extrak: Map<String, boolean>): any{
+    incrRecord(id: number, extrak: Map<any, boolean>): any{
         let storageItem = localStorage.getItem("kosar");
         if(storageItem === null) return;
 
@@ -44,12 +44,14 @@ export class CartManagerService {
             let mismatch = false;
             if(map.size !== 0){
                 for(let [key, value] of map){
-                    if(value !== extrak.get(key)) {
+                    if(value != extrak.get(Number.parseInt(key))) {
                         mismatch = true;
                         break;
                     }
                 }
             }
+
+            console.log(mismatch);
             if(mismatch === false && id == parseInt(values[0])){
                 let newNum = parseInt(values[2]) + 1;
                 newString += values[0] + "$" +values[1] + "$" + newNum.toString() + "\n"

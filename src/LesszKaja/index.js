@@ -576,8 +576,10 @@ app.post('/order', (req, res) => {
     vals = adat.split("$");
     id = vals[0];
     idArray[idArray.length] = "'" + id + "'";
-    feltetArray.push(Object.entries(JSON.parse(vals[1])));
     db = vals[2];
+    for (let i = 0; i < db; i++) {
+      feltetArray.push(Object.entries(JSON.parse(vals[1])));
+    }
   }
 
   //map = Object.entries(JSON.parse(feltetStr));
