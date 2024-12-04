@@ -22,7 +22,7 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
   const allowedRoutesForUser = ['/logout', '/home', '/restaurants', '/userprofile', "/order", '/orderhistory',"/cart"];
   const allowedRoutesForCourier = ['/logout', '/home', '/courierprofile', '/courier'];
   const allowedRoutesForRestaurantManager = ['/logout', '/home', '/storage','/restaurantprofile','/ordermanagement','/modifycost'];
-  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile','/ordermanagement', "/order", "/cart"];
+  const allowedRoutesForAdmin = ['/logout', '/home', '/restaurants','/admin', '/adminprofile','/ordermanagement', '/orderhistory', "/order", "/cart"];
 
   const allowedRoutes: Record<string, string[]> = {
     guest: allowedRoutesForGuest,

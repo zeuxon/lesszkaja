@@ -67,6 +67,7 @@ export class NavbarComponent implements OnInit {
         { label: 'Éttermek', route: '/restaurants' },
         { label: 'Profil', route: '/adminprofile' },
         { label: 'Admin Panel', route: '/admin' },
+        { label: 'Rendelési előzményeim', route: '/orderhistory' },
         { label: 'Kijelentkezés', route: '/logout' },
         { label: 'Kosár', route: '/cart' }
       ];
