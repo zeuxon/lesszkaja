@@ -1,27 +1,26 @@
-<h1>Termékek árainak frissítése</h1>
 <div class="product-list">
-    <table>
-      <thead>
-        <tr>
-          <th>Név</th>
-          <th>Ár</th>
-          <th>Módosított ár</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of products">
-          <td>{{ item.nev }}</td>
-          <td>{{ item.alapar }}</td>
-          <td>
-            <input
-              type="number"
-              [(ngModel)]="item.modifiedValue"
-              placeholder="Új ár"
-            />
-            <button (click)="modifyCost(item.id, item.modifiedValue)">Frissítés</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h1>Termékek árainak frissítése</h1>
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Név</th>
+        <th>Ár</th>
+        <th>Módosított ár</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products">
+        <td>{{ item.nev }}</td>
+        <td>{{ item.alapar }} Ft</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="item.modifiedValue"
+            placeholder="Új ár"
+          />
+          <button (click)="modifyCost(item.id, item.modifiedValue)">Frissítés</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
