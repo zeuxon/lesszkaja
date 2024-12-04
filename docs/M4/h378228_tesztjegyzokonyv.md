@@ -1,4 +1,4 @@
-# Tesztjegyzőkönyv-Kosár regisztrálása
+# Tesztjegyzőkönyv-Rendelés funkció
 
 ## 1. Teszteljárások (TP)
 
@@ -57,9 +57,9 @@
     4. lépés: Rányomtam a rendelés gombra
     5. lépés: Helyes eredményt kaptam: a rendelés létrejött és levonásra került a raktárból a megfelelő mennyiség
 
-#### 3.1.2. TR-03 (TC-03)
+#### 3.1.3. TR-03 (TC-03)
 - TP: TP-01
     1. lépés: A kosárba nem raktam semmit
     2. lépés: Megnyitottam a kosár oldalt
-    5. lépés: Helyes eredményt kaptam: a vásárlás gomb nem jelent meg
+    3. lépés: Helyes eredményt kaptam: a vásárlás gomb nem jelent meg
     
