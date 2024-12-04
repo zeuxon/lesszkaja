@@ -24,6 +24,7 @@ ___
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/4d84cb6110b8bd8090b01bab75f65c37a4812600
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/a4584b7f70cfcdb7bc9a9e9af9356d9bca050eef
      - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/adcdae86a6927ff1f65b2525fd140974c9c77c1e
+     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/e0a38dacfd493aca2f67481142e14def462244bf
 
 
 ___
