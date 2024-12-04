@@ -501,6 +501,29 @@ app.get('/restaurants-with-foodtypes', (req, res) => {
 });
 
 
+app.post('/modifyitem', (req, res) => {
+  const { id, value } = req.body; 
+
+  if (value == null || value < 0) {
+    return res.status(400).json({ message: 'Invalid cost value provided' });
+  }
+
+  const query = 'UPDATE termek SET alapar=? WHERE id=?';
+  const values = [value, id];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).json({ message: 'Database error', error });
+    }
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.status(200).json({ message: 'Product modified successfully' });
+  });
+});
+
+
 
 
 app.post('/restaurantsitem', (req, res) => {
@@ -673,6 +696,43 @@ app.post('/order', (req, res) => {
 
   return;
 });
+
+app.post('/orderhistory', (req, res) => {
+  const emailcim = req.body.emailcim;
+
+  if (!emailcim) {
+    return res.status(400).json({ message: 'Email is required in the body' });
+  }
+
+  const getUsernameQuery = 'SELECT felhasznalonev FROM felhasznalo WHERE emailcim = ?';
+  connection.query(getUsernameQuery, [emailcim], (error, results) => {
+    if (error) {
+      return res.status(500).json({ message: 'Database error', error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const username = results[0].felhasznalonev;
+    const getOrdersQuery = 'SELECT datum, osszar, kiszallitva, etterem_cim FROM kosar WHERE felhasznalo_felhasznalonev = ?';
+    
+    connection.query(getOrdersQuery, [username], (err, orderResults) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error fetching order history', error: err });
+      }
+      
+      const result = orderResults.map(order => ({
+        ...order,
+        kiszallitva: order.kiszallitva === 1
+      }));
+      
+      res.json(result);
+    });
+  });
+});
+
+
 
 app.post('/loadextras', (req,res) => {
 

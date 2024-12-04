@@ -33,6 +33,11 @@ export const routes: Routes = [
         canActivate:[userAuthGuard]
       },
       {
+        path: "orderhistory",
+        loadComponent: () => import("./order/orderhistory/orderhistory.component").then(c => c.OrderhistoryComponent),
+        canActivate:[userAuthGuard]
+      },
+      {
         path:"logout",
         component: LogoutComponent,
         canActivate:[userAuthGuard]
