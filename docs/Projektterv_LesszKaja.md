@@ -159,29 +159,41 @@ A csapat a megbeszélt időpontokban ülésezik, amelyen a felmerült problémá
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
  - Érintett témák: feladatok kiosztása és a továbbhaladásukkal kapcsolatos megbeszélés
 
- 3. megbeszélés:
- - Időpont: 2024.10.29.
+3. megbeszélés:
+ - Időpont: 2024.10.26.
  - Mód: online - Discord
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
- - Érintett témák: feladatok átbeszélése és konkretizálása stratégiailag
+ - Érintett témák: angular, npm beüzemelése
 
- 4. megbeszélés:
+4. megbeszélés:
+ - Időpont: 2024.11.6.
+ - Mód: online - Discord
+ - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
+ - Érintett témák: projekt, feladat kiosztás
+
+5. megbeszélés:
+ - Időpont: 2024.11.10.
+ - Mód: online - Discord
+ - Résztvevők: Sánta Gábor, Kelemen Bálint Péter, Giricz Vince
+ - Érintett témák: backend működése, http requestek
+
+6. megbeszélés:
  - Időpont: 2024.11.11.
  - Mód: online - Discord
- - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
- - Érintett témák: felmerült hibák megbeszélése, további teendők felvázolása
+ - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly
+ - Érintett témák: adatbázissal kapcsolatos problémák
 
- 5. megbeszélés:
- - Időpont: 2024.11.23.
+7. megbeszélés:
+ - Időpont: 2024.11.19.
  - Mód: online - Discord
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
- - Érintett témák: korrekció, általános előrehaladással kapcsolatos megbeszélés
+ - Érintett témák: projekt deploy-olása
 
- 6. megbeszélés:
- - Időpont: 2024.12.01.
+8. megbeszélés:
+ - Időpont: 2024.11.29.
  - Mód: online - Discord
  - Résztvevők: Birkás Bertalan, Sánta Gábor, Kelemen Bálint Péter, Dudás Tímea, Gál Gergő Károly, Giricz Vince
- - Érintett témák: végső feladatok és felmerülő kérdések átbeszélése
+ - Érintett témák: projekt állapota, egyéb feladatok
 
 ### 6.3. Minőségbiztosítás
 

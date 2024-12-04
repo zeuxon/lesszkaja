@@ -4,7 +4,7 @@ Az alábbi tesztdokumentum a LesszKaja projekthez tartozó 8.3.1.1 Felhasználó
 
 ## 1. Teszteljárások (TP)
 
-### 1.1. Összeadás funkció tesztelése 
+### 1.1. Regisztráció funkció tesztelése 
 - Azonosító: TP-01
 - Tesztesetek: TC-01, TC-02, TC-03, TC-04
 - Leírás: összeadás funkció tesztelése
@@ -19,7 +19,7 @@ Az alábbi tesztdokumentum a LesszKaja projekthez tartozó 8.3.1.1 Felhasználó
 
 ## 2. Teszesetek (TC)
 
-### 2.1. Összeadás funkció tesztesetei
+### 2.1. Regisztráció funkció tesztesetei
 
 #### 2.1.1. TC-01
 - TP: TP-01
