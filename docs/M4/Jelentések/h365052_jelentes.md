@@ -5,10 +5,10 @@
 ___
 
 #### Vállalásaim a mérföldkőben:
-    - Dinamikus képek betöltése éttermeknél
-    - Regisztrációban kép feltöltés funkcióban való segítség
-    - Adatbázis módosítása funkciók lehetővé tételéhez
-    - Szerver kitelepítése a legújabb frissítésekkel
+   - Dinamikus képek betöltése éttermeknél
+   - Regisztrációban kép feltöltés funkcióban való segítség
+   - Adatbázis módosítása funkciók lehetővé tételéhez
+   - Szerver kitelepítése a legújabb frissítésekkel
 
     ##### A feladathoz tartozó issue(k):
 
