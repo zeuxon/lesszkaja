@@ -163,14 +163,14 @@ Felelős: Kelemen Bálint Péter
     3. lépés: Nem történt semmi mert üres volt a telefonszám mező.
     4. lépés: A funkció megfelelően működött.
     
-#### 3.1.1. TR-07 (TC-04)
+#### 3.1.1. TR-10 (TC-03)
 - TP: TP-01
     1. lépés: "Új Lakhely utca 20"-t beírtam a lakcím mezőbe.
     2. lépés: Megnyomtam a módosítás gombot.
     3. lépés: Módosult az adatbázisban a lakcíme az adott felhasználónak.
     4. lépés: A funkció megfelelően működött.
  
-#### 3.1.1. TR-09 (TC-05)
+#### 3.1.1. TR-11 (TC-08)
 - TP: TP-01
     1. lépés: ""-t beírtam a lakcím mezőbe.
     2. lépés: Megnyomtam a módosítás gombot.
