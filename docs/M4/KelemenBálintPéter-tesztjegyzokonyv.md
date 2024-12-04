@@ -1,96 +1,179 @@
-# Tesztjegyzőkönyv-Felhasználók regisztrálása
+# Tesztjegyzőkönyv - Éttermek keresése és szűrése
 
-Az alábbi tesztdokumentum a LesszKaja projekthez tartozó 8.3.1.1 Felhasználók létrehozása funkcióhoz készült. Felelőse: Kelemen Bálint Péter 
+Az alábbi tesztdokumentum a LesszKaja projekthez tartozó Admin által elérhető Felhasználók/Futár/Étterem módosítása, felfüggesztése, törlése funkcióhoz készült.  
+Felelős: Kelemen Bálint Péter
 
 ## 1. Teszteljárások (TP)
 
-### 1.1. Regisztráció funkció tesztelése 
+### 1.1. Felhasználók módosítása funkció tesztelése
 - Azonosító: TP-01
-- Tesztesetek: TC-01, TC-02, TC-03, TC-04
-- Leírás: összeadás funkció tesztelése
-    0. lépés: Nyissuk meg az alkalmazást, és indítsuk el az admin.component modult
-    1. lépés: A felhasználónév szövegbeviteli mezőbe írjuk be a szöveget
-    2. lépés: Az email szövegbeviteli mezőbe írjuk be az emailt
-    3. lépés: A telefonszám szövegbeviteli mezőbe írjuk be a telefonszámot
-    4. lépés: A lakcím szövegbeviteli mezőbe írjuk be a lakcímet
-    5. lépés: A jelszó szövegbeviteli mezőbe irjuk be a jelszót
-    6. lépés: Nyomjuk meg a regisztráció gombot 
-    7. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: adatok eltárolása az adatbázisban
+- Tesztesetek: TC-01, TC-02, TC-03, TC-04, TC-05
+- Leírás: Az admin oldalon elérhető felhazsnáló módosítása funckió tesztelés.
+    0. lépés: Nyissuk meg az admin oldalt.
+    1. lépés: Kattintsunk a felhasználók módosítása gombra.
+    2. lépés: Válasszunk egy felhasználót.
+    3. lépés: Írjunk valamelyik mezőbe új értéket.
+    4. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: módosul az adatbázisban az adat és frissül az oldal
 
-## 2. Teszesetek (TC)
+## 2. Tesztesetek (TC)
 
-### 2.1. Regisztráció funkció tesztesetei
+### 2.1. Felhasználók módosítása tesztesetei
 
 #### 2.1.1. TC-01
 - TP: TP-01
-- Leírás: regisztráció funkció tesztelése 
-- Bemenet: felhasználónév = Tesztelek ; email = tesztelek@gmail.com ; telefonszám = 06701111111 ; lakcím = Teszt utca 20. ; jelszó = hihetetlentitkos
-- Művelet: nyomjuk meg a regisztráció gombot 
-- Elvárt eredmény: a regisztráció mező alatti rész tartalma: Sikeres regiszráció!
+- Leírás: Felhasználó módosítása email mezőt módosítva.
+- Bemenet: Email="nemletezofiok@gmail.com"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Módosul a felhasználó emaile, frissül az oldal.
 
 #### 2.1.2. TC-02
 - TP: TP-01
-- Leírás: regisztráció funkció tesztelése 
-- Bemenet: felhasználónév = A; ; email = tesztelek@gmail.com ; telefonszám = 06701111111 ; lakcím = Teszt utca 20. ; jelszó = hihetetlentitkos
-- Művelet: nyomjuk meg a regisztráció gombot 
-- Elvárt kimenet: a felhasználónév input mező alatti rész tartalma: Ez a mező kötelező!
+- Leírás: Felhasználó módosítása felhasználónév mezőt módosítva.
+- Bemenet: Felhasználónév="Új Felhasználó"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Módosul a felhasználó felhasználóneve, frissül az oldal.
 
 #### 2.1.3. TC-03
 - TP: TP-01
-- Leírás: regisztráció funkció tesztelése 
-- Bemenet: felhasználónév = Tesztelek; ; email = tesztelek@gmail ; telefonszám = 06701111111 ; lakcím = Teszt utca 20. ; jelszó = hihetetlentitkos
-- Művelet: nyomjuk meg a regisztráció gombot 
-- Elvárt kimenet: az email input mező alatti rész tartalma: Ez a mező kötelező!
+- Leírás: Felhasználó módosítása lakcím mezőt módosítva.
+- Bemenet: Lakcím="Új Lakhely utca 20"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Módosul a felhasználó lakcíme, frissül az oldal.
 
 #### 2.1.4. TC-04
 - TP: TP-01
-- Leírás: regisztráció funkció tesztelése 
-- Bemenet: felhasználónév = Tesztelek; ; email = tesztelek@gmail.com ; telefonszám = 0670 ; lakcím = Teszt utca 20. ; jelszó = hihetetlentitkos
-- Művelet: nyomjuk meg a regisztráció gombot 
-- Elvárt kimenet: a telefonszám input mező alatti rész tartalma: Ez a mező kötelező!
+- Leírás: Felhasználó módosítása telefonszám mezőt módosítva.
+- Bemenet: Tel="06707777777"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Módosul a felhasználó telefonszáma, frissül az oldal.
+
+#### 2.1.5. TC-05
+- TP: TP-01
+- Leírás: Felhasználó módosítása telefonszám mezőt módosítva.
+- Bemenet: Tel="0670"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel hibás telefonszám esetén nem lehet megnyomni a gombot.
+
+#### 2.1.6. TC-06
+- TP: TP-01
+- Leírás: Felhasználó módosítása felhasználónév mezőt módosítva.
+- Bemenet: felhasználónév="123"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel hibás felhasználónév esetén nem lehet megnyomni a gombot.
+
+#### 2.1.7. TC-07
+- TP: TP-01
+- Leírás: Felhasználó módosítása email mezőt módosítva.
+- Bemenet: felhasználónév="tesztemnail@a"
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel hibás email esetén nem lehet megnyomni a gombot.
+
+#### 2.1.8. TC-08
+- TP: TP-01
+- Leírás: Felhasználó módosítása lakcím mezőt módosítva.
+- Bemenet: lakcím=""
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel üres lakcím esetén nem lehet megnyomni a gombot.
+
+#### 2.1.9. TC-09
+- TP: TP-01
+- Leírás: Felhasználó módosítása felhasználónév mezőt módosítva.
+- Bemenet: felhasználónév=""
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel üres felhasználónév esetén nem lehet megnyomni a gombot.
+
+#### 2.1.10. TC-10
+- TP: TP-01
+- Leírás: Felhasználó módosítása telefonszám mezőt módosítva.
+- Bemenet: telefonszám=""
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel üres telefonszám esetén nem lehet megnyomni a gombot.
+
+#### 2.1.11. TC-11
+- TP: TP-01
+- Leírás: Felhasználó módosítása email mezőt módosítva.
+- Bemenet: email=""
+- Művelet: Nyomjuk meg a módosítás gombot.
+- Elvárt eredmény: Nem történik semmi mivel hibás email esetén nem lehet megnyomni a gombot.
 
 ## 3. Tesztriportok (TR)
 
-### 3.1. Összeadás funkció tesztriportjai
+### 3.1. Éttermek keresése és szűrése tesztriportok
 
 #### 3.1.1. TR-01 (TC-01)
 - TP: TP-01
-    1. lépés: Tesztelek-t beírtam
-    2. lépés: tesztelek@gmail.com-t beírtam 
-    3. lépés: 06701111111-t beírtam
-    4. lépés: Teszt utca 20.-t beírtam 
-    5. lépés: hihetetlentitkos-t beírtam
-    6. lépés: a regisztráció gomb egyszeri megnyomás után inaktív lett
-    7. lépés: helyes eredményt kaptam a regisztráció gomb alatt: Sikeres regisztráció
+    1. lépés: "nemletezofiok@gmail.com"-t beírtam az email mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Módosult az adatbázisban az emaile az adott felhasználónak.
+    4. lépés: A funkció megfelelően működött.
+
+#### 3.1.1. TR-02 (TC-11)
+- TP: TP-01
+    1. lépés: ""-t beírtam az email mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert üres volt az email mező.
+    4. lépés: A funkció megfelelően működött.
     
-
-#### 3.1.2. TR-02 (TC-02)
+#### 3.1.1. TR-03 (TC-07)
 - TP: TP-01
-    1. lépés: A-t beírtam
-    2. lépés: tesztelek@gmail.com-t beírtam 
-    3. lépés: 06701111111-t beírtam
-    4. lépés: Teszt utca 20.-t beírtam 
-    5. lépés: hihetetlentitkos-t beírtam
-    6. lépés: a regisztráció gomb egyszeri megnyomás után inaktív lett
-    7. lépés: helyes eredményt kaptam a felhasználónév mező alatt: Ez a mező kötelező!
+    1. lépés: "tesztemail@a"-t beírtam az email mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert hibás volt az email mező.
+    4. lépés: A funkció megfelelően működött.
 
-#### 3.1.2. TR-03 (TC-03)
+#### 3.1.1. TR-04 (TC-02)
 - TP: TP-01
-    1. lépés: Tesztelek-t beírtam
-    2. lépés: tesztelek@gmail-t beírtam 
-    3. lépés: 06701111111-t beírtam
-    4. lépés: Teszt utca 20.-t beírtam 
-    5. lépés: hihetetlentitkos-t beírtam
-    6. lépés: a regisztráció gomb egyszeri megnyomás után inaktív lett
-    7. lépés: helyes eredményt kaptam az email mező alatt: Ez a mező kötelező!
+    1. lépés: "Új Felhasználó"-t beírtam a felhasználónév mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Módosult az adatbázisban a felhasználóneve az adott felhasználónak.
+    4. lépés: A funkció megfelelően működött.
 
-#### 3.1.2. TR-04 (TC-04)
+#### 3.1.1. TR-05 (TC-06)
 - TP: TP-01
-    1. lépés: Tesztelek-t beírtam
-    2. lépés: tesztelek@gmail.com-t beírtam 
-    3. lépés: 0670-t beírtam
-    4. lépés: Teszt utca 20.-t beírtam 
-    5. lépés: hihetetlentitkos-t beírtam
-    6. lépés: a regisztráció gomb egyszeri megnyomás után inaktív lett
-    7. lépés: helyes eredményt kaptam a telefonszám mező alatt: Ez a mező kötelező!
+    1. lépés: "123"-t beírtam az felhasználónév mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert hibás volt a felhasználónév mező.
+    4. lépés: A funkció megfelelően működött.
     
+#### 3.1.1. TR-06 (TC-09)
+- TP: TP-01
+    1. lépés: ""-t beírtam az felhasználónév mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert üres volt a felhasználónév mező.
+    4. lépés: A funkció megfelelően működött.
+    
+#### 3.1.1. TR-07 (TC-04)
+- TP: TP-01
+    1. lépés: "06707777777"-t beírtam a tel mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Módosult az adatbázisban a telefonszám az adott felhasználónak.
+    4. lépés: A funkció megfelelően működött.
+
+#### 3.1.1. TR-08 (TC-10)
+- TP: TP-01
+    1. lépés: "0670"-t beírtam a tel mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert hibás volt a telefonszám mező.
+    4. lépés: A funkció megfelelően működött.
+    
+#### 3.1.1. TR-09 (TC-05)
+- TP: TP-01
+    1. lépés: ""-t beírtam a tel mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert üres volt a telefonszám mező.
+    4. lépés: A funkció megfelelően működött.
+    
+#### 3.1.1. TR-07 (TC-04)
+- TP: TP-01
+    1. lépés: "Új Lakhely utca 20"-t beírtam a lakcím mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Módosult az adatbázisban a lakcíme az adott felhasználónak.
+    4. lépés: A funkció megfelelően működött.
+ 
+#### 3.1.1. TR-09 (TC-05)
+- TP: TP-01
+    1. lépés: ""-t beírtam a lakcím mezőbe.
+    2. lépés: Megnyomtam a módosítás gombot.
+    3. lépés: Nem történt semmi mert üres volt a lakcím mező.
+    4. lépés: A funkció megfelelően működött.
+
