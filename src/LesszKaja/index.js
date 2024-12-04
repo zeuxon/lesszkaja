@@ -8,6 +8,8 @@ const crypto = require('crypto');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const { error } = require('console');
+const { producerNotifyConsumers } = require('@angular/core/primitives/signals');
 dotenv.config();
 
 const connection = mysql.createConnection({
@@ -922,8 +924,75 @@ app.post('/storage_add_product', (req, res) => {
   })
 });
 
-/** End storage */
 
+
+app.post('/storage_get_products_ingredients', (req, res) => {
+  const query = 'SELECT osszetevok.nev FROM termek JOIN termek_osszetevok ON termek.id = termek_osszetevok.termek_id JOIN osszetevok ON termek_osszetevok.osszetevo_id = osszetevok.id WHERE termek.nev = ?';
+
+  productName = req.body.productName;
+
+  connection.query(query, [productName], (error, results) => {
+    if (error) {
+      console.error('Database error:', error);
+      return res.status(500).send({ message: 'Database error', error });
+    }
+    if (results.length === 0) {
+      return res.status(404).send({ message: 'Product doesnt have ingredients' });
+    }
+    res.status(200).json(results);
+  })
+  });
+
+  app.post('/storage_get_id', (req, res) => {
+    email = req.body.email;
+    const query = "SELECT raktar.id AS raktar_id FROM etterem JOIN raktar ON etterem.id = raktar.etterem_id WHERE etterem.emailcim = ?";
+
+    connection.query(query, [email], (error, results) => {
+      if (error) {
+        console.error('Database error:', error);
+        return res.status(500).send({ message: 'Database error', error });
+      }
+      if (results.length === 0) {
+        return res.status(404).send({ message: 'Couldn\'t find restaurant' });
+      }
+      res.status(200).json(results[0].raktar_id);
+    })
+  })
+
+  app.post('/storage_get_components', (req, res) => {
+    id = req.body.id;
+
+    const query = "SELECT nev FROM osszetevok WHERE raktar_id = ?";
+    connection.query(query, [id], (error, results) => {
+      if (error) {
+        console.error('Database error:', error);
+        return res.status(500).send({ message: 'Database error', error });
+      }
+      if (results.length === 0) {
+        return res.status(404).send({ message: 'Couldn\'t find restaurant' });
+      }
+      res.status(200).json(results);
+    })
+
+  })
+
+  app.post('/add-components', (req, res) => {
+    product_name = req.body.p_name;
+    component_name = req.body.c_name;
+    unit = req.body.unit;
+
+    const query = 'INSERT INTO termek_osszetevok (termek_id, osszetevo_id) VALUES ((SELECT id FROM termek WHERE termek.nev = ?), (SELECT id FROM osszetevok WHERE osszetevok.nev = ?))';
+    connection.query(query, [product_name, component_name], (error, results) => {
+      if (error) {
+        console.error('Database error:', error);
+        return res.status(500).send({ message: 'Database error', error });
+      }
+      console.log(results);
+      res.status(200).json(results);
+    })
+    });
+
+/** End storage */
 
 
 

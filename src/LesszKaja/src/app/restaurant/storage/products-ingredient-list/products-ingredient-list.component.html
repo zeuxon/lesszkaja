@@ -1,0 +1,16 @@
+<table>
+    <thead>
+      <tr>
+        <th>Étel neve</th>
+        <th>Étel összetevői</th>
+        <th>Összetevő alapanyaga</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let it of products_ingredients">
+        <td>{{ it.nev }}</td>
+        <td>{{ it.osszetevok }}</td>
+        <td>{{ it.alapanyag }}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,10 +1,10 @@
 <div class="storage-list">
   <div *ngIf="ingredients.length > 0">
-    <h2>Raktárban lévő összetevők</h2>
+    <h2>Raktárban lévő alapanyagok</h2>
     <table class="ingredients-table">
       <thead>
         <tr>
-          <th>Összetevő</th>
+          <th>Alapanyag</th>
           <th>Mennyiség</th>
         </tr>
       </thead>
@@ -18,18 +18,45 @@
   </div>
   <p *ngIf="ingredients.length == 0">Nem található étteremhez tartozó raktár.</p>
   <br>
+  <h2>Termékek és összetevői</h2>
+  <app-products-ingredient-list [products_ingredients]="this.components_ingredients"></app-products-ingredient-list>
+
+
+  <br><br><br><br><br>
   <div *ngIf="products.length > 0">
     <h2>Termékkészlet</h2>
     <app-list [listItems]="this.products" (removeItem)="removeProduct($event)"></app-list>
   </div>
   <p *ngIf="products.length == 0">Nem található étteremhez tartozó termékkészlet.</p>
-  <br>
+  
   <h3>Termék hozzáadása:</h3>
   <form (ngSubmit)="addProduct()" class="product-form">
-    <label for="add_product_name">Termék neve:</label>
-    <input type="text" id="add_product_name" [(ngModel)]="add_product_name" name="add_product_name" required><br>
-    <label for="add_product_value">Termék ára:</label>
-    <input type="number" id="add_product_value" [(ngModel)]="add_product_value" name="add_product_value" required>
+    <label for="add_product_name">Termék neve:<br>
+    <input type="text" id="add_product_name" [(ngModel)]="add_product_name" name="add_product_name" required></label>
+    <label for="add_product_value">Termék ára:<br>
+    <input type="number" id="add_product_value" [(ngModel)]="add_product_value" name="add_product_value" required></label>
     <button type="submit">Hozzáadás</button>
   </form>
+<br><br>
+  <h3>Termékhez össztevő adása:</h3>
+  <form (ngSubmit)="addComponents()">
+    <!-- Product Name Dropdown -->
+    <select name="product_name" [(ngModel)]="product_name">
+      <option *ngFor="let it of products" [value]="it.nev">{{ it.nev }}</option>
+    </select><br>
+  
+    <!-- Component Name Dropdown -->
+    <select name="component_name" [(ngModel)]="component_name">
+      <option *ngFor="let it of components_arr" [value]="it">{{ it }}</option>
+    </select><br>
+  
+    <!-- Component Unit Input -->
+    <label>
+      Összetevő egység:
+      <input type="number" name="component_unit" [(ngModel)]="component_unit">
+    </label><br>
+  
+    <button type="submit">Hozzáad</button>
+  </form>
+  
 </div>
