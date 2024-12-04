@@ -1,33 +1,33 @@
 ### Összefoglaló a 4. mérföldkőben végzett munkáról
 
-### Projekt tag: Kelemen Bálint Péter
+### Projekt tag: Birkás Bertalan
 
 ___
 
-#### Vállalásaim a mérföldkőben:
-    - Dinamikus képek betöltése éttermeknél
-    - Regisztrációban kép feltöltés funkcióban való segítség
-    - Adatbázis módosítása funkciók lehetővé tételéhez
-    - Szerver kitelepítése a legújabb frissítésekkel
+#### Vállalásaim a mérföldkőben: 
+
+ - Dinamikus képek betöltése éttermeknél
+ - Regisztrációban kép feltöltés funkcióban való segítség
+ - Adatbázis módosítása funkciók lehetővé tételéhez
+ - Szerver kitelepítése a legújabb frissítésekkel
+
 
     ##### A feladathoz tartozó issue(k):
 
-   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/60
-   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/59
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/50
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/issues/56
 
     ##### A feladat elvégzését alátámasztó commit(ok):
 
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/11c5f959c204b0222d227776768a7065fbe5b2f0
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/92e698c230b9b999c66fa96dce6861376a0ca188 
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/b6d0bf2e0023f17823ce458ea7ce627da15cbf2e
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/55f697cc10545b32788b235fa43daf613c4aa48b
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/0e9dc11a9f5f4a90a9089450e6a51af7ba30d036
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/a8d95af50de49effb9287c7a6bad560e01e7286d
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/177e171de0875283b6a97b22839ee60eccd0509f
-     - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/1f6173d9444a78b4684ee0b9f10ee06e8e39511d
-
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/3b9cbbf33a4c9a45cd331f8c3ba77c2841e10461
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/d9435cdb672e5562ff848b1a06144beabcc9c3b3
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/80d805c3dc680debddb39ddf25d60aa57023e830
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/81c8866d050c1fcc3f3cb060ac0aa2ac747f0aaa
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/74d1a6145f26e20be27443fdcd3fcebf23acca95
+   - https://git-okt.sed.inf.szte.hu/2024_ib153l-13_b/2024_ib153l-13_b/-/commit/579cc185bd6ff8340876343d614c388d7e407639
 
 
 ___
 
 #### Megjegyzések
+
