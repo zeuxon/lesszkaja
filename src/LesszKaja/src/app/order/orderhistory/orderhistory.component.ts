@@ -28,7 +28,7 @@ export class OrderhistoryComponent {
     const body = { emailcim: email };
   
     // Ensure the endpoint is correct (it should be your backend URL, not frontend)
-    this.http.post<Array<{ datum: string; osszar: number; kiszallitva: boolean; etterem_cim: string }>>('http://localhost:3000/orderhistory', body)
+    this.http.post<Array<{ datum: string; osszar: number; kiszallitva: boolean; etterem_cim: string }>>('/api/orderhistory', body)
       .subscribe(
         (data) => {
           console.log('Order history fetched:', data);
